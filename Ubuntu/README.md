@@ -1,0 +1,7 @@
+# Ubuntu
+ 
+weget
+
+git 
+
+chmod 
