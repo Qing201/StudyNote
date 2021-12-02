@@ -5,3 +5,5 @@ weget
 git 
 
 chmod 
+
+vim
