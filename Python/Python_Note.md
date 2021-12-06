@@ -1,5 +1,8 @@
 - [Python](#python)
   - [常用术语](#常用术语)
+  - [Set, List, and tuple](#set-list-and-tuple)
+    - [List](#list)
+  - [Numpy](#numpy)
 
 # Python 
 
@@ -33,7 +36,25 @@ print('%d + %d = %d' % (a, b, a + b))
 `%d`是整数的占位符，`%f`是小数的占位符，`%.2f` stand for float with two decimals, `%%`表示百分号
 
 
+## Set, List, and tuple
+```py
+A = {} or A = list()
+A = [] or A = set()
+A = () or A = tuple()
+```
 
+###  List
+```py
+A = [(1,2),(3,4)]
+print(A[0],type(A[0]))        # (1,2), tuple
+print(A[0][1],type(A[0][1]))  # 2, int
+```
+Operation:
+```py
+A = [(1,2)]
+B = [(3,4)]
+print(A + B)    # [(1,2),(3,4)]
+set(A)    # [1,2] not same with A
 
 ## Numpy
 x = np. arange(1,10)   #从1到10的array
