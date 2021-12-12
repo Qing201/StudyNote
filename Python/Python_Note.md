@@ -54,7 +54,7 @@ Operation:
 A = [(1,2)]
 B = [(3,4)]
 print(A + B)    # [(1,2),(3,4)]
-set(A)    # [1,2] not same with A
+set(A)    # [1,2], not same with A
 
 ## Numpy
 x = np. arange(1,10)   #从1到10的array
