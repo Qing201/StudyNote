@@ -1,8 +1,8 @@
 - [Python](#python)
   - [常用术语](#常用术语)
   - [Set, List, and tuple](#set-list-and-tuple)
-    - [List](#list)
-  - [Numpy](#numpy)
+    - [list](#list)
+  - [Dictionary - dic()](#dictionary---dic)
 
 # Python 
 
@@ -33,17 +33,17 @@ b = int(input('b = '))
 print('%d + %d = %d' % (a, b, a + b))
 ```
 
-`%d`是整数的占位符，`%f`是小数的占位符，`%.2f` stand for float with two decimals, `%%`表示百分号
+`%d`是整数的占位符，`%f`是小数的占位符，`%.2f` stand for float with two decimals, `%%`表示百分号,`%s` is for string.
 
 
 ## Set, List, and tuple
 ```py
-A = {} or A = list()
-A = [] or A = set()
+A = {} or A = set()     # No dumplicate iterms, Unordered
+A = [] or A = list()     
 A = () or A = tuple()
 ```
 
-###  List
+###  list
 ```py
 A = [(1,2),(3,4)]
 print(A[0],type(A[0]))        # (1,2), tuple
@@ -60,4 +60,19 @@ set(A)    # [1,2], not same with A
 x = np. arange(1,10)   #从1到10的array
 
 x = np.reshape(n,m)     # 变成n*m的matrix
+```
 
+```py
+A = ['12']    # type(A[0]) = str
+B = set()
+B += A[0]     # B = ['1','2']
+C += [A[0]]   # C = ['12']
+```
+
+```py
+list.count(a)    # The number of a in list (Dumplicate)
+list.sort()      # Sort list
+```
+
+## Dictionary - dic()
+[Link](https://realpython.com/python-dicts/)
