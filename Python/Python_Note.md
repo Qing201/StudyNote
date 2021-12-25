@@ -1,12 +1,14 @@
-- [Python](#python)
-  - [常用术语](#常用术语)
+- [常用术语](#常用术语)
+    - [Print()](#print)
+- [数组结构](#数组结构)
   - [Set, List, and tuple](#set-list-and-tuple)
-    - [list](#list)
-  - [Dictionary - dic()](#dictionary---dic)
+    - [list()](#list)
+    - [Tuple](#tuple)
+    - [Dictionary](#dictionary)
+- [GUI (Graph User Interface)](#gui-graph-user-interface)
+  - [Game](#game)
 
-# Python 
-
-## 常用术语
+# 常用术语
 
 ```py
 a = 100
@@ -32,18 +34,23 @@ a = int(input('a = '))
 b = int(input('b = '))
 print('%d + %d = %d' % (a, b, a + b))
 ```
-
+### Print()
+```Python
+a, b = 5, 10
+print(f'{a} * {b} = {a * b}')
+```
 `%d`是整数的占位符，`%f`是小数的占位符，`%.2f` stand for float with two decimals, `%%`表示百分号,`%s` is for string.
 
+# [数组结构](Python/Base/07.字符串和常用数据结构.md)
 
 ## Set, List, and tuple
 ```py
 A = {} or A = set()     # No dumplicate iterms, Unordered
 A = [] or A = list()     
-A = () or A = tuple()
+A = () or A = tuple()   # Iterm in tuple can't change
 ```
 
-###  list
+###  list()
 ```py
 A = [(1,2),(3,4)]
 print(A[0],type(A[0]))        # (1,2), tuple
@@ -54,12 +61,7 @@ Operation:
 A = [(1,2)]
 B = [(3,4)]
 print(A + B)    # [(1,2),(3,4)]
-set(A)    # [1,2], not same with A
-
-## Numpy
-x = np. arange(1,10)   #从1到10的array
-
-x = np.reshape(n,m)     # 变成n*m的matrix
+set(A)    # [1,2], not same
 ```
 
 ```py
@@ -74,5 +76,18 @@ list.count(a)    # The number of a in list (Dumplicate)
 list.sort()      # Sort list
 ```
 
-## Dictionary - dic()
-[Link](https://realpython.com/python-dicts/)
+### Tuple
+
+### [Dictionary](https://realpython.com/python-dicts/)
+```py
+A = dict()    # Dictionary
+```
+
+# GUI (Graph User Interface)
+module [`tkinter`](Python/Python_Module/tkinter)
+
+100-days [GUI Tutorial](Day01-15/10.图形用户界面和游戏开发.md)
+
+## Game
+module [`pygame`](Day01-15/10.图形用户界面和游戏开发.md)
+
