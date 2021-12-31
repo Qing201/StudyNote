@@ -8,8 +8,18 @@
 - [GUI (Graph User Interface)](#gui-graph-user-interface)
   - [Game](#game)
 - [Data](#data)
+  - [File](#file)
+    - [Image](#image)
+      - [Color](#color)
+      - [Edit](#edit)
+    - [Excel](#excel)
+    - [Word](#word)
   - [正则表达式](#正则表达式)
     - [Python对正则表达式的支持](#python对正则表达式的支持)
+- [Multiple Processing](#multiple-processing)
+  - [多进程](#多进程)
+  - [多线程](#多线程)
+  - [多进程+多线程](#多进程多线程)
 
 # 常用术语
 
@@ -81,9 +91,13 @@ list.sort()      # Sort list
 
 ### Tuple
 
-### [Dictionary](https://realpython.com/python-dicts/)
+### Dictionary
+[Tutorial](https://realpython.com/python-dicts/)
 ```py
 A = dict()    # Dictionary
+items = A.items()   # Return a list of key-values paires in a dictionary
+key = A.keys()
+values = A.values()
 ```
 
 # GUI (Graph User Interface)
@@ -96,6 +110,43 @@ module [`pygame`](Day01-15/10.图形用户界面和游戏开发.md) \
 3D Game module: `Panda3D`
 
 # Data
+
+## File
+Open files use `open`:
+```py
+open(file, mode='r', buffering=- 1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+```
+
+| 操作模式 | 具体含义                         |
+| -------- | -------------------------------- |
+| `'r'`    | 读取 （默认）                    |
+| `'w'`    | 写入（会先截断之前的内容）       |
+| `'x'`    | 写入，如果文件已经存在会产生异常 |
+| `'a'`    | 追加，将内容写入到已有文件的末尾 |
+| `'b'`    | 二进制模式                       |
+| `'t'`    | 文本模式（默认）                 |
+| `'+'`    | 更新（既可以读又可以写）         |
+
+### Image
+
+#### Color
+
+RGB: 
+   | 名称  |        RGBA值        |  名称  |       RGBA值       |
+   | :---: | :------------------: | :----: | :----------------: |
+   | White | (255, 255, 255, 255) |  Red   |  (255, 0, 0, 255)  |
+   | Green |   (0, 255, 0, 255)   |  Blue  |  (0, 0, 255, 255)  |
+   | Gray  | (128, 128, 128, 255) | Yellow | (255, 255, 0, 255) |
+   | Black |    (0, 0, 0, 255)    | Purple | (128, 0, 128, 255) |
+
+#### Edit 
+Module: `Pillow`
+
+### Excel
+Module: `openpyxl`
+
+### Word
+Module: `docx`
 
 ## 正则表达式
 [《正则表达式30分钟入门教程》](https://deerchao.net/tutorials/regex/regex.htm)，
@@ -153,3 +204,17 @@ Python提供了`re`模块来支持正则表达式相关操作，下面是re模�
 | purge()                                      | 清除隐式编译的正则表达式的缓存                               |
 | re.I / re.IGNORECASE                         | 忽略大小写匹配标记                                           |
 | re.M / re.MULTILINE                          | 多行匹配标记                                                 |
+
+# Multiple Processing
+
+## 多进程
+多任务同时进行，每个进程的内存空间是独立的，变量也是独立的
+Using `multiprocessing` Module
+
+## 多线程
+
+```py
+from threading import Thread
+```
+
+## 多进程+多线程
