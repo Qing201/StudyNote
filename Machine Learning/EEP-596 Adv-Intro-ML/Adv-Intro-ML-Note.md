@@ -1,6 +1,6 @@
 - [adv](#adv)
 
-## Adv Intro ML
+## Week 1
 
 Supervised Learning: give the object name
 
@@ -14,3 +14,23 @@ Unsupervised Learning: don't give the object name, Machine don't know what it is
 
    > Mean Normalization:
    X = (X – column_mean) / (column_max – column_min)
+   (For Linear model, usually do mean normalization for all contribute)
+
+Normal Equation:
+![Normal_Equation](Image/normal-equation.jpg)
+### K-fold Cross Validation
+
+### Objective (Loss) Function
+![Loss](Image/Loss_equation.png)
+### Linear Regression
+Lasso: 
+![Lasso](Image/Lasso.png)
+Ridge: 
+![Ridge](Image/Ridge.png)
+
+
+Loss fuction
+
+numerical value
+
+categorical
