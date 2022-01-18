@@ -6,8 +6,8 @@
 - [Graphs](#graphs)
   - [Class 2](#class-2-1)
 
-# Week 1:
-## Class 2
+> Week 1 Class 2
+## Runtime 
 
 **Upper Bounds**: 
 $f(n)$ is $ O (g(n))$ if there is a constant $c > 0$ so that $f(n)$ is eventually always  $ \le c g(n) $
@@ -18,7 +18,7 @@ $f(n)$ is $\Omega (g(n))$ if there is a constant $c > 0$ so that $f(n)$ is event
 **Both:**
 $f(n)$ is $\Theta (g(n))$ if there is are constants $c1, c2 > 0$ so that eventually always $c_1g(n) \le f(n) \le c_2g(n)$
 
-## Class 3
+> Week 1 Class 3
 
 **Logarithms**
 Change-of=base formula:
@@ -27,19 +27,28 @@ $$ log_b(a) * log_a(x) = log_b(x)$$
 
 For all $x>0$, *(no mater how small)* $log \ n =O(n^x)$
 
+<br>
 
-# Week 2
+> Week 2 Class 1
 
-## Class 1
-
-# Graphs
+## Graphs
 
 Undirected Graph:
 
 Directed Graph:
 
-## Class 2
+Sparse graphs: $m ≪ n^2$
 
-Breadth-First Search(BFS): level by level search
+<br>
 
-Depth-First Search (DFS): go one deep frist and go back 
+> Week 2 Class 2
+
+### Breadth-First Search(BFS) 
+level by level search
+
+runtime: 
+* $O(n^2)$ in genal. ![Runtime Analysis](Image/BFS_Analysis.png)
+* $(n+m) if sparse graphs
+
+### Depth-First Search (DFS) 
+go one deep frist and go back 
