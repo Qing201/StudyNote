@@ -1,6 +1,10 @@
 - [Week 1:](#week-1)
   - [Class 2](#class-2)
   - [Class 3](#class-3)
+- [Week 2](#week-2)
+  - [Class 1](#class-1)
+- [Graphs](#graphs)
+  - [Class 2](#class-2-1)
 
 # Week 1:
 ## Class 2
@@ -33,3 +37,9 @@ For all $x>0$, *(no mater how small)* $log \ n =O(n^x)$
 Undirected Graph:
 
 Directed Graph:
+
+## Class 2
+
+Breadth-First Search(BFS): level by level search
+
+Depth-First Search (DFS): go one deep frist and go back 
