@@ -29,7 +29,9 @@ For all $x>0$, *(no mater how small)* $log \ n =O(n^x)$
 
 <br>
 
-> Week 2 Class 1
+```diff
++ Week 2 Class 1
+```
 
 ## Graphs
 
@@ -41,14 +43,21 @@ Sparse graphs: $m ≪ n^2$
 
 <br>
 
-> Week 2 Class 2
-
+```diff
++ Week 2 Class 2
+```
 ### Breadth-First Search(BFS) 
 level by level search
 
 runtime: 
 * $O(n^2)$ in genal. ![Runtime Analysis](Image/BFS_Analysis.png)
 * $(n+m) if sparse graphs
+Application: Shortest Paths
+
+#### Bipartite Graph
+> odd cycle is, 
 
 ### Depth-First Search (DFS) 
 go one deep frist and go back 
+
+#### Articulation Points
