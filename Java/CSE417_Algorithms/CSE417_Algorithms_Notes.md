@@ -61,3 +61,8 @@ Application: Shortest Paths
 go one deep frist and go back 
 
 #### Articulation Points
+
+Leaf nodes(Leaves): The botten nodes in every way of the tree. Node without children
+Internal nodes: Node have at least one child
+Root: Node without parent
+

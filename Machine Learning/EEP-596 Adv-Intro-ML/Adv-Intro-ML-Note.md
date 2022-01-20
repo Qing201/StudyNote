@@ -1,6 +1,10 @@
 - [adv](#adv)
 
-## Week 1
+```diff
++ Class 1.1
+```
+
+# Intro
 
 Supervised Learning: give the object name
 
@@ -22,6 +26,10 @@ Normal Equation:
 
 ### Objective (Loss) Function
 ![Loss](Image/Loss_equation.png)
+
+Loss = 
+$$||y- \hat{y}||^2_2 = \sum(y_i  - \hat{y}_i)^2 $$
+$$ \hat{y}_i = \hat{w}^Tx_i $$
 ### Linear Regression
 #### Lasso: 
 ![Lasso](Image/Lasso.png)
@@ -30,7 +38,7 @@ Benefits: Removes un-important features
 #### Ridge: 
 ![Ridge](Image/Ridge.png)
 
- $||w||_2^2 = w_1^2 + w_2^2$
+ $||w||_2^2 = w_1^2 + w_2^2 + ...$
 
 Benefits: No larger weights
 
@@ -70,3 +78,16 @@ convconv Make the loss as small as it can
 + Class 3.1
 ```
 
+
+Logistic Regression Loss:
+*LR Loss* or *log Loss* or *Binary cross-entropy loss*
+
+## Evaluating Classifiers
+
+![Evaluation](Image/Evaluation_Classification.png)
+![Evaluation Scores](Image/Evaluation_Scores.png)
+
+### Features for Text Data
+Bag of word
+
+#### Data Pre-processing
