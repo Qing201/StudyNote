@@ -28,7 +28,8 @@ Normal Equation:
 
 # Linear Regression
 
-## Objective (Loss) Function
+## Regression Function
+### Objective (Loss) Function
 ![Loss](Image/Loss_equation.png)
 
 Loss = 
@@ -37,14 +38,14 @@ $$ \hat{y}_i = \hat{w}^Tx_i $$
 
 <br>
 
-## Lasso: 
+### Lasso: 
 ($l_1$ Regularization)
 ![Lasso](Image/Lasso.png)
 Benefits: Removes un-important features, sparse the function
 
 <br>
 
-## Ridge: 
+### Ridge: 
 ($l_2$ Regularization)
 ![Ridge](Image/Ridge.png)
 
@@ -54,13 +55,13 @@ Benefits: No larger weights
 
 <br>
 
-## L1 and L2
+### L1 and L2
 
 ![l1_and_l2](Image/l1_and_l2.png)
 
 At the point $(0,w^*)$, the $w_1 = 0$, that means this Lasso function ignored the $x_1$ contribution *$(w_1x_1 = 0)$*, that's how $l_1$ removes un-important features.
 
-## Elastic Net:
+### Elastic Net:
 
 
 ## Operation
@@ -71,13 +72,20 @@ categorical value
 ```diff
 + Class 2.2
 ```
+## Gradient Decent
 
-Stochastic gradient descent
+### Batch Gradient Descent
+
+### Mini-batch SGD
+
+### Stochastic gradient descent
+
+
 
 # Classfication
 
 ## Linear Separability
-
+(only one using linear decision boundary)
 Linear Separability: logistic regretion; SVM
 
 > Non-linear Separability: Deep Learnig; Random Forest
@@ -87,7 +95,7 @@ Linear Separability: logistic regretion; SVM
 Sigmoid Function (logistic function)
 ![log_regretion](Image/Logistic_Regression.png)
 Where 
-$$ y = w^Tx_i $$
+$$ y = w^Tx_i $$ 
 
 ```diff
 - 所有ML问题的根本就是让你的模型中的Loss尽可能的small。越小就越贴近于真实值。 所有的Loss function 都是covers function. covers function的简单解释是有可以趋向的最小值。例如 y=x^2 的形状 （covers function是自己的理解，不一定正确）。所以Loss可以趋向于一个值。 
@@ -112,4 +120,17 @@ Logistic Regression Loss:
 ### Features for Text Data
 Bag of word
 
+```diff
++ Class 3.2
+```
+
+#### TF-IDF
+(term frequency-inverse document frequency)
+
+
 #### Data Pre-processing
+NLTK
+
+## Decision Trees
+
+### Split Selection 
