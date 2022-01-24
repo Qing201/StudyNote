@@ -2,7 +2,7 @@
 
 ## Docker
 
-[note](Terminal/Terminal_Note.md)
+Shell command note: [link](Terminal/Terminal_Note.md)
 
 ```bash
 docker run -v $PWD/week_1:/source -it klavins/520w20:cpp bash
