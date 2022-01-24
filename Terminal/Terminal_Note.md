@@ -81,6 +81,11 @@ vim
 
 # Docker
 ```sh
-docker attach [acontainer name]      # Go into container
+docker attach [container name]      # Go into container
+
+docker rename [container] [new_name]
+
+docker container ls           # Show container are running
+docker container ls --all     # Show all contaienr
 ```
 
