@@ -133,4 +133,14 @@ NLTK
 
 ## Decision Trees
 
-### Split Selection 
+### Split Selection
+
+## Random Forests
+Sample data with same features to have same tress.
+
+
+
+sigmoid function : binary-class
+
+multi-class: soft-max function
+
