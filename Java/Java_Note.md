@@ -1,2 +1,2 @@
 # `Println()`
-`/t`: tab  $~~~~$ fda
+`/t`: tab  $ \, ~ $ fda
