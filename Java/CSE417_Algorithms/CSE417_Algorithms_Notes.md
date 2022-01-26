@@ -33,7 +33,7 @@ For all $x>0$, *(no mater how small)* $log \ n =O(n^x)$
 + Week 2 Class 1
 ```
 
-## Graphs
+# Graphs
 
 Undirected Graph:
 
@@ -66,3 +66,8 @@ Leaf nodes(Leaves): The botten nodes in every way of the tree. Node without chil
 Internal nodes: Node have at least one child
 Root: Node without parent
 
+```diff
++ Class 4.1
+```
+
+# Greedy Algorithm
