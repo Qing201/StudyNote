@@ -6,7 +6,9 @@
 
 Problem 1:
 
-![A3P1](Image/A3P1.png)
+![A3P1_Question](Image/A3P1_Question.png)
+
+![A3P1](Image/A3P1_Tree.png)
 
 
 | | DFS Number | LOW value |
