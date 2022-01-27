@@ -87,26 +87,18 @@ class Graph:
 
     # Global initialization for DFS
     def initialization(self):
-
-        # Set the DFS number for all the nodes to -1
         for i in self.dfs_number:
             self.dfs_number[i] = -1
-        
-        # Set DFS discover counter to 0
         self.dfs_counter = 0
 
     
     def DFS(self):
         self.initialization()
-        for node in self.nodes():
-            if self.dfs_number[node] == -1:
-                self.__dfs(node)
 
-    def __dfs(self):
-
+    def dfs(self):
         pass
 
-    def BCCUtil(self, node):
+    def BCCUtil(self, u, parent, st):
         # Count of children in current node 
         children = 0
         # Initialize discovery time and low value

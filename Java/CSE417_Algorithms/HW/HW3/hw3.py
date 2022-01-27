@@ -27,7 +27,7 @@ class Graph:
 
         # default dictionary to store DFS search sequence number of each node
         self.dfs_number = defaultdict(int)
-        
+
         # set a counter for the DFS # in the DFS tree
         self.dfs_counter = 0
     
@@ -35,10 +35,13 @@ class Graph:
         self.bicomp_number = 0
 
         # default a list to store the biconnected components
-        self.bicomp = set()
+        self.bicomp = list()
 
         # default a set for the articulation points
         self.articulations = set()
+
+        # default a direction tree with DFS pash
+        self.dfs_tree = defaultdict(list)
 
     # function to add an edge to graph
     def add_edge(self, u, v):
@@ -60,23 +63,6 @@ class Graph:
             self.low_number = defaultdict(int)
             self.dfs_number = defaultdict(int)
 
- 
-
-    '''A recursive function that finds and prints strongly connected
-
-    components using DFS traversal
-
-    u --> The vertex to be visited next
-
-    disc[] --> Stores discovery times of visited vertices
-
-    low[] -- >> earliest visited vertex (the vertex with minimum
-
-               discovery time) that can be reached from subtree
-
-               rooted with current vertex
-
-    st -- >> To store visited edges'''
 
     # Function to add multiple edges from a list
     def add_Edge_from_list(self,edgelist):
@@ -87,93 +73,55 @@ class Graph:
 
     # Global initialization for DFS
     def initialization(self):
-        for i in self.dfs_number:
+        # Set the DFS number for all the nodes to -1
+        for i in self.nodes:
             self.dfs_number[i] = -1
+        
+        # Set DFS discover counter to 0
         self.dfs_counter = 0
 
     
     def DFS(self):
         self.initialization()
+        store = list()
+        for node in self.nodes:
+            if self.dfs_number[node] == -1:
+                self.__dfs(node, store)
+        
+        # If there are any left left edges in the store, these edges are also a biconnected component 
+        # of this graph which connected with DFS beginner node
+        self.bicomp += [store]
 
-    def dfs(self):
-        pass
 
-    def BCCUtil(self, u, parent, st):
-        # Count of children in current node 
-        children = 0
-        # Initialize discovery time and low value
-        self.dfs_number[u] = self.bfs_counter
-        self.low_number[u] = self.bfs_counter
-        self.bfs_counter += 1 
+    def __dfs(self, v, store):
+        # Initialization
+        self.dfs_counter += 1
+        self.dfs_number[v] = self.dfs_counter
+        self.low_number[v] = self.dfs_counter
 
-        # Recur for all the vertices adjacent to this vertex
-        for v in self.graph[u]:
-            # If v is not visited yet, then make it a child of u
-            # in DFS tree and recur for it
-            if self.dfs_number[v] == -1 :
-                parent[v] = u
-                children += 1
-                st.append((u, v)) # store the edge in stack
-                self.BCCUtil(v, parent, st)
- 
-                # Check if the subtree rooted with v has a connection to
-                # one of the ancestors of u
-                # Case 1 -- per Strongly Connected Components Article
-                self.low_number[u] = min(self.low_number[u], self.low_number[v])
+        for x in self.graph[v]:
+            if self.dfs_number[x] == -1:       # x is undiscovered
+                store += [(v,x)]
+                self.dfs_tree[v].append(x)
+                
+                self.__dfs(x, store)
 
-                # If u is an articulation point, pop 
-                # all edges from stack till (u, v)
-                if parent[u] == -1 and children > 1 or parent[u] != -1 and self.low_number[v] >= self.dfs_number[u]:
-                    self.bicomp
-                    w = -1
-                    while w != (u, v):
-                        w = st.pop()
-                        print(w,end=" ")
-                    print()
+                self.low_number[v] = min(self.low_number[v], self.low_number[x])
+                
+                # if parent[u] == -1 and children > 1 or parent[u] != -1 and low[v] >= disc[u]:
+                if self.dfs_number[v] != 1 and self.low_number[x] >= self.dfs_number[v]:
+                    self.articulations.add(v)
+                    bicomp = []
+                    a=()
+                    while a != (v,x):
+                        a = store.pop()
+                        bicomp += [a]
+                    self.bicomp += [bicomp]
 
-            elif v != parent[u] and self.low_number[u] > self.dfs_number[v]:
-                '''Update low value of 'u' only of 'v' is still in stack
-                (i.e. it's a back edge, not cross edge).
-                Case 2 
-                -- per Strongly Connected Components Article'''
-                self.low_number[u] = min(self.low_number [u], self.dfs_number[v])    
-                st.append((u, v))
- 
-    # The function to do DFS traversal. 
+            elif v not in self.dfs_tree[x]:            # x is not v's parent
+                self.low_number[v] = min(self.low_number[v], self.dfs_number[x])    
+                store.append((v,x))
 
-    # It uses recursive BCCUtil()
-
-    def BCC(self):
-
-        # Initialize disc and low, and parent arrays
-
-        self.dfs_number = [-1] * (self.nodes_number)
-
-        self.low_number = [-1] * (self.nodes_number)
-
-        parent = [-1] * (self.nodes_number)
-
-        st = []
- 
-        # Call the recursive helper function to 
-        # find articulation points
-        # in DFS tree rooted with vertex 'i'
-
-        for i in range(self.nodes_number):
-            if self.dfs_number[i] == -1:
-                self.BCCUtil(i, parent, st)
- 
-
-            # If stack is not empty, pop all edges from stack
-
-            if st:
-                self.bicomp 
-                while st:
-                    w = st.pop()
-                    print(w,end=" ")
-                print ()
- 
-# Create a graph given in the above diagram
  
 def main():
     # Try to open each file by sequence
@@ -201,7 +149,7 @@ def main():
             #print(g.graph)
 
             start_time = time()
-            G.BCC;
+            G.DFS()
             
             
             # Begin to conting the processing time.
@@ -213,11 +161,15 @@ def main():
             print('Articulations: ')
             print('Summary: %s, %d, %d, %d, %d, %f' % (test_name, len(G.nodes), len(G.edges), len(G.articulations), len(G.bicomp), run_time))
             print()
-            print(G.nodes)
-
+            print(G.articulations)
+            print()
             print(G.edges)
             print()
+            print('low',G.low_number)
 
+            print()
+            for i in G.bicomp:
+                print(i)
 
 
 
