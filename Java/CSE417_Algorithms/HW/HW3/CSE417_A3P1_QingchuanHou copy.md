@@ -26,4 +26,4 @@ Problem 1:
 
  Articulation Point: G, H
 
- The edges explored order: (C,G) $ \rightarrow $ (G,B) $ \rightarrow $ (B,A) $ \rightarrow $ (A,F) $ \rightarrow $ (F,G) $ \rightarrow $ (G,H) $ \rightarrow $ (H,D) $ \rightarrow $ (D,E) $ \rightarrow $ (E,H) $ \rightarrow $ (H,I) $ \rightarrow $ (I,G) $ \rightarrow $ (H,J)
+ The edges explored order: (C,G) $ \rightarrow $ (G,B) $ \rightarrow $ (B,A) $ \rightarrow $ (A,F) $ \rightarrow $ (F,G) $ \rightarrow $ (G,H) $ \rightarrow $ (H,C) $ \rightarrow $ (H,D) $ \rightarrow $ (D,E) $ \rightarrow $ (E,H) $ \rightarrow $ (H,I) $ \rightarrow $ (I,G) $ \rightarrow $ (H,J)
