@@ -1,8 +1,16 @@
+# CSE 417: Homework 3
+# Name: Qingchuan Hou
+# Student ID: 2127437
+# UW NetID: qhou
+
+
 # DFS to find biconnected component
+
 
 from collections import defaultdict
 from time import time
-
+import pandas as pd
+from glob import glob
 import sys
 
 
@@ -15,10 +23,6 @@ class Graph:
         self.edges = set()
         self.nodes = set() 
 
-        # default the number of nodes and edges in graph
-        self.nodes_number = 0
-        self.edges_number = 0
-
         # default dictionary to store graph edges
         self.graph = defaultdict(list)
 
@@ -30,9 +34,6 @@ class Graph:
 
         # set a counter for the DFS # in the DFS tree
         self.dfs_counter = 0
-    
-        # Set a counter to the number of biconnected components
-        self.bicomp_number = 0
 
         # default a list to store the biconnected components
         self.bicomp = list()
@@ -54,10 +55,7 @@ class Graph:
             
             # Update the edges and nodes list
             self.edges.add((v,u))
-            self.edges_number = len(self.edges)
-
             self.nodes = set(self.graph.keys())
-            self.nodes_number = len(self.nodes)
             
             # reset bfs abd low number
             self.low_number = defaultdict(int)
@@ -67,8 +65,7 @@ class Graph:
     # Function to add multiple edges from a list
     def add_Edge_from_list(self,edgelist):
         for edge in edgelist:
-            self.graph[edge[0]].append(edge[1]) 
-            self.graph[edge[1]].append(edge[0])
+            self.add_edge(edge[0],edge[1])
 
 
     # Global initialization for DFS
@@ -86,11 +83,9 @@ class Graph:
         store = list()
         for node in self.nodes:
             if self.dfs_number[node] == -1:
+                # Call the DFS travl
                 self.__dfs(node, store)
         
-        # If there are any left left edges in the store, these edges are also a biconnected component 
-        # of this graph which connected with DFS beginner node
-        self.bicomp += [store]
 
 
     def __dfs(self, v, store):
@@ -108,9 +103,15 @@ class Graph:
 
                 self.low_number[v] = min(self.low_number[v], self.low_number[x])
                 
-                # if parent[u] == -1 and children > 1 or parent[u] != -1 and low[v] >= disc[u]:
-                if self.dfs_number[v] != 1 and self.low_number[x] >= self.dfs_number[v]:
-                    self.articulations.add(v)
+
+                if self.low_number[x] >= self.dfs_number[v]:
+
+                    # In this algorithm, every root point will become to articulation points
+                    # Use this to check if the root point is a articulation point.
+                    if not (self.dfs_number[v] == 1 and self.low_number[x] == self.dfs_number[v]):
+                        self.articulations.add(v)
+
+                    # Store the biconnnected components list       
                     bicomp = []
                     a=()
                     while a != (v,x):
@@ -119,8 +120,10 @@ class Graph:
                     self.bicomp += [bicomp]
 
             elif v not in self.dfs_tree[x]:            # x is not v's parent
-                self.low_number[v] = min(self.low_number[v], self.dfs_number[x])    
-                store.append((v,x))
+                # Check the edges if already been exposed
+                if self.dfs_number[v] > self.dfs_number[x]:   
+                    store += [(v,x)]                            
+                self.low_number[v] = min(self.low_number[v], self.dfs_number[x])
 
  
 def main():
@@ -130,6 +133,84 @@ def main():
         test = None
         try:
             test = open(test_name,'r')
+
+            # If open success, process the data.
+            if test:
+                test_list = test.read().split()
+                
+                test_list.pop(0)        # Delete the first number (which is the number of nodes)
+
+                # Creat graph by adding edges in graph
+                G = Graph()
+                while test_list:
+                    u = int(test_list.pop(0))
+                    v = int(test_list.pop(0))
+                    G.add_edge(u,v)
+
+                # Begin to conting the processing time.
+                start_time = time()
+
+                # Main function to do the DFS
+                G.DFS()
+
+                end_time = time()
+                run_time = (end_time - start_time) * 1000
+
+                if len(G.nodes) <= 20:
+                    # Print biconnected comoponents
+                    for i in range(len(G.bicomp)):
+                        print('Component %d :   ' %(i+1), end = '{' )
+
+                        l = len(G.bicomp[i])
+                        for edge in G.bicomp[i]:
+                            if edge == G.bicomp[i][l-1]:
+                                print(set(edge), end='} \n')
+                            else:
+                                print(set(edge), end=', ')
+
+                    print('Articulations: ', G.articulations)
+                
+                print('Summary: %s, %d, %d, %d, %d, %f' % (test_name, len(G.nodes), len(G.edges), len(G.articulations), len(G.bicomp), run_time))
+                print()
+                
+        except IOError as ex:
+            print(ex)
+
+        finally:
+            if test:    
+                test.close()
+
+
+def test():
+    G=Graph()
+    edges = [(1,2),(1,3),(2,3),(1,4),(4,5),(4,6),]
+    G.add_Edge_from_list(edges)
+    G.DFS()
+    for i in range(len(G.bicomp)):
+        print('Component %d:   ' %(i+1), end = '{' )
+
+        l = len(G.bicomp[i])
+        for edge in G.bicomp[i]:
+            if edge == G.bicomp[i][l-1]:
+                print(set(edge), end='} \n')
+            else:
+                print(set(edge), end=',')
+
+    
+    print('Articulations: ', G.articulations)
+    print('Summary: %s, %d, %d, %d' % (len(G.nodes), len(G.edges), len(G.articulations), len(G.bicomp)))
+    print()
+    
+
+def cvs():
+    # Try to open each file by sequence
+    df = pd.DataFrame(columns=['nodes_number','edges_number','run_time'])
+
+    for file in glob('tests/*.txt'):
+
+        test = None
+        try:
+            test = open(file,'r')
         except IOError as ex:
             print(ex)
 
@@ -145,36 +226,26 @@ def main():
                 u = int(test_list.pop(0))
                 v = int(test_list.pop(0))
                 G.add_edge(u,v)
-            
-            #print(g.graph)
 
-            start_time = time()
-            G.DFS()
-            
-            
             # Begin to conting the processing time.
+            start_time = time()
 
+            # Main function to do the DFS
+            G.DFS()
 
             end_time = time()
-            run_time = end_time - start_time
+            run_time = (end_time - start_time) * 1000
 
-            print('Articulations: ')
-            print('Summary: %s, %d, %d, %d, %d, %f' % (test_name, len(G.nodes), len(G.edges), len(G.articulations), len(G.bicomp), run_time))
-            print()
-            print(G.articulations)
-            print()
-            print(G.edges)
-            print()
-            print('low',G.low_number)
+            #print('Summary: %s, %d, %d, %d, %d, %f' % (file, len(G.nodes), len(G.edges), len(G.articulations), len(G.bicomp), run_time))
+            #print()
 
-            print()
-            for i in G.bicomp:
-                print(i)
+            df = df.append({'nodes_number' : len(G.nodes), 'edges_number' : len(G.edges), 'run_time' : run_time}, ignore_index=1)
 
-
+    df.to_csv('run_time.csv')        
 
 
 if __name__ == '__main__':
     main()
-
+    #test()
+    #cvs()      # put run time to csv file
 
