@@ -43,6 +43,8 @@ $$ \hat{y}_i = \hat{w}^Tx_i $$
 ![Lasso](Image/Lasso.png)
 Benefits: Removes un-important features, sparse the function
 
+loss part + regularization part
+
 <br>
 
 ### Ridge: 
@@ -98,8 +100,7 @@ Where
 $$ y = w^Tx_i $$ 
 
 ```diff
-- 所有ML问题的根本就是让你的模型中的Loss尽可能的small。越小就越贴近于真实值。 所有的Loss function 都是covers function. covers function的简单解释是有可以趋向的最小值。例如 y=x^2 的形状 （covers function是自己的理解，不一定正确）。所以Loss可以趋向于一个值。 
-convconv Make the loss as small as it can
+- 所有ML模型问题的根本就是让你的模型中的Loss尽可能的small。越小就越贴近于真实值。 所有的Loss function 都是covers function. covers function的简单解释是有可以趋向的最小值。例如 y=x^2 的形状 (y可以趋向于0）。所以loss可以趋向于一个min值。 
 ```
 
 ```diff
@@ -133,7 +134,25 @@ NLTK
 
 ## Decision Trees
 
-### Split Selection
+### Trees
+#### Split Selection
+
+#### Information Gain(ID3)
+IG = Entropy(Parent) - werighted_avg * Entropy(Children)
+
+#### Information Gain Ration(C4.5)
+
+#### Gini Index(CART)
+
+### Prevent Overfit
+
+#### Stopping Criteria (Pre pruning)
+- Maxdepth reached
+- Num_samples in node is small enough
+- Information Gain is smaller than a threshold
+#### Post Pruning
+Grow the trees to the maximum
+Cut the tree subtrees that have lowerst classfication error on pruning set(validation set)
 
 ## Random Forests
 Sample data with same features to have same tress.
