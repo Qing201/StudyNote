@@ -21,6 +21,8 @@
   - [多线程](#多线程)
   - [多进程+多线程](#多进程多线程)
 - [Web](#web)
+- [Module](#module)
+  - [OpenCV](#opencv)
 
 # 常用术语
 
@@ -222,3 +224,7 @@ from threading import Thread
 
 # Web
 Module: `socket`, `requests`
+
+# Module
+## OpenCV
+Note: [link](Python/Python_Module/OpenCV/OpenCV_Note.md)

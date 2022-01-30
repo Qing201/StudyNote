@@ -154,6 +154,12 @@ IG = Entropy(Parent) - werighted_avg * Entropy(Children)
 Grow the trees to the maximum
 Cut the tree subtrees that have lowerst classfication error on pruning set(validation set)
 
+### Image Processing
+
+RGB HSV
+#### Image Feature Extractor+Descriptors, SIFT
+- Keypoint detection + Feature descriptors 
+
 ## Random Forests
 Sample data with same features to have same tress.
 
