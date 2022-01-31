@@ -169,3 +169,6 @@ sigmoid function : binary-class
 
 multi-class: soft-max function
 
+```diff
++ Lecture 4.2
+```
