@@ -64,12 +64,24 @@ go one deep frist and go back
 ![arti_pint](Image/Articulation_Point.png)
 
 ## Node:
-Leaf nodes(Leaves): The botten nodes in every way of the tree. Node without children
-Internal nodes: Node have at least one child
-Root: Node without parent
+- Leaf nodes(Leaves): The botten nodes in every way of the tree. Node without children
+- Internal nodes: Node have at least one child
+- Root: Node without parent
+
 
 ```diff
 + Class 4.1
 ```
 
 # Greedy Algorithm
+
+```diff
++ Class 4.3
+```
+## Huffman Algorithm
+
+```diff
++ Class 5.2
+```
+
+# Dvide and conquer
