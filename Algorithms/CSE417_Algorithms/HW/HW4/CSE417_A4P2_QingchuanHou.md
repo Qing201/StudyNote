@@ -3,9 +3,12 @@
 ##### Student ID: 2127437
 ##### UWNetID: qhou
 <br>
+
 ##### Problem 2:
 
 (a)
+
+Algorithm:
 
 Initially let $X$ be the set of all offices, and let a set $G$ be empty to store the location of hotspots, and set index $j = 0$
 While $X$ is not yet empty:
@@ -24,7 +27,7 @@ In this algorithm, I will first find the office has the smallest location. Then 
 
 (b)
 
-The optimal solution of this problem is let all the hotpots use it longest range (100 feets) and there do not have any office coverd by mutiple hotpots. At this time, the use efficiency of hotspots is the highest.
+The optimal solution of this problem is let all the hotpots use it longest range (100 feets) and there do not have any office coverd by mutiple hotpots. This is also when the hotspots have the highest using efficiency.
 
 Take my algorithm as a reference. In all other solutions, no value of $g_j$ can be greater than the values of $g_j$ in my solution, because if increasing the value of $g_j$, there will be alwalys have a $x_i$ in X that is not covered by any hotspot. 
 
