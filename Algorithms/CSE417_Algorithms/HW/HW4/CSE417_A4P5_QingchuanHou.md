@@ -9,7 +9,7 @@
 ![P](Image/A4P5.jpeg)
 
 (b)
-Total leng in bits = $(0.02 \times 4 + 0.03 \times 4 + 0.15 \times 3 + 0.30 \times 2 + 0.50 \times 1) \times 100 $ = $ 175 $
+Total length in bits = $(0.02 \times 4 + 0.03 \times 4 + 0.15 \times 3 + 0.30 \times 2 + 0.50 \times 1) \times 100 $ = $ 175 $
 
 (c)
 The length of the Huffman code of a lower frequency element will always be longer or equal to the length of the Huffman code of a higher frequency element. In the Huffman trees, the depth of nodes with lower frequency will always be deeper or equal to the nodes with higher frequency. 

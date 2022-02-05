@@ -49,3 +49,19 @@ In this case, no matter what n is, the lower bound of this algorithm will be $\O
 <br>
 
 (c)
+The basic idea is: when I have an empty classroom. Using binary search algorithm to search all the sorted lectures to find the easiest capable lecture in this classroom. Then repeat this step, still use a binary search algorithm to search all the sorted lectures to find the next earliest one which start time is after 1st lecture's end time. Repeat this step until this classroom is full and no lecture can be scheduled in this classroom. Then open a new classroom and repeat the steps above.
+
+**Algorithm:**
+Sort intervals by start time so $s_1 \le s_2 \le ... \le s_n$, and store all lecture in a list A
+$j$ <-- 1
+Creat a list $C_1$ as a classroom 
+
+
+While the list A is not empty
+&emsp; &emsp; Using binary search algorithm to search all the sorted lectures to find 
+&emsp; &emsp; &emsp; the easiest capable lecture $L_i$
+&emsp; &emsp; if find $L_i$, store in the $C_j$ and remove it from list A
+&emsp; &emsp; if cannot find, j++ and open a new classroom list $C_j$
+Endwhile
+
+In this loop, the complex for binary search is $O(logn)$, and every time find a lecture will cost one binary search, which run time will be $O(nlogn)$. If no capble lecturen for the current classroom, it will add a new classroom. Every time add a new classrom, will have one extrol binary search. Even the worst case, every lecture need a new room, the run time for this worst case is $O(nlogn+n)$, which lecture number is equal to classroom number. It is still $O(nlogn)$
