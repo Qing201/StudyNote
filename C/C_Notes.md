@@ -2,6 +2,9 @@
   - [Compiling in Terminal](#compiling-in-terminal)
       - [Compiling and Running C Code](#compiling-and-running-c-code)
       - [Compiling C++ Code](#compiling-c-code)
+- [Language](#language)
+  - [Labrary](#labrary)
+  - [data type](#data-type)
 
 # Terminal
 Compiling in Terminal
@@ -24,4 +27,22 @@ g++ -c hello.cc
 g++ -c main.cc
 g++ -o hello *.o
 ./hello
+```
+# Language
+
+## Labrary
+```c
+#include <>
+```
+
+## data type
+```c
+char      // 1 bit
+short     // 2 bits
+int       // 4 bits integer
+long      // 4 bits
+float     // 4 bits 
+double    // 8 bits double precision float
+
+sizeof()    // reture the size in bits
 ```
