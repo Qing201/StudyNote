@@ -1,5 +1,55 @@
-- [adv](#adv)
-
+- [Intro](#intro)
+- [Supervived Learning](#supervived-learning)
+  - [Data Pre-progress](#data-pre-progress)
+  - [Valudation](#valudation)
+    - [K-fold Cross Validation](#k-fold-cross-validation)
+  - [Linear Regression](#linear-regression)
+    - [Regression Function](#regression-function)
+      - [Objective (Loss) Function](#objective-loss-function)
+      - [Lasso:](#lasso)
+      - [Ridge:](#ridge)
+      - [L1 and L2](#l1-and-l2)
+      - [Elastic Net:](#elastic-net)
+    - [Operation](#operation)
+    - [Gradient Decent](#gradient-decent)
+      - [Batch Gradient Descent](#batch-gradient-descent)
+      - [Mini-batch SGD](#mini-batch-sgd)
+      - [Stochastic gradient descent](#stochastic-gradient-descent)
+  - [Classfication](#classfication)
+    - [Linear Separability](#linear-separability)
+      - [Logistic Regretion](#logistic-regretion)
+      - [Probability of Class](#probability-of-class)
+    - [Evaluating Classifiers](#evaluating-classifiers)
+      - [Features for Text Data](#features-for-text-data)
+        - [TF-IDF](#tf-idf)
+        - [Data Pre-processing](#data-pre-processing)
+    - [Decision Trees](#decision-trees)
+      - [Trees](#trees)
+        - [Split Selection](#split-selection)
+        - [Information Gain(ID3)](#information-gainid3)
+        - [Information Gain Ration(C4.5)](#information-gain-rationc45)
+        - [Gini Index(CART)](#gini-indexcart)
+      - [Prevent Overfit](#prevent-overfit)
+        - [Stopping Criteria (Pre pruning)](#stopping-criteria-pre-pruning)
+        - [Post Pruning](#post-pruning)
+      - [Image Processing](#image-processing)
+        - [Image Feature Extractor+Descriptors, SIFT](#image-feature-extractordescriptors-sift)
+    - [Random Forests](#random-forests)
+- [Un-supervised Learning](#un-supervised-learning)
+  - [Clustering](#clustering)
+    - [K-means](#k-means)
+      - [Loss Function](#loss-function)
+      - [K-means++](#k-means-1)
+    - [t-SNE](#t-sne)
+    - [Hierarchical Clustering](#hierarchical-clustering)
+      - [Divisive (top-down)](#divisive-top-down)
+      - [Agglomerative (bottom-up)](#agglomerative-bottom-up)
+        - [Dunn Index](#dunn-index)
+- [Dimensionality Reduction](#dimensionality-reduction)
+    - [SVD (Singluar Value Decomposition)](#svd-singluar-value-decomposition)
+    - [PCA (Principal Components Analysis)](#pca-principal-components-analysis)
+    - [Word2Vec](#word2vec)
+      - [Skip Gram Model](#skip-gram-model)
 ```diff
 + Class 1.1
 ```
@@ -9,8 +59,8 @@
 Supervised Learning: give the object name
 
 Unsupervised Learning: don't give the object name, Machine don't know what it is, only know if there have two objects are different.
-
-# Data Pre-progress 
+# Supervived Learning
+## Data Pre-progress 
 1. Take care of Noise
 2. Missing Values
 3. Normalize attribute:
@@ -23,13 +73,13 @@ Unsupervised Learning: don't give the object name, Machine don't know what it is
 Normal Equation:
 ![Normal_Equation](Image/normal-equation.jpg)
 
-# Valudation
-## K-fold Cross Validation
+## Valudation
+### K-fold Cross Validation
 
-# Linear Regression
+## Linear Regression
 
-## Regression Function
-### Objective (Loss) Function
+### Regression Function
+#### Objective (Loss) Function
 ![Loss](Image/Loss_equation.png)
 
 Loss = 
@@ -38,7 +88,7 @@ $$ \hat{y}_i = \hat{w}^Tx_i $$
 
 <br>
 
-### Lasso: 
+#### Lasso: 
 ($l_1$ Regularization)
 ![Lasso](Image/Lasso.png)
 Benefits: Removes un-important features, sparse the function
@@ -47,7 +97,7 @@ loss part + regularization part
 
 <br>
 
-### Ridge: 
+#### Ridge: 
 ($l_2$ Regularization)
 ![Ridge](Image/Ridge.png)
 
@@ -57,16 +107,16 @@ Benefits: No larger weights
 
 <br>
 
-### L1 and L2
+#### L1 and L2
 
 ![l1_and_l2](Image/l1_and_l2.png)
 
 At the point $(0,w^*)$, the $w_1 = 0$, that means this Lasso function ignored the $x_1$ contribution *$(w_1x_1 = 0)$*, that's how $l_1$ removes un-important features.
 
-### Elastic Net:
+#### Elastic Net:
 
 
-## Operation
+### Operation
 numerical value
 
 categorical value
@@ -74,25 +124,25 @@ categorical value
 ```diff
 + Class 2.2
 ```
-## Gradient Decent
+### Gradient Decent
 
-### Batch Gradient Descent
+#### Batch Gradient Descent
 
-### Mini-batch SGD
+#### Mini-batch SGD
 
-### Stochastic gradient descent
+#### Stochastic gradient descent
 
 
 
-# Classfication
+## Classfication
 
-## Linear Separability
+### Linear Separability
 (only one using linear decision boundary)
 Linear Separability: logistic regretion; SVM
 
 > Non-linear Separability: Deep Learnig; Random Forest
 
-### Logistic Regretion
+#### Logistic Regretion
 
 Sigmoid Function (logistic function)
 ![log_regretion](Image/Logistic_Regression.png)
@@ -111,56 +161,56 @@ $$ y = w^Tx_i $$
 Logistic Regression Loss:
 *LR Loss* or *log Loss* or *Binary cross-entropy loss*
 
-### Probability of Class
+#### Probability of Class
 ![class_probability](Image/Class_probability.png)
-## Evaluating Classifiers
+### Evaluating Classifiers
 
 ![Evaluation](Image/Evaluation_Classification.png)
 ![Evaluation Scores](Image/Evaluation_Scores.png)
 
-### Features for Text Data
+#### Features for Text Data
 Bag of word
 
 ```diff
 + Class 3.2
 ```
 
-#### TF-IDF
+##### TF-IDF
 (term frequency-inverse document frequency)
 
 
-#### Data Pre-processing
+##### Data Pre-processing
 NLTK
 
-## Decision Trees
+### Decision Trees
 
-### Trees
-#### Split Selection
+#### Trees
+##### Split Selection
 
-#### Information Gain(ID3)
+##### Information Gain(ID3)
 IG = Entropy(Parent) - werighted_avg * Entropy(Children)
 
-#### Information Gain Ration(C4.5)
+##### Information Gain Ration(C4.5)
 
-#### Gini Index(CART)
+##### Gini Index(CART)
 
-### Prevent Overfit
+#### Prevent Overfit
 
-#### Stopping Criteria (Pre pruning)
+##### Stopping Criteria (Pre pruning)
 - Maxdepth reached
 - Num_samples in node is small enough
 - Information Gain is smaller than a threshold
-#### Post Pruning
+##### Post Pruning
 Grow the trees to the maximum
 Cut the tree subtrees that have lowerst classfication error on pruning set(validation set)
 
-### Image Processing
+#### Image Processing
 
 RGB HSV
-#### Image Feature Extractor+Descriptors, SIFT
+##### Image Feature Extractor+Descriptors, SIFT
 - Keypoint detection + Feature descriptors 
 
-## Random Forests
+### Random Forests
 Sample data with same features to have same tress.
 
 
@@ -169,6 +219,120 @@ sigmoid function : binary-class
 
 multi-class: soft-max function
 
+# Un-supervised Learning
+## Clustering
+The difference between clsfication problem and clustering problem is: In classfication problem, we have x and y, and predict x to the y lable. In lustering problem, we only have x, the target is group x to some parts, each part reprensent different term.
+
 ```diff
 + Lecture 4.2
 ```
+
+### K-means
+K-means assume there are some centrol points in every group, then assign each point to differnt centrol points.
+
+#### Loss Function
+$$min_{C,A} \ \ ||X=AC||^2_F $$
+X: Data Matrix ($N \times d$)&emsp; &emsp; 
+A: Argument Matrix ($N \times k$) &emsp; &emsp; (represent which k is the point belong to)
+C: Centroid Matrix ($k \times d$) &emsp; &emsp; *(Evey row in C represent a centrol point. k number of points total)*
+
+A and C is not give initially. The k-mean algorithm will predicte both A and C.
+
+If the data is hard choise, the every row in A has only one "$1$" and other is "$0$"
+
+> Hard choise: only one answer for each data. (1 hot endcoding)
+> Soft choise: data may have mutible answer with different probabilities. (sum to 1)
+
+**Iteration:** K+means algorithms will fix one of $A$ or $C$ first. Let's say fix $A$ first, so we have $A^0$, from $A^0$ it can predicate $C^0$. Then from $C^0$ to predicate $A^2$, etc... from $^j$ to predicate $A^{j+1}$ *($j+i$ iteration)*... Untill find the best.
+
+The overall computatinal complexity is $O(Nkd)$ for one iteration.
+
+#### K-means++
+Choose a point to be the centroid, find the distance from all other points and chose anther centroid in a cluster with most father distance from the closet centroid untill find k centroids.
+The computational complex for find each centroid here is $O(Nkd)$
+It's better than k-means with better starting points but more time.
+
+
+```diff
++ Class 5.1
+```
+
+### t-SNE
+Embeddings
+[Coding reference](https://www.kaggle.com/jeffd23/visualizing-word-vectors-with-t-sne/notebook)
+
+> ### Mixture Models
+> soft clustering. GMM + k-means
+> 
+### Hierarchical Clustering
+Dendrograms
+
+#### Divisive (top-down)
+like k-means, arleady have k clusters, then sign every points to one of the  k clusters.
+
+#### Agglomerative (bottom-up)  
+1. begin with every point is a cluster
+2. merge smallest Signgle linkage between two clusters ![single_linkage](Image/Single_linkage.png)
+
+> ##### Linkage
+> ![linkage](Image/Linkage.png)
+
+##### Dunn Index
+![dunn](Image/Dunn_index.png)
+Inter-cluster distance: distance between points from two cluster
+Intro-cluster distance: distance between points from one cluster
+
+The bigger dunn indes ususlly is a better result. 
+
+```diff
++ Class 5.2
+```
+
+# Dimensionality Reduction
+- Classical Linearl
+  - SVD
+  - PCA
+  - LDA (Linear di)
+- Nun-linearl
+  - Auto-Encoders
+  - word2vec (word embeddings)
+  - BERT (sentence embedding)
+  - CNN archtecture (Image embedding)
+
+### SVD (Singluar Value Decomposition)
+Split the data in dataset and use number of matrix to reprensent, each matrix reprensent a dimation. It is bi-linear model 
+$$X = U \Sigma V^T$$
+$X$: Data Matrix (Nxd)
+$\Sigma$: Scaling Matrix, it make sure the function can operation if $X$ is not normalized (Diagenal Matrix)
+$U$ and $V$ are (Orthogonal matrix, example: $U_i$ and $U_j$ have same magenitude but drection is orthogonal in $\R^n$ dimention)
+ 
+![SVD](Image/SVD.png)
+Using Matrix Factorization
+
+Split the customers and products into two Matrix and use a vecter to represent each customers and products.
+
+### PCA (Principal Components Analysis)
+
+**Principal Component: $V$**
+It is based on SVD. Help understand the variance.
+$$X^TX = V \Sigma^2 V^T$$
+
+$X^TX = (V \Sigma U^T)(U \Sigma V^T) = V \Sigma^2 V^T$
+
+$V$ is $d \times k$ , each colum of $V$ is a principal component.
+
+**The Projection of Data:$V^T X^T$**
+The $V^T X^T$ is represents the embeddings or compressed representation of the data points. It is also equal to $\Sigma U^T$
+
+The dimention of $X^T$ is $d \times N$, then the dimention of $V^TX^T$ is $k \times N$, so this embedding the function of samples from d to k.
+
+Here is a two demention example:
+![PCA_example](Image/PCA_2d.png)
+The line is a principal component *(a colum $V_i$ in $V$)*. The points is functions. The projection will make the points in 2d demention embedding to the line, which is 1d demention.
+
+**Reconstruction**
+
+### Word2Vec
+Non-linear Model
+#### Skip Gram Model
+semi-supervised learning
