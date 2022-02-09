@@ -25,16 +25,13 @@
         - [Data Pre-processing](#data-pre-processing)
     - [Decision Trees](#decision-trees)
       - [Trees](#trees)
-        - [Split Selection](#split-selection)
-        - [Information Gain(ID3)](#information-gainid3)
-        - [Information Gain Ration(C4.5)](#information-gain-rationc45)
-        - [Gini Index(CART)](#gini-indexcart)
       - [Prevent Overfit](#prevent-overfit)
         - [Stopping Criteria (Pre pruning)](#stopping-criteria-pre-pruning)
         - [Post Pruning](#post-pruning)
       - [Image Processing](#image-processing)
         - [Image Feature Extractor+Descriptors, SIFT](#image-feature-extractordescriptors-sift)
     - [Random Forests](#random-forests)
+    - [Soft-Max](#soft-max)
 - [Un-supervised Learning](#un-supervised-learning)
   - [Clustering](#clustering)
     - [K-means](#k-means)
@@ -150,7 +147,9 @@ Where
 $$ y = w^Tx_i $$ 
 
 ```diff
-- 所有ML模型问题的根本就是让你的模型中的Loss尽可能的small。越小就越贴近于真实值。 所有的Loss function 都是covers function. covers function的简单解释是有可以趋向的最小值。例如 y=x^2 的形状 (y可以趋向于0）。所以loss可以趋向于一个min值。 
+- 所有ML模型问题的根本就是让你的模型中的Loss尽可能的small。越小就越贴近于真实值。 
+- 所有的Loss function 都是covers function. covers function的简单解释是有可以趋向的最小值。
+- 例如 y=x^2 的形状 (y可以趋向于0）。所以loss可以趋向于一个min值。 
 ```
 
 ```diff
@@ -176,8 +175,9 @@ Bag of word
 ```
 
 ##### TF-IDF
-(term frequency-inverse document frequency)
-
+*(Term Frequency - Inverse Document Frequency)*
+![TF-IDF](Image/TF-IDF.png)
+Find the importance of every word.
 
 ##### Data Pre-processing
 NLTK
@@ -185,14 +185,11 @@ NLTK
 ### Decision Trees
 
 #### Trees
-##### Split Selection
-
-##### Information Gain(ID3)
+- Split Selection
+- Information Gain(ID3)
 IG = Entropy(Parent) - werighted_avg * Entropy(Children)
-
-##### Information Gain Ration(C4.5)
-
-##### Gini Index(CART)
+- Information Gain Ration(C4.5)
+- Gini Index(CART)
 
 #### Prevent Overfit
 
@@ -210,14 +207,21 @@ RGB HSV
 ##### Image Feature Extractor+Descriptors, SIFT
 - Keypoint detection + Feature descriptors 
 
+```diff
++ Class 4.1
+```
+
 ### Random Forests
 Sample data with same features to have same tress.
 
+### Soft-Max
+Sigmoid function *(binary-class)* &emsp; --> &emsp; Soft-Max function *(multi-class)*
 
+Sigmoid function:
+$$\sigma(z) = \frac{1}{1+e^{-z}}$$
 
-sigmoid function : binary-class
-
-multi-class: soft-max function
+Probability of kth class
+$$\hat{y}^i_k = \sigma(z)_k = \frac{e^{z_k}}{\sum _j e^{Z_j}}$$
 
 # Un-supervised Learning
 ## Clustering
@@ -231,7 +235,7 @@ The difference between clsfication problem and clustering problem is: In classfi
 K-means assume there are some centrol points in every group, then assign each point to differnt centrol points.
 
 #### Loss Function
-$$min_{C,A} \ \ ||X=AC||^2_F $$
+$$min_{C,A} \ \ ||X-AC||^2_F $$
 X: Data Matrix ($N \times d$)&emsp; &emsp; 
 A: Argument Matrix ($N \times k$) &emsp; &emsp; (represent which k is the point belong to)
 C: Centroid Matrix ($k \times d$) &emsp; &emsp; *(Evey row in C represent a centrol point. k number of points total)*
@@ -258,8 +262,15 @@ It's better than k-means with better starting points but more time.
 ```
 
 ### t-SNE
-Embeddings
 [Coding reference](https://www.kaggle.com/jeffd23/visualizing-word-vectors-with-t-sne/notebook)
+![sne-p](Image/SNE-p.png)
+![sne-q](Image/SNE-q.png)
+y is the embedded data in lower dimensions.
+
+KL Divergence: Distance Measure for Probabilities
+$$KL(p||q) = \sum ^d_{i=1} p_i log \frac{p_i}{q_i}$$
+![sne-loss](Image/SNE-loss.png)
+This function will learn y.
 
 > ### Mixture Models
 > soft clustering. GMM + k-means

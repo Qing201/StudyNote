@@ -3,6 +3,7 @@
 - [数组结构](#数组结构)
   - [Set, List, and tuple](#set-list-and-tuple)
     - [list()](#list)
+      - [Sort](#sort)
     - [Tuple](#tuple)
     - [Dictionary](#dictionary)
 - [GUI (Graph User Interface)](#gui-graph-user-interface)
@@ -22,6 +23,8 @@
   - [多进程+多线程](#多进程多线程)
 - [Web](#web)
 - [Module](#module)
+  - [numpy](#numpy)
+  - [pandas](#pandas)
   - [OpenCV](#opencv)
 
 # 常用术语
@@ -90,6 +93,11 @@ C += [A[0]]   # C = ['12']
 ```py
 list.count(a)    # The number of a in list (Dumplicate)
 list.sort()      # Sort list
+```
+
+#### Sort
+```py
+Z = [x for _,x in sorted(zip(Y,X))]     # shot the array X acording to the values in another array Y
 ```
 
 ### Tuple
@@ -226,5 +234,12 @@ from threading import Thread
 Module: `socket`, `requests`
 
 # Module
+
+## numpy
+Note: [link](Python_Module/Numpy/Numpy_Note.md)
+
+## pandas
+Note: [link](Python_Module/pandas/pandas_Note.md)
 ## OpenCV
 Note: [link](Python/Python_Module/OpenCV/OpenCV_Note.md)
+
