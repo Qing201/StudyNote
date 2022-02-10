@@ -53,29 +53,36 @@ a = int(input('a = '))
 b = int(input('b = '))
 print('%d + %d = %d' % (a, b, a + b))
 ```
+
 ### Print()
+
 ```Python
 a, b = 5, 10
 print(f'{a} * {b} = {a * b}')
 ```
+
 `%d`是整数的占位符，`%f`是小数的占位符，`%.2f` stand for float with two decimals, `%%`表示百分号,`%s` is for string.
 
 # [数组结构](Python/Base/07.字符串和常用数据结构.md)
 
 ## Set, List, and tuple
+
 ```py
 A = {} or A = set()     # No dumplicate iterms, Unordered
 A = [] or A = list()     
 A = () or A = tuple()   # Iterm in tuple can't change
 ```
 
-###  list()
+### list()
+
 ```py
 A = [(1,2),(3,4)]
 print(A[0],type(A[0]))        # (1,2), tuple
 print(A[0][1],type(A[0][1]))  # 2, int
 ```
+
 Operation:
+
 ```py
 A = [(1,2)]
 B = [(3,4)]
@@ -96,6 +103,7 @@ list.sort()      # Sort list
 ```
 
 #### Sort
+
 ```py
 Z = [x for _,x in sorted(zip(Y,X))]     # shot the array X acording to the values in another array Y
 ```
@@ -103,7 +111,9 @@ Z = [x for _,x in sorted(zip(Y,X))]     # shot the array X acording to the value
 ### Tuple
 
 ### Dictionary
+
 [Tutorial](https://realpython.com/python-dicts/)
+
 ```py
 A = dict()    # Dictionary
 items = A.items()   # Return a list of key-values paires in a dictionary
@@ -112,18 +122,22 @@ values = A.values()
 ```
 
 # GUI (Graph User Interface)
+
 module [`tkinter`](Python/Python_Module/tkinter)
 
 100-days [GUI Tutorial](Day01-15/10.图形用户界面和游戏开发.md)
 
 ## Game
+
 module [`pygame`](Day01-15/10.图形用户界面和游戏开发.md) \
 3D Game module: `Panda3D`
 
 # Data
 
 ## File
+
 Open files use `open`:
+
 ```py
 open(file, mode='r', buffering=- 1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
 ```
@@ -142,7 +156,7 @@ open(file, mode='r', buffering=- 1, encoding=None, errors=None, newline=None, cl
 
 #### Color
 
-RGB: 
+RGB:
    | 名称  |        RGBA值        |  名称  |       RGBA值       |
    | :---: | :------------------: | :----: | :----------------: |
    | White | (255, 255, 255, 255) |  Red   |  (255, 0, 0, 255)  |
@@ -150,29 +164,33 @@ RGB:
    | Gray  | (128, 128, 128, 255) | Yellow | (255, 255, 0, 255) |
    | Black |    (0, 0, 0, 255)    | Purple | (128, 0, 128, 255) |
 
-#### Edit 
+#### Edit
+
 Module: `Pillow`
 
 ### Excel
+
 Module: `openpyxl`
 
 ### Word
+
 Module: `docx`
 
 ## 正则表达式
+
 [《正则表达式30分钟入门教程》](https://deerchao.net/tutorials/regex/regex.htm)，
 
 | 符号               | 解释                                      | 示例             | 说明                                               |
 | ------------------ | ----------------------------------------- | ---------------- | -------------------------------------------------- |
 | .                  | 匹配任意字符                              | b.t              | 可以匹配bat / but / b#t / b1t等                    |
-| \\w                | 匹配字母/数字/下划线                      | b\\wt            | 可以匹配bat / b1t / b_t等<br>但不能匹配b#t         |
+| \\w                | 匹配字母/数字/下划线                      | b\\wt            | 可以匹配bat / b1t / b_t等</br>但不能匹配b#t         |
 | \\s                | 匹配空白字符（包括\r、\n、\t等）          | love\\syou       | 可以匹配love you                                   |
 | \\d                | 匹配数字                                  | \\d\\d           | 可以匹配01 / 23 / 99等                             |
 | \\b                | 匹配单词的边界                            | \\bThe\\b        |                                                    |
 | ^                  | 匹配字符串的开始                          | ^The             | 可以匹配The开头的字符串                            |
 | $                  | 匹配字符串的结束                          | .exe$            | 可以匹配.exe结尾的字符串                           |
-| \\W                 | 匹配非字母/数字/下划线                    | b\\Wt            | 可以匹配b#t / b@t等<br>但不能匹配but / b1t / b_t等 |
-| \\S                 | 匹配非空白字符                            | love\\Syou       | 可以匹配love#you等<br>但不能匹配love you           |
+| \\W                 | 匹配非字母/数字/下划线                    | b\\Wt            | 可以匹配b#t / b@t等</br>但不能匹配but / b1t / b_t等 |
+| \\S                 | 匹配非空白字符                            | love\\Syou       | 可以匹配love#you等</br>但不能匹配love you           |
 | \\D                 | 匹配非数字                                | \\d\\D           | 可以匹配9a / 3# / 0F等                             |
 | \\B                 | 匹配非单词边界                            | \\Bio\\B         |                                                    |
 | []                 | 匹配来自字符集的任意单一字符              | [aeiou]          | 可以匹配任一元音字母字符                           |
@@ -192,7 +210,7 @@ Module: `docx`
 | (?<=exp)           | 匹配exp后面的位置                         | (?<=\\bdanc)\\w+\\b | 可以匹配I love dancing and reading中的第一个ing    |
 | (?!exp)            | 匹配后面不是exp的位置                     |                  |                                                    |
 | (?<!exp)           | 匹配前面不是exp的位置                     |                  |                                                    |
-| *?                 | 重复任意次，但尽可能少重复 | a.\*b<br>a.\*?b | 将正则表达式应用于aabab，前者会匹配整个字符串aabab，后者会匹配aab和ab两个字符串 |
+| *?                 | 重复任意次，但尽可能少重复 | a.\*b</br>a.\*?b | 将正则表达式应用于aabab，前者会匹配整个字符串aabab，后者会匹配aab和ab两个字符串 |
 | +?                 | 重复1次或多次，但尽可能少重复 |                  |                                                    |
 | ??                 | 重复0次或1次，但尽可能少重复 |                  |                                                    |
 | {M,N}?             | 重复M到N次，但尽可能少重复 |                  |                                                    |
@@ -219,6 +237,7 @@ Python提供了`re`模块来支持正则表达式相关操作，下面是re模�
 # Multiple Processing
 
 ## 多进程
+
 多任务同时进行，每个进程的内存空间是独立的，变量也是独立的
 Using `multiprocessing` Module
 
@@ -231,15 +250,19 @@ from threading import Thread
 ## 多进程+多线程
 
 # Web
+
 Module: `socket`, `requests`
 
 # Module
 
 ## numpy
+
 Note: [link](Python_Module/Numpy/Numpy_Note.md)
 
 ## pandas
-Note: [link](Python_Module/pandas/pandas_Note.md)
-## OpenCV
-Note: [link](Python/Python_Module/OpenCV/OpenCV_Note.md)
 
+Note: [link](Python_Module/pandas/pandas_Note.md)
+
+## OpenCV
+
+Note: [link](Python/Python_Module/OpenCV/OpenCV_Note.md)

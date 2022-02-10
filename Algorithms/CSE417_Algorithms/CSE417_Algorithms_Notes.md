@@ -7,9 +7,10 @@
   - [Class 2](#class-2-1)
 
 > Week 1 Class 2
-## Runtime 
 
-**Upper Bounds**: 
+## Runtime
+
+**Upper Bounds**:
 $f(n)$ is $ O (g(n))$ if there is a constant $c > 0$ so that $f(n)$ is eventually always  $ \le c g(n) $
 
 **Lower Bounds**:
@@ -27,7 +28,7 @@ $$ log_b(a) * log_a(x) = log_b(x)$$
 
 For all $x>0$, *(no mater how small)* $log \ n =O(n^x)$
 
-<br>
+</br>
 
 ```diff
 + Week 2 Class 1
@@ -41,33 +42,39 @@ Directed Graph:
 
 Sparse graphs: $m ≪ n^2$
 
-<br>
+</br>
 
 ```diff
 + Week 2 Class 2
 ```
-### Breadth-First Search(BFS) 
+
+### Breadth-First Search(BFS)
+
 level by level search
 
-runtime: 
-* $O(n^2)$ in genal. ![Runtime Analysis](Image/BFS_Analysis.png)
-* $(n+m) if sparse graphs
+runtime:
+
+- $O(n^2)$ in genal. ![Runtime Analysis](Image/BFS_Analysis.png)
+- $(n+m) if sparse graphs
 Application: Shortest Paths
 
 #### Bipartite Graph
-> odd cycle is, 
 
-### Depth-First Search (DFS) 
-go one deep frist and go back 
+> odd cycle is,
+
+### Depth-First Search (DFS)
+
+go one deep frist and go back
 
 #### Articulation Points
+
 ![arti_pint](Image/Articulation_Point.png)
 
-## Node:
+## Node
+
 - Leaf nodes(Leaves): The botten nodes in every way of the tree. Node without children
 - Internal nodes: Node have at least one child
 - Root: Node without parent
-
 
 ```diff
 + Class 4.1
@@ -78,10 +85,19 @@ go one deep frist and go back
 ```diff
 + Class 4.3
 ```
+
 ## Huffman Algorithm
+
+use the less bits to represent the every elements (the data has probobility)
 
 ```diff
 + Class 5.2
 ```
 
 # Dvide and conquer
+
+## Merge sort
+
+sort the array
+
+## 
