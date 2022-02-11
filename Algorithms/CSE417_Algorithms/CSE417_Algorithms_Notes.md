@@ -100,4 +100,25 @@ use the less bits to represent the every elements (the data has probobility)
 
 sort the array
 
-## 
+## Closest pair algorithm
+
+![closest_pair](Image/Closest-Pair.png)
+
+```diff
++ Class 5.3
+```
+
+![comparisions_closest_pair](Image/comparisons_of_closest_pair.png)
+$C(n)$ is number of comparisons
+
+## Recurrence
+
+Merge sort
+
+```diff
++ Class 6.1 2/7
+```
+
+### Karatsuba multiplication
+
+![Karatsuba_multiplication](Image/Karatsuba_multiplication.png)
