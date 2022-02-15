@@ -6,7 +6,6 @@
 
 Problem 2:
 
- The spanning tree produced by Breadth First Search in an undirected graph is a just set of edges. (It is not the drawing of those nodes and edges that we typically use to illustrate the algorithm.) The algorithm does not specify the order in which edges incident to a visited node are added to the queue, and different orders may result in different spanning trees (all equally valid). For BFS on the graph used as an example in lecture (approximately slides 37-40), always starting from node 1, how many different spanning trees are possible and briefly describe how each arises and what changes compared to the picture on slide 40.
 
 <p align="center">
     <img src="image/BFS.png" alt="drawing" width="300"/>
@@ -16,6 +15,16 @@ There are other 3 different spanning tree are possible. The only difference thes
 2. 8-13, 9-12
 3. 9-12, 10-13
 4. 8-12, 10-13
+
+** Added in redo **
+How each spaning tree arises:
+These different spanning trees are caused by the searching sequence between nodes 8, 9, and 10.
+If a node has mutilple edges with the nodes in uper level. The parant of this node in BFS tree will decide by which node in uper level doing the search first.
+1. If search node 8 first, the node 12, 13 will be children of node 8.
+2. If search sequence is 9 -> 8 -> 10, the node 12 will be 9's children, the node 13 will be 8's children, the edges will be 8-13, 9-12
+3. If search sequence is 9 -> 10 -> 8 or 10 -> 9 -> 8, the edges will be 9-12 and 10-13.
+4. If search sequence is 10 -> 8 -> 9, the edges will be 10-13 and 8-12.
+**
 
 When use the BFS, if there have any edges between two different levels in the graph haven't been used in a BFS tree *(the broken line in the graph)*. That means there have differents spanning trees are also possible. *(If does not specify the order)* Because these egdes can replace a edges without change the level of every nodes.
 
