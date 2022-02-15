@@ -1,4 +1,9 @@
 - [Intro](#intro)
+- [Dimensionality Reduction](#dimensionality-reduction)
+    - [SVD (Singluar Value Decomposition)](#svd-singluar-value-decomposition)
+    - [PCA (Principal Components Analysis)](#pca-principal-components-analysis)
+    - [Word2Vec](#word2vec)
+      - [Skip Gram Model](#skip-gram-model)
 - [Supervived Learning](#supervived-learning)
   - [Data Pre-progress](#data-pre-progress)
   - [Valudation](#valudation)
@@ -42,11 +47,14 @@
       - [Divisive (top-down)](#divisive-top-down)
       - [Agglomerative (bottom-up)](#agglomerative-bottom-up)
         - [Dunn Index](#dunn-index)
-- [Dimensionality Reduction](#dimensionality-reduction)
-    - [SVD (Singluar Value Decomposition)](#svd-singluar-value-decomposition)
-    - [PCA (Principal Components Analysis)](#pca-principal-components-analysis)
-    - [Word2Vec](#word2vec)
-      - [Skip Gram Model](#skip-gram-model)
+  - [Anomaly Detection](#anomaly-detection)
+    - [GMM ??](#gmm-)
+    - [Time-series Anomaly Detection](#time-series-anomaly-detection)
+    - [Anomaly Type](#anomaly-type)
+    - [Method](#method)
+    - [Simple Moving Average (SMA)](#simple-moving-average-sma)
+    - [Exponential Moving Average (EMA)](#exponential-moving-average-ema)
+    - [SLT](#slt)
 ```diff
 + Class 1.1
 ```
@@ -56,6 +64,69 @@
 Supervised Learning: give the object name
 
 Unsupervised Learning: don't give the object name, Machine don't know what it is, only know if there have two objects are different.
+
+
+**Parameter and Hyper-parameter**
+- Hyper-parameter is what we supply to the mode and which cannot learn from the ML model.
+  >Examples: number of hidden Nodes and Layers,input features, Learning Rate, Activation Function etc in Neural Network*
+- Parameter is what model learning for.
+
+
+# Dimensionality Reduction
+
+```diff
++ Class 5.2
+```
+
+- Classical Linearl
+  - SVD
+  - PCA
+  - LDA (Linear di)
+- Nun-linearl
+  - Auto-Encoders
+  - word2vec (word embeddings)
+  - BERT (sentence embedding)
+  - CNN archtecture (Image embedding)
+
+### SVD (Singluar Value Decomposition)
+Split the data in dataset and use number of matrix to reprensent, each matrix reprensent a dimation. It is bi-linear model 
+$$X = U \Sigma V^T$$
+$X$: Data Matrix (Nxd)
+$\Sigma$: Scaling Matrix, it make sure the function can operation if $X$ is not normalized (Diagenal Matrix)
+$U$ and $V$ are (Orthogonal matrix, example: $U_i$ and $U_j$ have same magenitude but drection is orthogonal in $\R^n$ dimention)
+ 
+![SVD](Image/SVD.png)
+Using Matrix Factorization
+
+Split the customers and products into two Matrix and use a vecter to represent each customers and products.
+
+### PCA (Principal Components Analysis)
+
+**Principal Component: $V$**
+It is based on SVD. Help understand the variance.
+$$X^TX = V \Sigma^2 V^T$$
+
+$X^TX = (V \Sigma U^T)(U \Sigma V^T) = V \Sigma^2 V^T$
+
+$V$ is $d \times k$ , each colum of $V$ is a principal component.
+
+**The Projection of Data:$V^T X^T$**
+The $V^T X^T$ is represents the embeddings or compressed representation of the data points. It is also equal to $\Sigma U^T$
+
+The dimention of $X^T$ is $d \times N$, then the dimention of $V^TX^T$ is $k \times N$, so this embedding the function of samples from d to k.
+
+Here is a two demention example:
+![PCA_example](Image/PCA_2d.png)
+The line is a principal component *(a colum $V_i$ in $V$)*. The points is functions. The projection will make the points in 2d demention embedding to the line, which is 1d demention.
+
+**Reconstruction**
+
+### Word2Vec
+Non-linear Model
+#### Skip Gram Model
+semi-supervised learning
+
+
 # Supervived Learning
 ## Data Pre-progress 
 1. Take care of Noise
@@ -295,55 +366,73 @@ Intro-cluster distance: distance between points from one cluster
 
 The bigger dunn indes ususlly is a better result. 
 
+
 ```diff
-+ Class 5.2
++ Class 6.1 2/7
 ```
 
-# Dimensionality Reduction
-- Classical Linearl
-  - SVD
-  - PCA
-  - LDA (Linear di)
-- Nun-linearl
-  - Auto-Encoders
-  - word2vec (word embeddings)
-  - BERT (sentence embedding)
-  - CNN archtecture (Image embedding)
+ML Pipeline:
 
-### SVD (Singluar Value Decomposition)
-Split the data in dataset and use number of matrix to reprensent, each matrix reprensent a dimation. It is bi-linear model 
-$$X = U \Sigma V^T$$
-$X$: Data Matrix (Nxd)
-$\Sigma$: Scaling Matrix, it make sure the function can operation if $X$ is not normalized (Diagenal Matrix)
-$U$ and $V$ are (Orthogonal matrix, example: $U_i$ and $U_j$ have same magenitude but drection is orthogonal in $\R^n$ dimention)
- 
-![SVD](Image/SVD.png)
-Using Matrix Factorization
+## Anomaly Detection
+### GMM ??
+- **Probability Density Function (PDF)**
+$$ \sum ^K_{k=1} \pi _k N(x| \mu_k, \Sigma_k) $$
 
-Split the customers and products into two Matrix and use a vecter to represent each customers and products.
+![GMM_algorithm](Image/Anomaly_Detection_GMM.png)
+- **Likehood function**
+![likehood](Image/Likehood.png)
 
-### PCA (Principal Components Analysis)
+- **Loss Function**
+![Loss_GMM](Image/Loss_GMM.png)
 
-**Principal Component: $V$**
-It is based on SVD. Help understand the variance.
-$$X^TX = V \Sigma^2 V^T$$
+If there is point in data set, and the probability of this point $< \alpha$, this point is anomaly.
 
-$X^TX = (V \Sigma U^T)(U \Sigma V^T) = V \Sigma^2 V^T$
+### Time-series Anomaly Detection
 
-$V$ is $d \times k$ , each colum of $V$ is a principal component.
+Use linear regression
 
-**The Projection of Data:$V^T X^T$**
-The $V^T X^T$ is represents the embeddings or compressed representation of the data points. It is also equal to $\Sigma U^T$
+```diff
++ Class 6.2 2/9
+```
+### Anomaly Type
+- Point Anomaly
+- Contextaul Anomaly
+- Collective Anomalies (E.g. Arrhythmia)
 
-The dimention of $X^T$ is $d \times N$, then the dimention of $V^TX^T$ is $k \times N$, so this embedding the function of samples from d to k.
+### Method
+- Mean/Std Deviation
+  - Cannot handle trend
+- Supervised LEarning
+Use unsupervised learning features
+- Simple Moving Average (SMA)
+- Exponential Moving Average (EMA)
+- STL
+- Deep Learning 
+- Auto Regression
+  - ARIMA / ARMA
 
-Here is a two demention example:
-![PCA_example](Image/PCA_2d.png)
-The line is a principal component *(a colum $V_i$ in $V$)*. The points is functions. The projection will make the points in 2d demention embedding to the line, which is 1d demention.
+### Simple Moving Average (SMA)
+[Github Example](https://github.com/HamishWoodrow/anomaly_detection)
+N-SMA is the N moving average
+$$SMA(i) = \frac{1}{N}\sum^{i-1}_{j=i-50} x_j$$
+Deviation$(i) = d(i) = |(x_i - SMA(i))|$
+Standard Deviation:
+$$SD(i) =  \sqrt{\frac{\sum^{N-1}_{j=0}d^2(j-i)}{N}} $$ 
 
-**Reconstruction**
+$x_i$ is an anomaly if $|x_i - SMA(i)| > t*SD(i)$
 
-### Word2Vec
-Non-linear Model
-#### Skip Gram Model
-semi-supervised learning
+$$Nvar(i) = \sum^{N-1}_{j=0}(x_{i-j}-SMA(i-j))^2$$
+
+### Exponential Moving Average (EMA)
+$$ EMA(i) = (1- \beta) * EMA(i-1) + \beta *x_i$$
+$\beta$ is parameter, where $0 \le \beta \le 1$
+
+$x_i$ is an anomaly if $||EMA(i) - x_i|| 
+
+### SLT
+Data = Seasonal + Trend + Remainder
+
+Two SLT:
+- Data = S + T + L
+- Data = S * T * L
+  log(Data) = losS + logT + logL
