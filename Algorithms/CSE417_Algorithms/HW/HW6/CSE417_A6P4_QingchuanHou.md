@@ -9,7 +9,7 @@
 The divide and conquer algorithm for this problem have two-part, the divide part and conquer part. 
 1. First, we need to divide the full list. Divide one list into two half lists each time, and repeat this step to divide the divided half list, until there is only have one triple in this list.
 2. Then if there is only one triple in this list, we need to split this triple into some pairs for future operations, and return a new list for these pairs.
-3. Then do the merge part. Merge two lists in to one list each time, find the overlap section for two lists, compare the $y_i$ in two lists for each $x_i$ and find bigger $y_i$. Then store every $(x_i, y_i)$ in new list $X$ with bigger $y_i$. In the other not overlap section, store the original pairs in two lists to the new list $X$. Then merge this list $X$ with another merged list $X'$ to get another new pairs list. Repeat this step until all lists have been merged into one list.
+3. Then do the merge part. Merge two lists in to one list each time, find the overlap section for two lists, compare the $y_i$ in two lists for each $x_i$ and find bigger $y_i$. Then store every $(x_i, y_i)$ in new list $X$ with bigger $y_i$. In the other not overlap section, store the original pairs in two lists to the new list $X$. Then merge this list $X$ with another merged list $X'$ to get another new pairs list. Repeat this step until all lists have been merged into one list. Which is the final result.
 
 **Pseudocode:**
 (1) Sort list $A$ by the small $x_l$ first
@@ -51,3 +51,17 @@ Operations to count: the value comparison for two $y_i$ in overlap section
 Base case: lines (3) - (5)
 Recursive calls: lines (7) and (8)
 Counted operation: 
+
+Corresponding recurrence relation:
+$$ 
+\begin{align*}
+    T(n) = 
+    \begin{cases}
+    d & \text{for } n = 1 \\
+    T(n/2) + cn & \text{otherwise} 
+    \end{cases}
+\end{align*} 
+$$
+
+The problem assume the total n is power of 2, so do not need to consider if n = 0
+Where a=1, b=2, c=2, d=2, k=0
