@@ -94,8 +94,9 @@ use the less bits to represent the every elements (the data has probobility)
 + Class 5.2
 ```
 
-# Dvide and conquer
+# Divide and conquer
 
+The basic idea is divide one full size probelem to two half 
 ## Merge sort
 
 sort the array
@@ -122,3 +123,16 @@ Merge sort
 ### Karatsuba multiplication
 
 ![Karatsuba_multiplication](Image/Karatsuba_multiplication.png)
+
+$$\sum ^k_{i=0} x^i = \frac{x^{k+1}-1}{x-1}$$
+
+```diff
++ Class 6.2 2/9
+```
+
+### Master Recurrence
+![Master_recurrence](Image/Master_Recurrence.png)
+
+```diff 
++ Class 6.3 2/11
+```
