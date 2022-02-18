@@ -46,22 +46,32 @@ The divide and conquer algorithm for this problem have two-part, the divide part
 
 </br>
 
-Operations to count: the value comparison for two $y_i$ in overlap section
+Operations to count: the value comparison between $y_i$
 
-Base case: lines (3) - (5)
+Base case: lines (3) - (5). The base case here is the data pre-processing to transfer the triples to pairs.
 Recursive calls: lines (7) and (8)
-Counted operation: 
+Counted operation: line (15) and line (18). These are the progress deal with the overlap section between two lists. Only one of them will happen at every recursive level.
 
 Corresponding recurrence relation:
 $$ 
 \begin{align*}
     T(n) = 
     \begin{cases}
-    d & \text{for } n = 1 \\
-    T(n/2) + cn & \text{otherwise} 
+    0 & \text{for } n = 1 \\
+    2T(n/2) + n & \text{otherwise} 
     \end{cases}
 \end{align*} 
 $$
-
+*\* Notice the size $n$ here is the number of pairs, not number of triples.* 
 The problem assume the total n is power of 2, so do not need to consider if n = 0
-Where a=1, b=2, c=2, d=2, k=0
+
+Where a=1, b=2, c=1, d=2, k=1,
+
+
+1. "a" stands for the number of problems need to consider after every time divide. There will be two half of the array after every time divide. That is why a = 2.
+2. "b" stands for the size after every time divide. In the algorithm, the divide will divide the full array into two half parts, which is n/2 so that is why b = 2.
+3. "c" and "k" are both standing for the number of counted operations in one recursive level. Every recursive level may have some comparisons to deal with the overlap section, line (15) or (18). c is a decided by what is the triples look like. The worst case is the whole list is overlaped. However, there will be only one loop for each n, so k = 1. 
+4. "d" is standing for the number of counted operations in the base case. Because in this situation, the opearation to count is the value comparison between $y_i$, and there is no such of this comparison in base case. The base case is the data pre-processing to transfer the triples to pairs. Therefore d = 0.
+
+$a = b^k$, so the complexity of algorithm is,
+$$T(n) = \Theta (n^klogn) = \Theta(nlogn)$$

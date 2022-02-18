@@ -56,5 +56,8 @@ $$
 Where a=1, b=2, c=2, d=2, k=0
 1. a stands for the number of problems need to consider after every time divide. I only need to consider half of the array after every time I divide, so there will only have one problem. That is why a=1.
 2. b stands for the size after every time divide. In the algorithm, the divide will divide the full array into two half parts, which is n/2 so that is why b = 2.
-3. c and k are both standing for the number of counted operations in one recursive level. Every recursive level has 1 or 2 comparisons, line (7) and (9). I picked the bigger number, so c = 2. Also, because there is no $n$ in the recursive level, the exponent of $n$ term k = 0.
+3. c and k are both standing for the number of counted operations in one recursive level. Every recursive level has 1 or 2 comparisons, line (7) and (9). I picked the bigger number, so c = 2. Because these comparisons is constant, they are not decided $n$ in the recursive level, the exponent of $n$ term k = 0.
 4. d is standing for the number of counted operations in the base case. There are 1 or 2 comparisons in base level, line (3), and (4) in Pseudocode. So d = 2 by picking the bigger number.
+
+$a = b^k$, so the complexity of algorithm is,
+$$T(n) = \Theta (n^klogn) = \Theta(logn)$$
