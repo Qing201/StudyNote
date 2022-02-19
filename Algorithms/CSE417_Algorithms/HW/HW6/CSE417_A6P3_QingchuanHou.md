@@ -27,10 +27,10 @@ Otherwise, $a_i$ will be the middle number. This also include if n=i, $a_n < b_1
 
 (6) &emsp; &emsp; $m = (i+j) / 2$
 
-(7) &emsp; &emsp; if $a_m > b_{n-m+1}$
-(8) &emsp; &emsp; &emsp; &emsp; $p$ = Middle Point Comparison( First half: $A_{(i \text{ to } m-1 )}, B$ )
-(9) &emsp; &emsp; elif $a_m < b_{n-m}$ 
-(10) &emsp;&emsp;&emsp; &emsp; $p$ = Middle Point Comparison( Second half: $A_{(m+1 \text{ to } j )}, B$ )
+(7) &emsp; &emsp; if $a_m > b_{n-m+1}$ \
+(8) &emsp; &emsp; &emsp; &emsp; $p$ = Middle Point Comparison( First half: $A_{(i \text{ to } m-1 )}, B$ ) \
+(9) &emsp; &emsp; elif $a_m < b_{n-m}$ \
+(10) &emsp;&emsp;&emsp; &emsp; $p$ = Middle Point Comparison( Second half: $A_{(m+1 \text{ to } j )}, B$ ) \
 (11) &emsp;&emsp;return $p$
 
 </br>

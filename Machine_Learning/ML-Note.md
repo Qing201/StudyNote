@@ -1,6 +1,6 @@
 
 ML Models 
-![ML](Image/ML.png)
+![ML](EEP-596_Adv-Intro-ML/Image/ML_overlook.png)
 
 
 ML Pipeline

@@ -55,15 +55,21 @@
     - [Simple Moving Average (SMA)](#simple-moving-average-sma)
     - [Exponential Moving Average (EMA)](#exponential-moving-average-ema)
     - [SLT](#slt)
+  - [Deep Learning:](#deep-learning)
 ```diff
 + Class 1.1
 ```
 
 # Intro
+ML:
+![](Image/ML_overlook.png)
 
-Supervised Learning: give the object name
+ML Pipeline:
+![](Image/ML_pipeline.png)
 
-Unsupervised Learning: don't give the object name, Machine don't know what it is, only know if there have two objects are different.
+**Supervised Learning:** give the object name
+
+**Unsupervised Learning:** don't give the object name, Machine don't know what it is, only know if there have two objects are different.
 
 
 **Parameter and Hyper-parameter**
@@ -371,7 +377,6 @@ The bigger dunn indes ususlly is a better result.
 + Class 6.1 2/7
 ```
 
-ML Pipeline:
 
 ## Anomaly Detection
 ### GMM ??
@@ -402,14 +407,14 @@ Use linear regression
 ### Method
 - Mean/Std Deviation
   - Cannot handle trend
-- Supervised LEarning
+- Supervised Learning
 Use unsupervised learning features
 - Simple Moving Average (SMA)
 - Exponential Moving Average (EMA)
 - STL
 - Deep Learning 
 - Auto Regression
-  - ARIMA / ARMA
+  - ARIMA / ARMA  
 
 ### Simple Moving Average (SMA)
 [Github Example](https://github.com/HamishWoodrow/anomaly_detection)
@@ -436,3 +441,9 @@ Two SLT:
 - Data = S + T + L
 - Data = S * T * L
   log(Data) = losS + logT + logL
+
+```diff
++ Class 7.1 2/14
+```
+
+## Deep Learning:
