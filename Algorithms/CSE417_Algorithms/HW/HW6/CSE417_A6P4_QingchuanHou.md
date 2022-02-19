@@ -26,8 +26,9 @@ The divide and conquer algorithm for this problem have two-part, the divide part
 (7)&emsp; &emsp; $X_2$ = Merge(Second half: $a_{m+1}, a_{m+2}, ..., a_n$)
 
 &emsp; &emsp; &emsp; ***// Recursive merge section to merge $X_1$ and $X_2$***
-(8)&emsp; &emsp; Creat list $X$
+(8)&emsp; &emsp; Creat new list $X$
 (9)&emsp; &emsp; intial $j$, $i_1$, $i_2$ = 1 represent index for $X$, $X_1$, and $X_2$
+(9)&emsp; &emsp; intial flag $a$ that $a$ = 1 or 2 which have smaller $x_{1}$
 
 (10)&emsp;&emsp;while $X_1$ or $X_2$ is not empty:
 (11)&emsp;&emsp;&emsp; &emsp; find the small one $x_{i_k}$ between $x_{i_1}$ and $x_{i_2}$. Then  $x_{i_{k'}}$ is another one, 
