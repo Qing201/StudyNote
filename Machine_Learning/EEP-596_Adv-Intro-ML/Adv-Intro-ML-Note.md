@@ -373,7 +373,6 @@ The bigger dunn indes ususlly is a better result.
 
 ML Pipeline:
 
-
 ## Anomaly Detection
 ### GMM ??
 - **Probability Density Function (PDF)**
@@ -437,8 +436,3 @@ Two SLT:
 - Data = S + T + L
 - Data = S * T * L
   log(Data) = losS + logT + logL
-
-
-```diff
-+ Class 7.1 2/14
-```
