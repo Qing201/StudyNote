@@ -12,7 +12,7 @@
   - [Recurrence](#recurrence)
     - [Karatsuba multiplication](#karatsuba-multiplication)
     - [Master Recurrence](#master-recurrence)
-- [Dynamic Programming](#dynamic-programming)
+- [Dynamic Programmin](#dynamic-programmin)
 
 > Week 1 Class 2
 
@@ -145,4 +145,25 @@ $$\sum ^k_{i=0} x^i = \frac{x^{k+1}-1}{x-1}$$
 + Class 6.3 2/11
 ```
 
-# Dynamic Programming
+# Dynamic Programmin
+
+```diff 
++ Class 6.3 2/14
+```
+Eg. Give the elements 1, 4, 5, Find the min number of element to get 27.
+5|4|1|total </br> number
+-|-|-|-
+5|0|2|7
+4|1|3|8
+3|3|0|6
+![](Image/dp_eg1.1.png)
+OPT($i$) is the min number of stamps totaling $i$
+
+![](Image/dp_eg1.2.png)
+Run time: $O(n)$
+In this way, we do not know which number is the elements, but we can use trace back
+
+**Trace-Back**
+![](Image/dp_eg1.3.png)
+
+
