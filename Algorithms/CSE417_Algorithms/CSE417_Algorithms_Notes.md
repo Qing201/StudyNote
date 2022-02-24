@@ -1,10 +1,18 @@
-- [Week 1:](#week-1)
-  - [Class 2](#class-2)
-  - [Class 3](#class-3)
-- [Week 2](#week-2)
-  - [Class 1](#class-1)
 - [Graphs](#graphs)
-  - [Class 2](#class-2-1)
+    - [Breadth-First Search(BFS)](#breadth-first-searchbfs)
+      - [Bipartite Graph](#bipartite-graph)
+    - [Depth-First Search (DFS)](#depth-first-search-dfs)
+      - [Articulation Points](#articulation-points)
+  - [Node](#node)
+- [Greedy Algorithm](#greedy-algorithm)
+  - [Huffman Algorithm](#huffman-algorithm)
+- [Divide and conquer](#divide-and-conquer)
+  - [Merge sort](#merge-sort)
+  - [Closest pair algorithm](#closest-pair-algorithm)
+  - [Recurrence](#recurrence)
+    - [Karatsuba multiplication](#karatsuba-multiplication)
+    - [Master Recurrence](#master-recurrence)
+- [Dynamic Programming](#dynamic-programming)
 
 > Week 1 Class 2
 
@@ -136,3 +144,5 @@ $$\sum ^k_{i=0} x^i = \frac{x^{k+1}-1}{x-1}$$
 ```diff 
 + Class 6.3 2/11
 ```
+
+# Dynamic Programming

@@ -54,8 +54,9 @@
     - [Method](#method)
     - [Simple Moving Average (SMA)](#simple-moving-average-sma)
     - [Exponential Moving Average (EMA)](#exponential-moving-average-ema)
-    - [SLT](#slt)
+    - [STL](#stl)
   - [Deep Learning:](#deep-learning)
+    - [Intro](#intro-1)
 ```diff
 + Class 1.1
 ```
@@ -222,6 +223,8 @@ Sigmoid Function (logistic function)
 ![log_regretion](Image/Logistic_Regression.png)
 Where 
 $$ y = w^Tx_i $$ 
+
+![](Image/Sigmoid.png)
 
 ```diff
 - 所有ML模型问题的根本就是让你的模型中的Loss尽可能的small。越小就越贴近于真实值。 
@@ -432,12 +435,12 @@ $$Nvar(i) = \sum^{N-1}_{j=0}(x_{i-j}-SMA(i-j))^2$$
 $$ EMA(i) = (1- \beta) * EMA(i-1) + \beta *x_i$$
 $\beta$ is parameter, where $0 \le \beta \le 1$
 
-$x_i$ is an anomaly if $||EMA(i) - x_i|| 
+$x_i$ is an anomaly if $||EMA(i) - x_i|| $
 
-### SLT
+### STL
 Data = Seasonal + Trend + Remainder
 
-Two SLT:
+Two STL:
 - Data = S + T + L
 - Data = S * T * L
   log(Data) = losS + logT + logL
@@ -447,3 +450,5 @@ Two SLT:
 ```
 
 ## Deep Learning:
+### Intro
+Application:
