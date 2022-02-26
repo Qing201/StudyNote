@@ -1,6 +1,9 @@
 - [System Terminal](#system-terminal)
     - [Manage the permissions `chomd`](#manage-the-permissions-chomd)
     - [Display home dirction `pwd`](#display-home-dirction-pwd)
+  - [Process](#process)
+    - [Process Checking](#process-checking)
+    - [Backgroud Processes](#backgroud-processes)
   - [Dirction](#dirction)
   - [Files](#files)
       - [Creat a new file `touch`](#creat-a-new-file-touch)
@@ -24,6 +27,26 @@
 ```sh
 pwd -P    # Full path 
 ```
+
+
+## Process
+
+### Process Checking
+
+```sh
+pgrep [name]      # Search progress by name
+ps [progress_number]  # Show progress full info
+
+ps -ef | grep [name]    
+```
+
+### Backgroud Processes
+```sh
+python [file.py] &    # add '&' to run in backgroud
+
+nohup python3 -u project1.py > p1.out 2>&1 &    # Do this in ssh
+```
+
 
 ## Dirction
 

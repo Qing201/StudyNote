@@ -13,6 +13,11 @@
     - [Karatsuba multiplication](#karatsuba-multiplication)
     - [Master Recurrence](#master-recurrence)
 - [Dynamic Programmin](#dynamic-programmin)
+  - [Intro](#intro)
+  - [Schedule](#schedule)
+    - [Weighted Interval Scheduling](#weighted-interval-scheduling)
+    - [Knapsack Algorithm](#knapsack-algorithm)
+  - [](#)
 
 > Week 1 Class 2
 
@@ -147,8 +152,9 @@ $$\sum ^k_{i=0} x^i = \frac{x^{k+1}-1}{x-1}$$
 
 # Dynamic Programmin
 
+## Intro
 ```diff 
-+ Class 6.3 2/14
++ Class 7.1 2/14
 ```
 Eg. Give the elements 1, 4, 5, Find the min number of element to get 27.
 5|4|1|total </br> number
@@ -166,4 +172,26 @@ In this way, we do not know which number is the elements, but we can use trace b
 **Trace-Back**
 ![](Image/dp_eg1.3.png)
 
+## Schedule
 
+### Weighted Interval Scheduling
+Jobs with start time, end time, and value. Time may be confilict, find most valueable sequency.
+![](Image/Weight_Schedule.png)
+![](Image/Weight_Schedule_table.png)
+The job is sorted by the end time. $p_j$ is last possible job. $v_j$ is the value.
+
+```diff 
++ Class 7.2 2/16
+```
+
+That can only find the optimal value, so we need use traceback to find the solution which job has been counted.
+![](Image/Weight_Schedule_traceback.png)
+![](Image/Weight_Schedule_traceback_table.png)
+
+### Knapsack Algorithm
+![](Image/Knapsack_Algorithm.png)
+
+Last number in line 5: 40 = max(40, 28+7)
+Red line: 24 = max(6+18, 7) =24 &emsp; *where 6: 2{1,2} &emsp; 18: $v_3$
+
+## 
