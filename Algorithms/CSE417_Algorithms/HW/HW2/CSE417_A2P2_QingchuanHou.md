@@ -4,7 +4,7 @@
 ##### UWNetID: qhou
 <br/>
 
-Problem 2:
+**Problem 2:**
 
 
 <p align="center">
@@ -16,7 +16,7 @@ There are other 3 different spanning tree are possible. The only difference thes
 3. 9-12, 10-13
 4. 8-12, 10-13
 
-** Added in redo **
+≈
 How each spaning tree arises:
 These different spanning trees are caused by the searching sequence between nodes 8, 9, and 10.
 If a node has mutilple edges with the nodes in uper level. The parant of this node in BFS tree will decide by which node in uper level doing the search first.

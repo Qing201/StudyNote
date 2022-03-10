@@ -36,4 +36,7 @@ For example, if we have two set M and W. There are two elements in M set: {m1,m2
 
 In this sample, the stable matching pairs could be $(m1,w1)$, $(m2,w2)$. In this case the $m1$'s first choice is $w1$, but $w1$'s firest choice is $m2$. Also,the $m2$'s first choice is $w2$, but $w2$'s firest choice is $m1$. 
 
+** Added in redo **
+There are two case in this problem. The another stable matching pairs is $(m1,w2)$, $(m2,w1)$. In this case the $w1$'s first choice is $m2$, but $m2$'s firest choice is $w1$. Also, $w2$'s firest choice is $m1$, but the $m2$'s first choice is $w2$.
+
 Therefore, the statement is false.

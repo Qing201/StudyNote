@@ -4,25 +4,39 @@
 ##### UWNetID: qhou
 <br/>
 
-Problem 6:
-Mikileaks has posted $n$ (thousands of) blurry images purportedly stolen from a secrect government database of UFO sitings. You believe each potentially belongs to one of two different groups, perhaps Romulans vs Dragons (R and D for simplicity), but it’s hard to directly label any one image in isolation.
-Instead, you study each pair i and j side-by-side; label the pair $(i, j)$ either “same” (meaning you believe them both to come from the same group) or “different” (they represent different groups ). As a third alternative, you may offer no opinion on a given pair; call the pair ambiguous.
-Given the collection of n images, as well as a collection of m judgments (either “same” or “different” for the non-ambiguous pairs), you’d like to know if this data is consistent with the idea that each image is from one of only two groups. More concretely, we’ll declare the m judgments to be consistent if it is possible to label each image either R or D in such a way that for each pair $(i, j)$ labeled “same,” it is the case that i and j have the same label; and for each pair $(i, j)$ labeled “different,” it is the case that $i$ and $j$ have opposite labels. For example, if 1 and 2 are “same”, and 1 and 3 are “same”, but 2 and 3 are “different”, then there is no consistent labeling, whereas if 2 and 3 are “same”, then there is a consistent labeling.
-Give an algorithm with running time O(m + n) that determines whether the m judgments are consistent.
+**Problem 6:**
+The idea for this problem is to use DFS for every image with judgments, the image will be the vertices and the judgments will be the edges. Use BFS to go through the images by existing judgments. When finding a new image, label the new image to a group according to the judgments with the previous image. If the connected image already has a label, compare the label with judgments. If correct, compare with next. If incorrect, return the result inconsistent. If all is correct, return result consistent.
 
+**Pseudocode:**
 
-initial state: all "image" undiscovered
-for "image" = 1 to n
-    if undiscovered and have judgments then
-        mark state('image) == discovered
-    if have judgments then
-            for other have pair(judgements) with image
-                if undiscovered:
-                    if same: label same label(P or R) and mark discovered
-                    if different: label same label(P or R) and mark discovered
-                if discovered:
-                    if same label and same judgement or different judgement with different lable: label consistent
-                    else : label inconsistent
- 
-            
-This algorithm will search every edge for each node one time. Each edge is touched twice. So the runtime is O(m+n)
+    initial state: all image "g_1, g_2, ... g_n" undiscovered  
+    initial result = consistent      
+
+    for i = 1 to n:                     // deal with unconnected graph
+        if state g_i is undiscovered: 
+            mark g_i discovered
+            Search(g_i):
+                if have judgments then
+                    for other g_j have judgements with g_i
+
+                        if g_j undiscovered:
+                            if judgment is 'same':
+                                label same image label(P or R)
+                            if judgment is 'different':
+                                label different image label(P or R)
+                            mark g_j discovered
+                            result = Search(g_j)         // BFS for next connected vertex
+
+                        if g_j discovered:
+                            if label is not correct with judgement: 
+                                result =  inconsistent    
+                                
+            if result is 'inconsistent' break the for loop and return result
+            else continue
+    output result
+    
+**Correctness Analysis:**        
+In this algorithm, the result returned will be 'consistent' or 'inconsistent'. I initial the result to consistent and doing the BFS. If find an incorrect judgment, it will change the result to 'inconsistent' and output it. Otherwise, the initial result will not change and output 'consistent'.
+
+**Run time:**
+This algorithm will search every image can compare it with every judgment have this image. Every judgment will include two images, so each judgment will be touched twice, once from each end. Therefore the runtime is $O(m+n)$
