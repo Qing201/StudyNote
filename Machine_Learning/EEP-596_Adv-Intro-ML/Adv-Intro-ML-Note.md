@@ -57,6 +57,16 @@
     - [STL](#stl)
   - [Deep Learning:](#deep-learning)
     - [Intro](#intro-1)
+      - [Multi-Layer Perceptron (MLP)](#multi-layer-perceptron-mlp)
+    - [Over-Fitting](#over-fitting)
+    - [Forward Propagation](#forward-propagation)
+    - [Back Propagation](#back-propagation)
+    - [Auto Encoder *](#auto-encoder-)
+    - [Sparse Auto Encoders](#sparse-auto-encoders)
+    - [Sequence to Sequence Model (LSTM)](#sequence-to-sequence-model-lstm)
+    - [NLP](#nlp)
+      - [Document Summarization](#document-summarization)
+      - [Evaluation](#evaluation)
 ```diff
 + Class 1.1
 ```
@@ -452,3 +462,76 @@ Two STL:
 ## Deep Learning:
 ### Intro
 Application:
+
+
+**Activation Function**
+- Sigmoid
+- Hyperbolic tangent
+- Rectified linear unit (ReLU)
+- Softplus
+#### Multi-Layer Perceptron (MLP)
+
+### Over-Fitting
+
+1. Weight Regularization $l_1$, $l_2$
+2. Dropouts (popular)
+   
+3. Early Stoppint
+   Stop traning when the validation error start increasing
+
+
+```diff
++ Class 7.2 2/16
+```
+
+### Forward Propagation
+$x$ -> $\hat{y}$
+
+### Back Propagation
+- Compute gradient
+- Chain rule for differediation
+
+### Auto Encoder *
+PCA and Auto-Encoders are embedding
+PCA: Linear
+AE: Non-linear
+
+Application:
+- Remove Obstacles
+- Coloring Images
+
+### Sparse Auto Encoders
+
+### Sequence to Sequence Model (LSTM)
+LSTM: Long Sort Term Memory
+LSTM is used on the sequence data, carry the previous context/weightvectrx through sequence to the present.
+
+Application:
+NLP
+
+```diff
++ Lecture 14, Week 8, 2/23
+```
+### NLP
+
+**Application:**
+- Topic Modeling
+- Translation
+- Sentiment Analysis
+- Chat bots
+- Document Summarization
+  - Abstractive Summarization
+  - Extractive Summarization
+
+#### Document Summarization
+
+**Evaluation Metrics**
+1. ROUGE score: Recall-Oriented Understudy for Gisting Evaluation
+2. ROUGE-N : N-gram overlap between two summaries
+
+Use DL model base on BERT
+
+#### Evaluation 
+```diff
++ Lecture 15, Week 9, 3/4
+```

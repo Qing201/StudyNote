@@ -1,0 +1,11 @@
+# a simple test case:
+GUUUUC
+# a bit longer:
+AGCUCAUAUGGC
+# the example sequence from the homework handout:
+GCCCACCUUCGAAAAGACUGGAUGACCAUGGGCCAUGAUU
+# A real RNA: (embl ID:X57045.1/606-678.)  An  arginine transfer RNA from
+# the unicellular eukaryotic parasite responsible for "African Sleeping Sickness."  
+# From Mottram,J.C.; Eier,W.; Sloof,P.; Bell,S.; Nelson,R.G.; Barry,J.D.; 
+# "tRNAs of Trypanosoma brucei."  J. Biol. Chem. 266:1 (1991).
+GCUCCAGUGGCCUAAUGGAUAUGGCUUUGGACUUCUAAUCCAAAGGUUGCGGGUUCGAGUCCCGUCUGGAGUA

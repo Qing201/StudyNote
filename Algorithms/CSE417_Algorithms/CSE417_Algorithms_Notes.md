@@ -17,7 +17,7 @@
   - [Schedule](#schedule)
     - [Weighted Interval Scheduling](#weighted-interval-scheduling)
     - [Knapsack Algorithm](#knapsack-algorithm)
-  - [](#)
+  - [RNA](#rna)
 
 > Week 1 Class 2
 
@@ -194,4 +194,23 @@ That can only find the optimal value, so we need use traceback to find the solut
 Last number in line 5: 40 = max(40, 28+7)
 Red line: 24 = max(6+18, 7) =24 &emsp; *where 6: 2{1,2} &emsp; 18: $v_3$
 
-## 
+
+```diff 
++ Class 7.3 2/18
+```
+
+## RNA
+<img src="Image/Nussinov's_Algotithm.png" width="540"> <img src="Image/RNA_Algorith_pair.png" width="200">
+
+
+
+```diff 
++ Class 8.1 holiday
++ Class 8.2 2/23
+```
+
+![](Image/RNA_Algorithm.png) 
+
+```diff 
++ Class 8.3 2/25
+```

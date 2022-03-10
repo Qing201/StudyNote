@@ -6,7 +6,9 @@
 <br/>
 
 Problem 3:
+There are 8 different spanning trees. It is different because of the different search sequence choice when a node has multiple edges that connect the nodes to the next level.
 
-ThegistoftheproblemaboveappliesequallywelltoDepthFirstSearch—different,equallyvalid,DFSspanning trees may arise depending on the order in which you explore the edges incident to a visited node. Consider the graph used as an example in lecture (approx slides 72-110), but for simplicity remove the two edges {A, J } and {B, J}. The examples shown on those slides remains a valid DFS starting from vertex A of this smaller graph, but obviously without those two edges. Always starting DFS from node A, how many different spanning trees are possible and briefly describe how each arises and what changes compared to the picture on slide 110.
+![](image/A2P2_1.jpeg)
+![](image/A2P2_2.jpeg)
 
-
+The search sequence may be different in a DFS spanning tree for example, in the tree 8, the search sequence for node K and M may exchange. 
