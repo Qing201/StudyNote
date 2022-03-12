@@ -1,3 +1,5 @@
+- [Intro](#intro)
+  - [Runtime](#runtime)
 - [Graphs](#graphs)
     - [Breadth-First Search(BFS)](#breadth-first-searchbfs)
       - [Bipartite Graph](#bipartite-graph)
@@ -13,14 +15,22 @@
     - [Karatsuba multiplication](#karatsuba-multiplication)
     - [Master Recurrence](#master-recurrence)
 - [Dynamic Programmin](#dynamic-programmin)
-  - [Intro](#intro)
+  - [Intro](#intro-1)
   - [Schedule](#schedule)
     - [Weighted Interval Scheduling](#weighted-interval-scheduling)
     - [Knapsack Algorithm](#knapsack-algorithm)
   - [RNA](#rna)
+  - [Sequence Alignment](#sequence-alignment)
+- [NP-Completeness](#np-completeness)
+  - [Reduction:](#reduction)
+    - [SAT and Independent Set](#sat-and-independent-set)
+    - [SAT to Subset Sum (Knapsack)](#sat-to-subset-sum-knapsack)
+
+
+> Week 1 Class 1
 
 > Week 1 Class 2
-
+# Intro
 ## Runtime
 
 **Upper Bounds**:
@@ -214,3 +224,39 @@ Red line: 24 = max(6+18, 7) =24 &emsp; *where 6: 2{1,2} &emsp; 18: $v_3$
 ```diff 
 + Class 8.3 2/25
 ```
+
+## Sequence Alignment
+
+```diff 
++ Class 9.1 2/28
+```
+
+# NP-Completeness
+
+Polynomial
+
+
+## Reduction:
+Definition: Solve A, given a subroutine solving B.
+> $\le$ just mean is easy than
+
+![](Image/Boolean.png)
+Boolean CNF formula example:
+(x1 ∨x2 ∨x4)∧(x1 ∨¬x2 ∨x3)∧(x2 ∨¬x3 ∨¬x4)
+
+### SAT and Independent Set
+V: or &emsp; &emsp; $\wedge$: and &emsp; &emsp; ¬: no
+
+![](Image/SAT_IndpSet.png)
+
+```diff 
++ Class 9.2 3/2
+```
+
+
+```diff 
++ Class 9.3 3/4
+```
+### SAT to Subset Sum (Knapsack)
+ 
+![](Image/SAT_KNAP.png)
