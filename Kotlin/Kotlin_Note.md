@@ -6,17 +6,32 @@
       - [Char and String](#char-and-string)
       - [Nullable](#nullable)
     - [Input and Output](#input-and-output)
+    - [Typecasting](#typecasting)
+  - [Collections](#collections)
+    - [List](#list)
+    - [Set](#set)
+    - [Map](#map)
+    - [ArrayList](#arraylist)
   - [Control Flows (Logical)](#control-flows-logical)
       - [if else](#if-else)
       - [For](#for)
       - [When](#when)
       - [While](#while)
   - [Functions](#functions)
-  - [collections](#collections)
   - [Classes and Objects (inheritance)](#classes-and-objects-inheritance)
+    - [Basic Class](#basic-class)
+      - [Member Variables (Properties)](#member-variables-properties)
+      - [Member Secondary Constructor](#member-secondary-constructor)
+      - [Custom Getter and Setter](#custom-getter-and-setter)
+        - [Private set](#private-set)
+    - [Data Class](#data-class)
+    - [Parent and Child Class](#parent-and-child-class)
+      - [Parent Class](#parent-class)
+      - [Child Class](#child-class)
+    - [Interface](#interface)
+    - [abstract class](#abstract-class)
+  - [Lambda Expression](#lambda-expression)
   - [Operator](#operator)
-  - [List](#list)
-  - [Class](#class)
 - [Android Studio](#android-studio)
 
 
@@ -110,8 +125,58 @@ print("Number of char is ${myStr.length})
 val x = readLine()
 
 val number = readLine() ?: "0"          // Sign 0 if it is none
+```
+
+### Typecasting
+```kt
+val obj: Any = 123
+val str: String? = obj as? String      // str will set if obj is a string, null if not string
+print(str)      // print null
+```
+
+
+## Collections
+### List 
+List can and different type of data.
+```kt
+val myList = ListOf("A", 1, Class())      // this list cannot modify
+
+mutableMyList = myList.toMutableList()
+val mutableMyList = mutableListOf()      // can modify
+
+println(myList[0])
+println(myList.contentToString)
+
+mutableMyList.add('A')
+mutableMyList.addAll(myList)         // add another list
+mutableMyList.removeAt(index)        // remove the element with index 
+
+
+for(index in myList.indices){...}
 
 ```
+
+### Set
+Set will not have the duplicate elements.
+```kt
+val mySet = setOf("A", "A", "B")
+print(mySet.size)                   // print 2, because two "A" will become one "A"
+
+mySet.toSortedMap()
+```
+
+### Map
+```kt
+val week = mapOf(1 to "Mon", 2 to "Tue", 3 to "Wed")
+print(week[2])          // "Tue" with key not index
+
+```
+
+### ArrayList
+```kt
+val myArrayList : ArrayList<String>()
+```
+
 
 ## Control Flows (Logical)
 
@@ -182,26 +247,192 @@ print("$x")             // x = 11
 
 
 ## Functions
-## collections
+```kt
+fun myFunction(){
+    // ...
+}
+```
 ## Classes and Objects (inheritance)
 
+### Basic Class
+```kt
+class Person(firstName: String = "Qingchuan", lastName: String = "Hou"){
+    
+    // Member Variables - Properties
+
+    // initializer block, run when create
+    init {
+        // ...
+    }
+
+    // Member Secondary Constructor
+}
+```
+
+#### Member Variables (Properties)
+
+```kt
+    var age : Int? = null
+    var hobby : String = "Basketball"
+    lateinit var height: String
+```
+
+To change the member variables
+```kt
+fun main(){
+    var qing = Person()
+    qing.age = 24
+}
+```
+
+#### Member Secondary Constructor
+```kt
+    // 'this' here to get the initialize properties
+    constructor(firstName: String, lastName: String, age: Int): this(firstName, lastName){
+        this.age = age          // 'this' here is the member variable
+    }
+```
+To using this constructor
+```kt
+fun main(){
+    var qing = Person(age: 24)
+}
+```
+
+#### Custom Getter and Setter
+Getter and setter is used in initial variables
+Getter: set what to output when get the variable outside of class
+Setter: how to change the variable when set it outside of class
+
+```kt
+    var weight: Int = 65
+        get() {
+            return field * 2
+        }
+        set(value){
+            field = if(value > 0) value else throw IllegalArgumentException("Weight cannot < 0")
+        }
+```
+
+##### Private set
+```kt
+    // this variable can be only set inside the class, but can still get outside
+    var gender : String = "Male"
+        private set
+```
+
+### Data Class
+```kt
+data class User(val id: Long, val name: String)
+
+fun main(){
+    val user1 = User(id:1, name:"A")
+
+    val user2 = user1.copy(name = "Qing")           // Only name will change
+    
+    println(user2.component1())     // 1
+    println(user2.component2())     // "qing"
+    
+    val (id,name) = user2           // id = 1, name = "qing"
+}
+```
+
+### Parent and Child Class
+
+#### Parent Class
+Super class or Base class or Parent class
+```kt
+// using 'open' to allow other child class to access
+open class Car(val name: String, val brand: String){
+    
+    open var range = 200.0          // 'open' to allow child class override
+
+    open fun 
+}
+```
+
+#### Child Class
+Child class or Sub class
+```kt
+class ElectricCar(name: String, brand: String, batteryLife: Double)
+    : Car (name, brand){
+    
+    override var range = batteryLife * 5        // 'override' the var in parent class
+}
+```
+
+### Interface
+Interface is using to made class's components, (kind of sub class of class)
+```kt
+interface Drivable{
+    val maxSpeed: Double
+    fun drive(): String
+    fun brake(){
+        println("car is braking")
+    }
+}
+```
+
+Class using interface
+```kt
+// add maxSpeed
+open class Car(val name: String, val brand: String, val maxSpeed: Double): Drivable{
+    
+    // we must set the var and fun which not default in interface
+    // brake() is default in interface, so it is not must need to set.
+
+    override fun drive(): String = "drive from interface"
+    // or (same)
+    override fun drive(): String {
+        return "drive from interface"
+    }
+}
+```
+
+for the child of a using interface class
+```kt
+class electricCar(...){
+    override fun brake() {
+        super.brake()           // using 'super' to call the function in interface
+        println("This is a electricCar")
+    }
+}
+```
+
+Interface is also can be inter the Interface
+
+### abstract class
+abstract is for the parent class, and the abstract var and fun must be override in child class
+```kt
+abstract class (...) {
+
+    var ...
+    abstract var ...
+
+    fun
+    abstract fun ...
+}
+```
+abstract class can have the normal var and fun which don't need to override in child class
+
+
+## Lambda Expression
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Operator
-
-## List 
-```kt
-val list = ListOf("A", "B", "C")
-println(list[0])
-
-val list = mutableListOf()      // can modify
-list.add('A')
-```
-
-
-## Class
-
-```kt
-class
-```
 
 # Android Studio
 
