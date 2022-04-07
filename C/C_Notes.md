@@ -3,7 +3,7 @@
       - [Compiling and Running C Code](#compiling-and-running-c-code)
       - [Compiling C++ Code](#compiling-c-code)
 - [Language](#language)
-  - [Labrary](#labrary)
+  - [Library](#library)
   - [data type](#data-type)
 
 # Terminal
@@ -15,7 +15,7 @@ To compile the hello world example, do the following from within in the `cppenv`
 gcc -c hello.c                  # compile hello.c into hello.o
 gcc -c main.c                   # compile main.c into main.o
 gcc -o hello *.o                # link the two .o files to make an executable
-./hello                         # run the new execuable
+./hello                         # run the new executable
 ```
 
 #### Compiling C++ Code
@@ -30,7 +30,7 @@ g++ -o hello *.o
 ```
 # Language
 
-## Labrary
+## Library
 ```c
 #include <>
 ```
@@ -44,5 +44,5 @@ long      // 4 bits
 float     // 4 bits 
 double    // 8 bits double precision float
 
-sizeof()    // reture the size in bits
+sizeof()    // return the size in bits
 ```
