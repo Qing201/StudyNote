@@ -30,8 +30,10 @@
       - [Child Class](#child-class)
     - [Interface](#interface)
     - [abstract class](#abstract-class)
+    - [Nested class and Inner class](#nested-class-and-inner-class)
   - [Lambda Expression](#lambda-expression)
-  - [Operator](#operator)
+  - [Visibility Modifier](#visibility-modifier)
+  - [Exception](#exception)
 - [Android Studio](#android-studio)
 
 
@@ -130,7 +132,13 @@ val number = readLine() ?: "0"          // Sign 0 if it is none
 ### Typecasting
 ```kt
 val obj: Any = 123
-val str: String? = obj as? String      // str will set if obj is a string, null if not string
+
+// unsafe cast, will case error if obj is not a string
+val str: String = obj as String 
+
+// safe cast, str will set if obj is a string, null if not string
+val str: String? = obj as? String     
+
 print(str)      // print null
 ```
 
@@ -416,7 +424,58 @@ abstract class (...) {
 abstract class can have the normal var and fun which don't need to override in child class
 
 
+### Nested class and Inner class
+Nested class and Inner class are the classes inside the class
+
+The difference is the inner class can use the `private` val or fun in main class,  but nested class cannot
+```kt
+class myClass(){
+    // ...
+    private val x = 1
+
+    // Nested class
+    class myNestedClass(){
+        // cannot access x
+        // ...
+    }
+
+    // Inner class
+    inner class myInnerClass(){
+        // can access x
+        // ...
+    }
+}
+```
+
 ## Lambda Expression
+```kt
+val sum: (Int, Int) -> Int = {a: Int, b: Int -> a + b}
+```
+
+## Visibility Modifier
+`public` : it is a default modifier
+`private` : only allow to be accessible within the block
+`internal` : fields visible only inside the module in which it is implemented
+`open` : 
+`protected` : field visible to this class and child class, not visible outside
+
+## Exception
+Keywords: `try`, `catch`, `finally`, `throw`
+
+```kt
+try (...){
+    // ...
+}catch(e:anyException){
+    // ...
+}finally{
+    // always run
+}
+```
+
+```kt
+if (...)
+    throw ArithmeticException("some error")
+```
 
 
 
@@ -424,15 +483,6 @@ abstract class can have the normal var and fun which don't need to override in c
 
 
 
-
-
-
-
-
-
-
-
-## Operator
 
 # Android Studio
 
