@@ -1,6 +1,6 @@
 - [Intro](#intro)
 - [Dimensionality Reduction](#dimensionality-reduction)
-    - [SVD (Singluar Value Decomposition)](#svd-singluar-value-decomposition)
+    - [SVD (Singular Value Decomposition)](#svd-singular-value-decomposition)
     - [PCA (Principal Components Analysis)](#pca-principal-components-analysis)
     - [Word2Vec](#word2vec)
       - [Skip Gram Model](#skip-gram-model)
@@ -95,27 +95,27 @@ ML Pipeline:
 + Class 5.2
 ```
 
-- Classical Linearl
+- Classical Lineal
   - SVD
   - PCA
   - LDA (Linear di)
-- Nun-linearl
+- Nun-lineal
   - Auto-Encoders
   - word2vec (word embeddings)
   - BERT (sentence embedding)
-  - CNN archtecture (Image embedding)
+  - CNN architecture (Image embedding)
 
-### SVD (Singluar Value Decomposition)
-Split the data in dataset and use number of matrix to reprensent, each matrix reprensent a dimation. It is bi-linear model 
+### SVD (Singular Value Decomposition)
+Split the data in dataset and use number of matrix to represent, each matrix represent a dimension. It is bi-linear model 
 $$X = U \Sigma V^T$$
 $X$: Data Matrix (Nxd)
-$\Sigma$: Scaling Matrix, it make sure the function can operation if $X$ is not normalized (Diagenal Matrix)
-$U$ and $V$ are (Orthogonal matrix, example: $U_i$ and $U_j$ have same magenitude but drection is orthogonal in $\R^n$ dimention)
+$\Sigma$: Scaling Matrix, it make sure the function can operation if $X$ is not normalized (Diagonal Matrix)
+$U$ and $V$ are (Orthogonal matrix, example: $U_i$ and $U_j$ have same magnitude but direction is orthogonal in $\R^n$ dimension)
  
 ![SVD](Image/SVD.png)
 Using Matrix Factorization
 
-Split the customers and products into two Matrix and use a vecter to represent each customers and products.
+Split the customers and products into two Matrix and use a vector to represent each customers and products.
 
 ### PCA (Principal Components Analysis)
 

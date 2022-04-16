@@ -17,6 +17,7 @@
       - [For](#for)
       - [When](#when)
       - [While](#while)
+      - [Safe operation `.let`](#safe-operation-let)
   - [Functions](#functions)
   - [Classes and Objects (inheritance)](#classes-and-objects-inheritance)
     - [Basic Class](#basic-class)
@@ -35,6 +36,7 @@
   - [Visibility Modifier](#visibility-modifier)
   - [Exception](#exception)
 - [Android Studio](#android-studio)
+  - [Toast](#toast)
 
 
 # Basic Function
@@ -253,6 +255,13 @@ print("$x")             // x = 11
 
 ```
 
+#### Safe operation `.let`
+```kt
+var x?
+x?.let{
+    // code will run if x is not empty
+}
+```
 
 ## Functions
 ```kt
@@ -486,6 +495,11 @@ if (...)
 
 # Android Studio
 
+## Toast
+提醒
 ```kt
 Toast.makeTest(){}
 ```
+
+`padding` 周围间隙
+`gravity` put elements in center or other space

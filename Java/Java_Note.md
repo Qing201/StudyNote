@@ -1,6 +1,35 @@
-# `Println()`
-`/t`: tab 
-`/n`: new line 1
+# Basic Function
+
+## Variables and Types
+
+### Datatype
+
+#### Integer and Float
+```java
+int x = 123;
+double y = 3.14;
+```
+
+#### Boolean
+```java
+boolean z = true;  // or false
+```
+#### Char and String
+```java
+char symbol = '@';
+String name = "qing";
+```
+
+#### Nullable
+
+### Input and Output
+#### Print
+`System.out.println()`
+```java
+String x = "world!"
+
+System.out.println("x: " + x);
+```
 
 
 | Escape | Sequence	Description |
@@ -13,3 +42,16 @@
 | `\'`   | Insert a single quote character in the text at this point. |
 | `\"`	 | Insert a double quote character in the text at this point. |
 | `\\`	 | Insert a backslash character in the text at this point. |
+### Typecasting
+
+## Collections
+
+### List 
+
+### Set
+
+### Map
+
+### ArrayList
+
+## Control Flows (Logical)

@@ -1,7 +1,9 @@
-- [常用术语](#常用术语)
-    - [Print()](#print)
-- [数组结构](#数组结构)
-  - [Set, List, and tuple](#set-list-and-tuple)
+- [Basic Function](#basic-function)
+  - [Variables and Types](#variables-and-types)
+    - [Datatype](#datatype)
+    - [lambda](#lambda)
+    - [Input and Output](#input-and-output)
+  - [Collections](#collections)
     - [list()](#list)
       - [Sort](#sort)
     - [Tuple](#tuple)
@@ -26,9 +28,14 @@
   - [numpy](#numpy)
   - [pandas](#pandas)
   - [OpenCV](#opencv)
+  - [Pytorch](#pytorch)
 
-# 常用术语
+# Basic Function
 
+## Variables and Types
+[Reference](Python/Base/07.字符串和常用数据结构.md)
+
+### Datatype
 ```py
 a = 100
 b = 12.345
@@ -54,7 +61,13 @@ b = int(input('b = '))
 print('%d + %d = %d' % (a, b, a + b))
 ```
 
-### Print()
+### lambda
+```py
+f = lambda x : x**2
+y = f(2)      # y = 4
+```
+
+### Input and Output
 
 ```Python
 a, b = 5, 10
@@ -63,14 +76,14 @@ print(f'{a} * {b} = {a * b}')
 
 `%d`是整数的占位符，`%f`是小数的占位符，`%.2f` stand for float with two decimals, `%%`表示百分号,`%s` is for string.
 
-# [数组结构](Python/Base/07.字符串和常用数据结构.md)
 
-## Set, List, and tuple
+
+## Collections
 
 ```py
-A = {} or A = set()     # No dumplicate iterms, Unordered
+A = {} or A = set()     # No duplicate items, Unordered
 A = [] or A = list()     
-A = () or A = tuple()   # Iterm in tuple can't change
+A = () or A = tuple()   # Item in tuple can't change
 ```
 
 ### list()
@@ -98,7 +111,7 @@ C += [A[0]]   # C = ['12']
 ```
 
 ```py
-list.count(a)    # The number of a in list (Dumplicate)
+list.count(a)    # The number of a in list (Duplicate)
 list.sort()      # Sort list
 ```
 
@@ -266,3 +279,7 @@ Note: [link](Python_Module/pandas/pandas_Note.md)
 ## OpenCV
 
 Note: [link](Python/Python_Module/OpenCV/OpenCV_Note.md)
+
+## Pytorch
+
+Note: [link](../Machine_Learning/Pytorch/PytorchNote.md)
