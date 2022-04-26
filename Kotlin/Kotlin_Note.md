@@ -36,6 +36,7 @@
   - [Visibility Modifier](#visibility-modifier)
   - [Exception](#exception)
 - [Android Studio](#android-studio)
+  - [Activity Lifecycle](#activity-lifecycle)
   - [Toast](#toast)
 
 
@@ -494,6 +495,9 @@ if (...)
 
 
 # Android Studio
+
+## Activity Lifecycle
+![](Image/ActivityLifecycle.png)
 
 ## Toast
 提醒
