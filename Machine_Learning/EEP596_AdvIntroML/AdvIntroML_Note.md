@@ -4,9 +4,9 @@
     - [PCA (Principal Components Analysis)](#pca-principal-components-analysis)
     - [Word2Vec](#word2vec)
       - [Skip Gram Model](#skip-gram-model)
-- [Supervived Learning](#supervived-learning)
+- [Supervised Learning](#supervised-learning)
   - [Data Pre-progress](#data-pre-progress)
-  - [Valudation](#valudation)
+  - [Valuation](#valuation)
     - [K-fold Cross Validation](#k-fold-cross-validation)
   - [Linear Regression](#linear-regression)
     - [Regression Function](#regression-function)
@@ -20,9 +20,9 @@
       - [Batch Gradient Descent](#batch-gradient-descent)
       - [Mini-batch SGD](#mini-batch-sgd)
       - [Stochastic gradient descent](#stochastic-gradient-descent)
-  - [Classfication](#classfication)
+  - [Classification](#classification)
     - [Linear Separability](#linear-separability)
-      - [Logistic Regretion](#logistic-regretion)
+      - [Logistic Regression](#logistic-regression)
       - [Probability of Class](#probability-of-class)
     - [Evaluating Classifiers](#evaluating-classifiers)
       - [Features for Text Data](#features-for-text-data)
@@ -57,7 +57,7 @@
     - [STL](#stl)
   - [Deep Learning:](#deep-learning)
     - [Intro](#intro-1)
-      - [Multi-Layer Perceptron (MLP)](#multi-layer-perceptron-mlp)
+      - [Multi-Layer Perception (MLP)](#multi-layer-perception-mlp)
     - [Over-Fitting](#over-fitting)
     - [Forward Propagation](#forward-propagation)
     - [Back Propagation](#back-propagation)
@@ -144,7 +144,7 @@ Non-linear Model
 semi-supervised learning
 
 
-# Supervived Learning
+# Supervised Learning
 ## Data Pre-progress 
 1. Take care of Noise
 2. Missing Values
@@ -158,7 +158,7 @@ semi-supervised learning
 Normal Equation:
 ![Normal_Equation](Image/normal-equation.jpg)
 
-## Valudation
+## Valuation
 ### K-fold Cross Validation
 
 ## Linear Regression
@@ -219,18 +219,18 @@ categorical value
 
 
 
-## Classfication
+## Classification
 
 ### Linear Separability
 (only one using linear decision boundary)
-Linear Separability: logistic regretion; SVM
+Linear Separability: logistic regression; SVM
 
-> Non-linear Separability: Deep Learnig; Random Forest
+> Non-linear Separability: Deep Learning; Random Forest
 
-#### Logistic Regretion
+#### Logistic Regression
 
 Sigmoid Function (logistic function)
-![log_regretion](Image/Logistic_Regression.png)
+![log_regression](Image/Logistic_Regression.png)
 Where 
 $$ y = w^Tx_i $$ 
 
@@ -469,15 +469,15 @@ Application:
 - Hyperbolic tangent
 - Rectified linear unit (ReLU)
 - Softplus
-#### Multi-Layer Perceptron (MLP)
+#### Multi-Layer Perception (MLP)
 
 ### Over-Fitting
 
 1. Weight Regularization $l_1$, $l_2$
 2. Dropouts (popular)
    
-3. Early Stoppint
-   Stop traning when the validation error start increasing
+3. Early Stoppoint
+   Stop training when the validation error start increasing
 
 
 ```diff
@@ -489,7 +489,7 @@ $x$ -> $\hat{y}$
 
 ### Back Propagation
 - Compute gradient
-- Chain rule for differediation
+- Chain rule for differentiation
 
 ### Auto Encoder *
 PCA and Auto-Encoders are embedding
