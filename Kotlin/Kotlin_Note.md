@@ -35,9 +35,12 @@
   - [Lambda Expression](#lambda-expression)
   - [Visibility Modifier](#visibility-modifier)
   - [Exception](#exception)
+- [Module](#module)
 - [Android Studio](#android-studio)
   - [Activity Lifecycle](#activity-lifecycle)
-  - [Toast](#toast)
+    - [Function in Activity](#function-in-activity)
+      - [Toast](#toast)
+  - [Layout (xml file)](#layout-xml-file)
 
 
 # Basic Function
@@ -499,11 +502,19 @@ if (...)
 ## Activity Lifecycle
 ![](Image/ActivityLifecycle.png)
 
-## Toast
-提醒
+
+### Function in Activity
+#### Toast
+Notice
 ```kt
 Toast.makeTest(){}
 ```
 
-`padding` 周围间隙
-`gravity` put elements in center or other space
+## Layout (xml file)
+
+`margin`: empty space around
+`padding`: empty space around text
+
+`gravity`: put elements in center or other space
+
+`orientation`: 'vertical' or 'horizontal'
