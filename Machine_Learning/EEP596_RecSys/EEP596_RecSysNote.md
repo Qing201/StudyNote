@@ -40,3 +40,6 @@ Matrix Factorization
 
 SVD
 S: Singular V: value D: Decomposition
+
+
+> Class 6 7/18
