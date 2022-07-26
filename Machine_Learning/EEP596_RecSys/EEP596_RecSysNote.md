@@ -41,5 +41,8 @@ Matrix Factorization
 SVD
 S: Singular V: value D: Decomposition
 
+X = U E V
 
+U : orthogonal ui*uj = 0
+n-factor
 > Class 6 7/18
