@@ -30,11 +30,15 @@ class Solution:
         stack = [root]
         result = []
         while stack:
+            stack.append(root)
+            if root.left != None:
+                root = root.left
+                continue
             node = stack.pop()
-            if node:
-                stack.append(node.right)
-                result.append(node.val)
-                stack.append(node.left)
+            if root.right:
+            stack.append(root.left)
+            root = root.left
+
 
         return result
 # @lc code=end
