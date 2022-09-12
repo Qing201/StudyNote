@@ -1,9 +1,11 @@
-- [System Terminal](#system-terminal)
+- [Linux Terminal](#linux-terminal)
     - [Manage the permissions `chomd`](#manage-the-permissions-chomd)
     - [Display home dirction `pwd`](#display-home-dirction-pwd)
   - [Process](#process)
     - [Process Checking](#process-checking)
     - [Backgroud Processes](#backgroud-processes)
+      - [screen](#screen)
+      - [nohup](#nohup)
   - [Dirction](#dirction)
   - [Files](#files)
       - [Creat a new file `touch`](#creat-a-new-file-touch)
@@ -15,7 +17,7 @@
       - [Permissions](#permissions)
 - [Docker](#docker)
 
-# System Terminal
+# Linux Terminal
 
 ### Manage the permissions `chomd`
 
@@ -41,6 +43,22 @@ ps -ef | grep [name]
 ```
 
 ### Backgroud Processes
+
+#### screen
+
+```sh
+screen -S [name]    # create a new screen terminal window
+```
+Hold control+a+d to leave the current window
+
+```sh
+screen -ls    # check the current screen window in background
+screen -r [name or id]    # reattach the screen window
+```
+
+
+
+#### nohup
 ```sh
 python [file.py] &    # add '&' to run in backgroud
 
