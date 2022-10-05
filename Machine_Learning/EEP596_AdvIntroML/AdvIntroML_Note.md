@@ -158,6 +158,7 @@ semi-supervised learning
    (For Linear model, usually do mean normalization for all contribute)
 
 Normal Equation:
+
 ![Normal_Equation](Image/normal-equation.jpg)
 
 ## Valuation
