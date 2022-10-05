@@ -133,7 +133,9 @@ The $V^T X^T$ is represents the embeddings or compressed representation of the d
 The dimention of $X^T$ is $d \times N$, then the dimention of $V^TX^T$ is $k \times N$, so this embedding the function of samples from d to k.
 
 Here is a two demention example:
+
 ![PCA_example](Image/PCA_2d.png)
+
 The line is a principal component *(a colum $V_i$ in $V$)*. The points is functions. The projection will make the points in 2d demention embedding to the line, which is 1d demention.
 
 **Reconstruction**
