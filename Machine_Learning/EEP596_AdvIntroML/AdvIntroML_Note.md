@@ -169,12 +169,13 @@ Normal Equation:
 
 Loss = 
 $$||y- \hat{y}||^2_2 = \sum(y_i  - \hat{y}_i)^2 $$
+
 $$ \hat{y}_i = \hat{w}^Tx_i $$
 
 <br>
 
 #### Lasso: 
-($l_1$ Regularization)
+( $l_1$ Regularization)
 ![Lasso](Image/Lasso.png)
 Benefits: Removes un-important features, sparse the function
 
