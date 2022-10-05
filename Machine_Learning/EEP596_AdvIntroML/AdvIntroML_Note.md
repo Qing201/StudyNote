@@ -176,6 +176,7 @@ $$ \hat{y}_i = \hat{w}^Tx_i $$
 
 #### Lasso: 
 ( $l_1$ Regularization)
+
 ![Lasso](Image/Lasso.png)
 Benefits: Removes un-important features, sparse the function
 
@@ -184,7 +185,8 @@ loss part + regularization part
 <br>
 
 #### Ridge: 
-($l_2$ Regularization)
+( $l_2$ Regularization)
+
 ![Ridge](Image/Ridge.png)
 
  $||w||_2^2 = w_1^2 + w_2^2 + ...$
