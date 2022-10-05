@@ -1,0 +1,22 @@
+# Reading pref.tcl
+do runlab.do
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 01:31:21 on Oct 01,2022
+# vlog -reportprogress 300 ./mux2_1.sv 
+# -- Compiling module mux2_1
+# -- Compiling module mux2_1_testbench
+# 
+# Top level modules:
+# 	mux2_1_testbench
+# End time: 01:31:22 on Oct 01,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work mux2_1_testbench 
+# Start time: 01:31:22 on Oct 01,2022
+# Loading sv_std.std
+# Loading work.mux2_1_testbench
+# Loading work.mux2_1
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# End time: 01:14:53 on Oct 02,2022, Elapsed time: 23:43:31
+# Errors: 0, Warnings: 0

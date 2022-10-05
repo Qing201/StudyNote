@@ -1,0 +1,2 @@
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Warning (10034): Output port "LEDR[9..1]" at DE1_SoC.sv(5) has no driver File: C:/FPGA/EEP598_lab/Lab1/Lab1_main/DE1_SoC.sv Line: 5
