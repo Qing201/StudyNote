@@ -236,8 +236,11 @@ Linear Separability: logistic regression; SVM
 #### Logistic Regression
 
 Sigmoid Function (logistic function)
+
 ![log_regression](Image/Logistic_Regression.png)
+
 Where 
+
 $$ y = w^Tx_i $$ 
 
 ![](Image/Sigmoid.png)
@@ -365,7 +368,9 @@ y is the embedded data in lower dimensions.
 
 KL Divergence: Distance Measure for Probabilities
 $$KL(p||q) = \sum ^d_{i=1} p_i log \frac{p_i}{q_i}$$
+
 ![sne-loss](Image/SNE-loss.png)
+
 This function will learn y.
 
 > ### Mixture Models
