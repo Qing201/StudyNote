@@ -133,7 +133,9 @@ The $V^T X^T$ is represents the embeddings or compressed representation of the d
 The dimention of $X^T$ is $d \times N$, then the dimention of $V^TX^T$ is $k \times N$, so this embedding the function of samples from d to k.
 
 Here is a two demention example:
+
 ![PCA_example](Image/PCA_2d.png)
+
 The line is a principal component *(a colum $V_i$ in $V$)*. The points is functions. The projection will make the points in 2d demention embedding to the line, which is 1d demention.
 
 **Reconstruction**
@@ -156,6 +158,7 @@ semi-supervised learning
    (For Linear model, usually do mean normalization for all contribute)
 
 Normal Equation:
+
 ![Normal_Equation](Image/normal-equation.jpg)
 
 ## Valuation
@@ -169,12 +172,14 @@ Normal Equation:
 
 Loss = 
 $$||y- \hat{y}||^2_2 = \sum(y_i  - \hat{y}_i)^2 $$
+
 $$ \hat{y}_i = \hat{w}^Tx_i $$
 
 <br>
 
 #### Lasso: 
-($l_1$ Regularization)
+( $l_1$ Regularization)
+
 ![Lasso](Image/Lasso.png)
 Benefits: Removes un-important features, sparse the function
 
@@ -183,7 +188,8 @@ loss part + regularization part
 <br>
 
 #### Ridge: 
-($l_2$ Regularization)
+( $l_2$ Regularization)
+
 ![Ridge](Image/Ridge.png)
 
  $||w||_2^2 = w_1^2 + w_2^2 + ...$
@@ -230,8 +236,11 @@ Linear Separability: logistic regression; SVM
 #### Logistic Regression
 
 Sigmoid Function (logistic function)
+
 ![log_regression](Image/Logistic_Regression.png)
+
 Where 
+
 $$ y = w^Tx_i $$ 
 
 ![](Image/Sigmoid.png)
@@ -359,7 +368,9 @@ y is the embedded data in lower dimensions.
 
 KL Divergence: Distance Measure for Probabilities
 $$KL(p||q) = \sum ^d_{i=1} p_i log \frac{p_i}{q_i}$$
+
 ![sne-loss](Image/SNE-loss.png)
+
 This function will learn y.
 
 > ### Mixture Models
