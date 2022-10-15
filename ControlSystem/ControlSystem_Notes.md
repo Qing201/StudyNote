@@ -40,6 +40,7 @@ $$f(t) = \int^\infin _{-\infin} F(\nu ) e^{2\pi ift} dt $$
 ![](Image/2022-10-08-15-18-17.png)
 
 ### Laplace Transform
+[YouTube Video](https://www.youtube.com/watch?v=n2y7n6jw5d0&t=28s)
 
 $$X(s) = \int^\infin _{-\infin} x(t) e^{-st} dt \qquad (s = \alpha + i\omega)$$
 
@@ -85,7 +86,8 @@ Sign change 2 time, so have 2 poles in RHP, it's unstable.
 
 **Special Case** ([YouTube Video](https://www.youtube.com/watch?v=oMmUPvn6lP8&list=PLUMWjy5jgHK1NC52DXXrriwihVrYZKqjk&index=19))
 - Special Case 1: A zero in a row with at least one non-zero appearing later in that same row.
-- Special Case 2: The entire row is zeros.
+- Special Case 2: The entire row is zeros, there are three situations.
+![](src/img/RouthHurwitzSpecialCase2.png)
 
 
 
