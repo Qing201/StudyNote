@@ -10,13 +10,14 @@
     - [Pole and Zeros](#pole-and-zeros)
       - [Single Pole / Zero](#single-pole--zero)
       - [Two Poles](#two-poles)
+    - [Taylor Series](#taylor-series)
 # Control System
 
 ## Time and Frequency Domain
 
 [Youtube Video](https://www.youtube.com/watch?v=noycLIZbK_k&list=PLUMWjy5jgHK1NC52DXXrriwihVrYZKqjk&index=3)
 
-![TimeTimeFrequencyFourierPlot](Image/TimeFrequencyFourierPlot.png)
+![TimeTimeFrequencyFourierPlot](src/img/TimeFrequencyFourierPlot.png)
 
 All frequency is multiple of the 1st harmonic.
 
@@ -35,9 +36,9 @@ $$F(\nu ) = \int^\infin _{-\infin} f(t) e^{-2\pi ift} dt $$
 **Inverse Fourier Transform:**
 $$f(t) = \int^\infin _{-\infin} F(\nu ) e^{2\pi ift} dt $$
 
-![](Image/FourierTransform.png)
+![](src/img/FourierTransform.png)
 
-![](Image/2022-10-08-15-18-17.png)
+![](src/img/2022-10-08-15-18-17.png)
 
 ### Laplace Transform
 [YouTube Video](https://www.youtube.com/watch?v=n2y7n6jw5d0&t=28s)
@@ -47,9 +48,9 @@ $$X(s) = \int^\infin _{-\infin} x(t) e^{-st} dt \qquad (s = \alpha + i\omega)$$
 Exponential term $e^{- \alpha t}$ ; damping
 Sinusoid term $e^{j \omega t}$: spring constant
 
-![LaplaceFourierRelationship](Image/LaplaceFourierRelationship.png)
+![LaplaceFourierRelationship](src/img/LaplaceFourierRelationship.png)
 
-![](Image/2022-10-08-15-36-44.png)
+![](src/img/2022-10-08-15-36-44.png)
 
 ![](src/img/LaplaceProperties.png)
 
@@ -115,3 +116,6 @@ $$ H(s) = \frac{\omega_0^2}{s^2 + \zeta \omega_0 s + \omega_0^2}$$
 ![](src/img/BodePlot2poles.png)
 
 
+
+### Taylor Series
+[YouTube Video](https://youtu.be/3d6DsjIBzJ4)
