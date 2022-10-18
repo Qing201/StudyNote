@@ -54,3 +54,6 @@ Operating:
 $x(t) = sin(2 \pi f_0 t) --> y(t) = 0.707sin(2 \pi f_0 t)$
 
 -3db $\approx$ 0.5  &emsp; 0.707 $\approx$ 1/ $\sqrt{2}$
+
+
+
