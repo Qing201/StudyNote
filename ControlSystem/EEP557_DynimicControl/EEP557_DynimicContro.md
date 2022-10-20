@@ -57,3 +57,8 @@ $x(t) = sin(2 \pi f_0 t) --> y(t) = 0.707sin(2 \pi f_0 t)$
 
 
 
+```diff
++ Week 3 Class 3, Mon, Oct/17/2022,
+```
+
+
