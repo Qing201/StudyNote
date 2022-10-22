@@ -3,6 +3,8 @@
     - [Low-Pass and High-Pass Filter](#low-pass-and-high-pass-filter)
     - [Band Pass and Band Stop Filter](#band-pass-and-band-stop-filter)
 - [Bipolar Junction Transistors (BJT)](#bipolar-junction-transistors-bjt)
+  - [Amplifier](#amplifier)
+- [MOS](#mos)
 
 **Analog Circuit**
 
@@ -34,3 +36,11 @@ Active: $V_{BE} \ge 0.6, \ 0 < V_{CE} < V_{CC}, \ I_C > 0 $
 Saturation: $V_{BE} \> 0.6, \ V_{CE} = 0 $
 
 ### Amplifier
+
+
+## MOS
+
+current mirror
+
+amplifying transconductance
+
