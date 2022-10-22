@@ -7,6 +7,12 @@ virtuoso &
 
 ```
 
+DRC file: /home/lab.apps/vlsiapps/cshrc/EE332/calibre.drc
+
+LVS file: /home/lab.apps/vlsiapps/cshrc/EE332/calibre.lvs
+
+PEX: /home/lab.apps/vlsiapps/cshrc/EE332/calibre.rcx
+Output: C+CC
 
 ## Hotkeys:
 ### Schematic
@@ -15,3 +21,6 @@ F : feat the zoom
 
 ### Layout
 ![](src/img/CandaceLayoutHotkey.png)
+
+
+
