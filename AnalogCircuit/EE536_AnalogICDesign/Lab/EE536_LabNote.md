@@ -16,8 +16,8 @@ Output: C+CC
 
 ## Hotkeys:
 ### Schematic
-P : pins
-F : feat the zoom
+P: pins
+F: feat the zoom
 
 ### Layout
 ![](src/img/CandaceLayoutHotkey.png)
