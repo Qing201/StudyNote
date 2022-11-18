@@ -1,4 +1,5 @@
 - [RLC Circuit](#rlc-circuit)
+  - [Basic RLC](#basic-rlc)
   - [Frequency Filter](#frequency-filter)
     - [Low-Pass and High-Pass Filter](#low-pass-and-high-pass-filter)
     - [Band Pass and Band Stop Filter](#band-pass-and-band-stop-filter)
@@ -9,6 +10,10 @@
 **Analog Circuit**
 
 ## RLC Circuit
+
+### Basic RLC
+![](src/img/RLC_Resistance.png)
+
 ### Frequency Filter
 
 #### Low-Pass and High-Pass Filter

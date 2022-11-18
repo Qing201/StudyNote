@@ -90,3 +90,4 @@ The $F_c$ and $T_c$ is what we want control, but it is not the real state in the
 ![](src/img/DecouplingTFSysBlock.png)
 
 By decoupling $F_c^*$ is approximate to $F_c$ and not infused by another input $T_c$
+
