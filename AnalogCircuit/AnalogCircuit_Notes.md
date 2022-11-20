@@ -1,5 +1,6 @@
 - [RLC Circuit](#rlc-circuit)
   - [Basic RLC](#basic-rlc)
+    - [Resonate](#resonate)
   - [Frequency Filter](#frequency-filter)
     - [Low-Pass and High-Pass Filter](#low-pass-and-high-pass-filter)
     - [Band Pass and Band Stop Filter](#band-pass-and-band-stop-filter)
@@ -12,8 +13,16 @@
 ## RLC Circuit
 
 ### Basic RLC
+[Series RLC](https://www.electronics-tutorials.ws/accircuits/series-circuit.html)
 ![](src/img/RLC_Resistance.png)
 
+#### Resonate
+The resonate frequency of CL circuit is:
+$$f_0 = \frac{1}{2\pi \sqrt{L C}}$$
+
+When resonate:
+1. the series LC circuit will have infinity impedance,consider as **open circuit** (the current in LC loop is back-forth)
+2. the parallel LC circuit will have 0 impedance, consider as **short circuit**
 ### Frequency Filter
 
 #### Low-Pass and High-Pass Filter

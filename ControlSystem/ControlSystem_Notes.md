@@ -71,7 +71,7 @@ $$H(s) = \frac{zeros}{poles}$$
 
 ## System's Stability
 
-$ H(s) = N(s)/D(s) $
+$ H(s) = N(s)/D(s) $ n 
 
 D(s): Characteristic Equation
 All roots of D(s) must negative real to let system stable, must in LHP (left half plant)

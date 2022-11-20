@@ -1,3 +1,11 @@
+- [Dynamics Of Controlled Systems](#dynamics-of-controlled-systems)
+    - [Operating Point Analysis](#operating-point-analysis)
+      - [Taylor Series Approximation](#taylor-series-approximation)
+      - [Car Model:](#car-model)
+    - [Dynamic Stiffness](#dynamic-stiffness)
+    - [Decoupling](#decoupling)
+      - [Proportional Plus Integral (PI) Control](#proportional-plus-integral-pi-control)
+        - [Resonant Load Problem](#resonant-load-problem)
 # Dynamics Of Controlled Systems
 
 ```diff
@@ -13,8 +21,10 @@ HW: Simulink symbolic
 
 
 ```diff
-+ Class 2, Mon, Oct/10/2022,
++ Class 2, Mon, Oct/10/2022
 ```
+
+
 
 ### Operating Point Analysis
 
@@ -56,15 +66,18 @@ $x(t) = sin(2 \pi f_0 t) --> y(t) = 0.707sin(2 \pi f_0 t)$
 -3db $\approx$ 0.5  &emsp; 0.707 $\approx$ 1/ $\sqrt{2}$
 
 
+### Dynamic Stiffness
+
+$$Dynamic Stiffness = \frac{Disturbance} {per \ unit \ response}$$
 
 ```diff
-+ Class 3, Mon, Oct/17/2022,
++ Class 3, Mon, Oct/17/2022
 ```
 
 Virtue zero reference give the Steady State error to be zero
 
 ```diff
-+ Class 4, Mon, Oct/24/2022,
++ Class 4, Mon, Oct/24/2022
 ```
 Steady State: The state when time go to infinity
 
@@ -86,8 +99,48 @@ Decoupling:
 The $F_c$ and $T_c$ is what we want control, but it is not the real state in the real system. F and T are cross-coupled.
 
 ![](src/img/CrossCouplingTF.png)
+
 ![](src/img/DecouplingTF.png)
+
 ![](src/img/DecouplingTFSysBlock.png)
 
 By decoupling $F_c^*$ is approximate to $F_c$ and not infused by another input $T_c$
 
+```diff
++ Class 5, Mon, Oct/31/2022
+```
+$I = A I^* + B T$
+the ideal of the control system is let the A = 1 which $I/I^* =1$ 
+
+EMF decoupling ($\hat{K_e} = K_e$)
+
+#### Proportional Plus Integral (PI) Control
+
+
+
+
+```diff
++ Class 6, Mon, Dec/7/2022
+```
+Pole: if pole's are -a, -b, -c
+
+the response will have 3 exponential terms: $k_1 e ^{-at} + k_2 e ^{-bt} + k_3 e ^{-ct}$
+
+![](src/img/PolesAndResponse.png)
+The pole at 1557Hz cause first response in red and the pole at 102Hz cause slow response in green.
+
+The pair of poles with same real part will cause oscillation. Example: poles at $a+bs$ and $a-bs$
+
+
+Adding integrated stiffness -> adds infinite static(f=0) stiffness
+
+![](src/img/stiffnessDamping.png)
+
+f in the stiffness bandwidth
+
+![](src/img/StiffnessBandwidth.png)
+
+##### Resonant Load Problem
+
+![](src/img/ResonantLoadDynamicStiffness.png)
+![](src/img/ResonantLoadDynamicStiffness2.png)
