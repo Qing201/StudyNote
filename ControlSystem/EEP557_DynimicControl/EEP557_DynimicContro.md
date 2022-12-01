@@ -143,4 +143,10 @@ f in the stiffness bandwidth
 ##### Resonant Load Problem
 
 ![](src/img/ResonantLoadDynamicStiffness.png)
+
 ![](src/img/ResonantLoadDynamicStiffness2.png)
+
+
+```diff
++ Class 7, Mon, Dec/14/2022
+```
