@@ -1,4 +1,4 @@
-- [Dynamics Of Controlled Systems](#dynamics-of-controlled-systems)
+- [Dynamics of Controlled Systems](#dynamics-of-controlled-systems)
     - [Operating Point Analysis](#operating-point-analysis)
       - [Taylor Series Approximation](#taylor-series-approximation)
       - [Car Model:](#car-model)
@@ -6,7 +6,7 @@
     - [Decoupling](#decoupling)
       - [Proportional Plus Integral (PI) Control](#proportional-plus-integral-pi-control)
         - [Resonant Load Problem](#resonant-load-problem)
-# Dynamics Of Controlled Systems
+# Dynamics of Controlled Systems
 
 ```diff
 + Class 1, Wed, Oct/3/2022
