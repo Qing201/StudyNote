@@ -1,11 +1,17 @@
 - [Dynamics of Controlled Systems](#dynamics-of-controlled-systems)
-    - [Operating Point Analysis](#operating-point-analysis)
+  - [Operating Point Analysis](#operating-point-analysis)
       - [Taylor Series Approximation](#taylor-series-approximation)
       - [Car Model:](#car-model)
-    - [Dynamic Stiffness](#dynamic-stiffness)
+  - [Dynamic Stiffness](#dynamic-stiffness)
     - [Decoupling](#decoupling)
       - [Proportional Plus Integral (PI) Control](#proportional-plus-integral-pi-control)
         - [Resonant Load Problem](#resonant-load-problem)
+        - [Classical Industrial Motion Controller (Cascade Controller)](#classical-industrial-motion-controller-cascade-controller)
+      - [Cross-coupled System](#cross-coupled-system)
+  - [Command Tracking](#command-tracking)
+    - [Tracking Error](#tracking-error)
+    - [Command Feed Forward (CFF)](#command-feed-forward-cff)
+  - [Mechanical Line Shift](#mechanical-line-shift)
 # Dynamics of Controlled Systems
 
 ```diff
@@ -17,8 +23,6 @@
 
 Mason's method?
 
-HW: Simulink symbolic
-
 
 ```diff
 + Class 2, Mon, Oct/10/2022
@@ -26,7 +30,7 @@ HW: Simulink symbolic
 
 
 
-### Operating Point Analysis
+## Operating Point Analysis
 
 #### Taylor Series Approximation
 
@@ -66,7 +70,7 @@ $x(t) = sin(2 \pi f_0 t) --> y(t) = 0.707sin(2 \pi f_0 t)$
 -3db $\approx$ 0.5  &emsp; 0.707 $\approx$ 1/ $\sqrt{2}$
 
 
-### Dynamic Stiffness
+## Dynamic Stiffness
 
 $$Dynamic Stiffness = \frac{Disturbance} {per \ unit \ response}$$
 
@@ -150,3 +154,79 @@ f in the stiffness bandwidth
 ```diff
 + Class 7, Mon, Dec/14/2022
 ```
+
+
+##### Classical Industrial Motion Controller (Cascade Controller)
+![](src/img/ClassicalIndustrialMotionController.png)
+adv: the $\omega$ can be control and tuning or decoupling alone, for example, it can be decoupling the red box in figure then to make that $\omega \approx \omega^*$
+
+#### Cross-coupled System
+> Convection Oven Example (lecture)
+
+Cross-coupled System是指一个系统有很多独立的相同的子系统并且会互相影响，可以通过decoupling消除子系统之间的影响使每一个子系统都成为一个相对独立的系统。
+
+
+```diff
++ Class 8, Mon, Dec/21/2022
+```
+
+## Command Tracking
+
+**For control system, there are two main things we want to achieve:**
+* **Command Tracking** -> what we know
+  * Let the real position of system following the command exactly ($x = x^*$)
+* **Disturbance Rejection** -> what we don’t know (or choose not to model)
+  * According to the Dynamic Stiffness
+
+### Tracking Error 
+Position Error = Command Position - Real Position ($\theta_e = \theta^* - \theta$)
+
+Position Error = Tracking Error * Command Position + Dynamic Stiffness * Disturbance
+($\theta_e$ = Tracking Error * $\theta^*$ + Dynamic Stiffness * $T_d$(or $T_L$)) *(d:Disturbance, L:Load)*
+
+
+$$\text{Tracking Error} = | \frac{\theta_e}{\theta^*}|$$
+
+* Tracking Error = 0: the system is following the command exactly
+* Tracking Error = 1: the system is not following the command at all
+
+Tracking Error is between 0 and 1, and it's better to be small.
+
+### Command Feed Forward (CFF)
+
+**Decoupling option:**
+**Command Feed Forward Decoupling(CFFD):** Add decoupling gain to the command position
+**State Feedback Decoupling(SFBD):** Using the real position feedback to decoupling. (sensor the real position)
+
+
+各自的缺点
+CFFD: If command position to the real position have the tracking error the CFFD can not perfect decoupling。
+SFBD: 如果控制系统的sensor不能实时并且准确的检测系统的real position。呢么反馈后的decouple不准确会导致不能正确decouple
+
+How to choose:
+CFFD: 
+* 工作的频率较小（Tracking Error很小）
+* 不想加入sensor
+SFBD：
+* Sensor can track the real position really good (Sensor cannot track the position exactly in real world)
+
+Because CFFD is the depend on the command position, so it almost don't have the phase shift.
+
+Command tracking FRF: $\theta / \theta^*$
+
+
+```diff
++ Class 9, Mon, Dec/28/2022
+```
+
+We still need the state feedback term because:
+* we need reject the disturbance
+* we don't have the optimal feed forward gain to all the things we need decoupling, so we still need to have the state feedback to fill the command we need.
+
+And we cannot only use the state feedback because:
+* The state feedback have the lag, every command need to wait until the position error ocurred
+
+![](src/img/CommandInputVector.png)
+
+## Mechanical Line Shift
+One motor carrie a line system have multiple mechanic in one line need control at same time
