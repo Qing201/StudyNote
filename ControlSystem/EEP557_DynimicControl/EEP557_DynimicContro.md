@@ -12,6 +12,7 @@
     - [Tracking Error](#tracking-error)
     - [Command Feed Forward (CFF)](#command-feed-forward-cff)
   - [Mechanical Line Shift](#mechanical-line-shift)
+  - [Homework Problem](#homework-problem)
 # Dynamics of Controlled Systems
 
 ```diff
@@ -34,8 +35,6 @@ Mason's method?
 
 #### Taylor Series Approximation
 
-![](src/img/OperatingPointSys.png)
-
 
 
 $$\Delta \mathcal{F}(x) = \mathcal{F}(x) - \mathcal{F}(x_{op}) \cong \Delta x \cdot\mathcal{F'}(x_{op}) \qquad x = x_{op}+\Delta x$$
@@ -54,7 +53,7 @@ Multi-variable Operating System:
 ![](src/img/CarModelNonlinearModel.png) \
 ![](src/img/CarModelSysEq.png) 
 
-Operating:
+Operating Point:
 
 ![](src/img/CarModelOperatingSys.png)
 
@@ -96,7 +95,7 @@ V: Potential Energy ($V_e = F*s$) 势能
 
 ### Decoupling
 Decoupling:
-让相互影响的输入项变成独立的
+消减互相影响，不利于控制的relation，让相互影响的输入项变成独立的
 
 ![](src/img/CrossCouplingSysBlock.png)
 
@@ -230,3 +229,12 @@ And we cannot only use the state feedback because:
 
 ## Mechanical Line Shift
 One motor carrie a line system have multiple mechanic in one line need control at same time
+
+
+## Homework Problem
+
+HW6: Classical PI and Active Resistance
+
+HW7: Comparative Robustness & Disturbance Rejection  (L6)
+
+HW8: feedforward
