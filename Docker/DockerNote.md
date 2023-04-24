@@ -1,4 +1,5 @@
 - [Docker](#docker)
+  - [Reference](#reference)
   - [Docker 常用命令](#docker-常用命令)
     - [Help](#help)
     - [Image](#image)
@@ -12,9 +13,24 @@
       - [容器的元数据](#容器的元数据)
       - [进入容器](#进入容器)
       - [容器内拷贝文件](#容器内拷贝文件)
+      - [commit镜像](#commit镜像)
+    - [容器数据卷](#容器数据卷)
+      - [具名与匿名挂载](#具名与匿名挂载)
+      - [read and write permission](#read-and-write-permission)
+    - [Docker file](#docker-file)
+    - [Docker 网络](#docker-网络)
+  - [企业实战](#企业实战)
+    - [Docker Compose](#docker-compose)
+    - [Docker Swarm](#docker-swarm)
+    - [CI/CD Jenkins 流水线](#cicd-jenkins-流水线)
 
 
 # Docker
+
+## Reference
+[Docker Doc](https://docs.docker.com/reference)
+[Docker Hub](https://hub.docker.com)
+
 
 ## Docker 常用命令
 
@@ -105,3 +121,51 @@ docker attach -it [容器ID]      # 进入容器正在执行的终端，不启�
 ```sh
 docker cp [容器ID]:[路径]   [home路径]
 ```
+
+#### commit镜像
+将容器保存为一个新的本地image
+```sh
+docker commit -m=["提交的描述信息"] -a=["author"] [container ID] [target image name]:[TAG]
+```
+
+### 容器数据卷
+container中的文件与本地系统文件共享
+
+```sh
+docker run it -v [local addr]:[container addr]
+```
+
+
+#### 具名与匿名挂载
+没有指定 local addr 情况都是在 `/var/lib/docker/volumes/.../_data`
+```sh
+-v [container addr]         # 匿名挂载
+-v [name]:[container addr]  # 具名挂载
+-v /[local addr]:[container addr]   # 指定路径挂载
+```
+
+#### read and write permission
+```sh
+-v [local addr]:[container addr]:ro     # ro read-only
+-v [local addr]:[container addr]:rw     # rw read-write 
+```
+
+ro: the file can only edit in local system, cannot edit in container
+
+```sh
+docker run --volumes-from [container_1] [container_2]
+```
+新建的container_2可以挂载container_1的数据卷
+
+### Docker file
+
+### Docker 网络
+
+
+## 企业实战
+
+### Docker Compose
+
+### Docker Swarm
+
+### CI/CD Jenkins 流水线
