@@ -48,7 +48,12 @@ class PdfDirGenerator:
             for i, line in enumerate(lines):
                 # pline = line.split(' ') # 要求level title page之间只能有一个空格且不能是\t, 比较麻烦换成下面这个
                 pline = line.split(None, maxsplit=-1) # python 3.6.13, 支持删除\t\n 空格, 且不限次数
-                level = pline[0]; title = pline[1]; page = int(pline[2]) + self.offset
+                if len(pline) == 2:
+                    level = pline[0]; title = ""; page = int(pline[1]) + self.offset
+                elif len(pline) == 3:
+                    level = pline[0]; title = pline[1]; page = int(pline[2]) + self.offset
+                else:       # 英文中包含空格
+                    level = pline[0]; title = ' '.join(pline[1:len(pline)-1]); page = int(pline[len(pline)-1]) + self.offset
 
                 # 1. 计算当前的 level 的级数 id
                 # 2. 当前书签的父结点存放在 dir_parent[id-1] 上
