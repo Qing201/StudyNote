@@ -11,6 +11,7 @@ from typing import List
 
 
 class Solution:
+
     def search(self, nums: List, target: int) -> int:
         self.target = target
         self.nums = nums
@@ -44,5 +45,20 @@ class Solution:
     #         else:
     #             left = pivot + 1
     #     return -1
+
+
+    def search(self, nums: List, target: int) -> int:
+        left = 0; right = len(nums)
+        while(left<=right):
+            mid = (right+left)/2
+            num = target[mid]
+            if num == target:
+                return mid
+            elif num > target:
+                right = mid-1
+            elif num < target:
+                left = mid+1
+        return -1
+
     
 # @lc code=end
