@@ -20,6 +20,7 @@
     - [数字隔离器](#数字隔离器)
   - [TVS管](#tvs管)
   - [线性稳压器](#线性稳压器)
+    - [PSRR(Power Supply Ripple Rejection)](#psrrpower-supply-ripple-rejection)
 
 **Analog Circuit**
 
@@ -122,3 +123,5 @@ tvs管是吸收浪涌功率用的，能在极短时间内承受反向电压冲�
 ### 线性稳压器
 
 LDO（low dropout regulator，低压差线性稳压器）
+
+#### PSRR(Power Supply Ripple Rejection)
