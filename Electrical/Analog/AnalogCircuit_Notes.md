@@ -32,7 +32,11 @@
 
 #### Application
 [电容在电路中的27种经典应用(知乎)](https://zhuanlan.zhihu.com/p/82664931)
+
 [VCC与GND之间的电容](https://zhuanlan.zhihu.com/p/550387466)
+1. 稳压
+2. 滤波：在直流电源（Vcc）和地之间并接电容的电容可称为滤波电容，滤波电容滤除电源的杂波和交流成分，压平滑脉动直流电，储存电能，取值一般 100－4700uF。
+
 
 ### Inductor
 
