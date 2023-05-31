@@ -125,6 +125,18 @@ Saturation: $V_{BE} > 0.6, \ V_{CE} = 0 $
 
 ## MOS
 
+Current is from Drain to Source, 箭头方向是PN结方向，箭头所在位置是S
+
+N-MOS is N-Channel, P-Mos is P Channel
+
+NMOS反向通电相当于二极管，即使G极没有电压也可以直接导通
+
+> 因为MOS管内部已经将S极和B极连在了一起，S极和P衬底是等电势的，我们加了Vgs电压就相当于在Vgb上加了一个电压。从NMOS管的结构来看，S极到D极是：N+（S）->P（B）->N+（D），现在S和B是短路的，那么S极到D极就变成了P（S/B）->N+（D），这个就是一个妥妥的二极管了（体二极管）。所以如果在Vds上加一个负电压，就算MOS管不打开，电流同样能够通过该体二极管流过。[MOS管打开时，是否正向和反向都能导通？(知乎)](https://www.zhihu.com/question/37879218/answer/2906877301)
+
+![](src/img/MOSRegion.png)
+
+![](src/img/MOSCircuitSymbols.png)
+
 
 
 
