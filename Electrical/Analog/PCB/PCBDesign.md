@@ -18,3 +18,4 @@ EMC(Electro Magnetic Compatibility)——电磁兼容
 
 
 ## Check List
+ESD（Electro-Static discharge）静电放电

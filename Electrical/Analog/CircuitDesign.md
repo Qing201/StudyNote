@@ -1,11 +1,22 @@
 
+- [电路安全](#电路安全)
+  - [EMC (Electromagnetic Compatibility) 电磁兼容性](#emc-electromagnetic-compatibility-电磁兼容性)
+    - [浪涌](#浪涌)
 - [Resonate Circuit](#resonate-circuit)
 - [BJT](#bjt)
 - [Check List](#check-list)
 
+## 电路安全
 
+### EMC (Electromagnetic Compatibility) 电磁兼容性
+
+EMC分为EMS（electromagnetic susceptibility）电磁抗扰度和EMI（ Electromagnetic interference）电磁干扰两部分
+
+#### 浪涌
 接口处串联电阻：浪涌电流
 接口处接TVS：浪涌电压
+
+防爆安全-[安全栅](../Ex/IntrinsicSafety.md#安全栅)
 
 ## Resonate Circuit
 
