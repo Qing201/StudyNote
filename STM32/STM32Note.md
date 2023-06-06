@@ -5,5 +5,4 @@
 ## 管脚功能
 
 
-[UART & USART](Electrical/Analog/Signal/SignalNote.md)
-通讯
+[UART & USART](../Electrical/Analog/Signal/SignalNote.md#uart)
