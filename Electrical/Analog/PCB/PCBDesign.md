@@ -1,3 +1,12 @@
+## PCB标识
+触点：
+NO: Normally Open
+NC: Normally Close
+
+原理图原件：
+NC：No Connection
+
+
 
 ## PCB 接口
 EN：使能信号接口 （芯片输出给电路）

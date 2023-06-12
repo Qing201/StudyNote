@@ -16,6 +16,7 @@
 - [Bipolar Junction Transistors (BJT)](#bipolar-junction-transistors-bjt)
   - [NPN and PNP](#npn-and-pnp)
   - [Amplifier](#amplifier)
+    - [Operation Amplifier](#operation-amplifier)
 - [MOS](#mos)
 - [电子原件](#电子原件)
   - [锁存器](#锁存器)
@@ -123,6 +124,8 @@ Saturation: $V_{BE} > 0.6, \ V_{CE} = 0 $
 
 ### Amplifier
 
+#### Operation Amplifier
+
 
 ## MOS
 
@@ -151,26 +154,4 @@ NMOS反向通电相当于二极管，即使G极没有电压也可以直接导通
 LE (Latch Enable) :锁存使能，无效时输出不变化，维持原值。
 OE (Output Enable) :输出使能，无效时输出为高阻态。
 
-### 隔离
 
-#### 隔离电源模块
-
-
-#### 数字隔离器
-在电气隔离器状态下实现数字信号传递
-
-**光耦隔离**
-optical coupler 
-
-**容耦隔离**
-
-**磁耦隔离**
-磁耦是芯片级变压器隔离技术
-
-
-
-### 线性稳压器
-
-LDO（low dropout regulator，低压差线性稳压器）
-
-#### PSRR(Power Supply Ripple Rejection)

@@ -10,21 +10,16 @@ from typing import List
 
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
-        lastIndex = len(nums) - 1
-        i = 0
-        while i  <= lastIndex:
-            if nums[i] == val:
-                for j in range(lastIndex, i, -1):
-                    if nums[j] != val:
-                        nums[i] = nums[j]
-                        lastIndex = j-1
+        left,right = 0,len(nums)-1
+        while left < right:
+            if nums[left] == val:
+                while right == val:
+                    right = right - 1
+                    if right == left:
                         break
-                else:
-                    lastIndex = i - 1
-     
-            i += 1
-            
-        return lastIndex + 1
+                nums[left] = nums[right]
+            left = left + 1
+        return right
         
 # @lc code=end
 
