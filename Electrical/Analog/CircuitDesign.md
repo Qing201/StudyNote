@@ -17,6 +17,10 @@
 - [传感器](#传感器)
     - [自动调零](#自动调零)
 - [Check List](#check-list)
+- [功率判断](#功率判断)
+  - [负载损耗](#负载损耗)
+  - [LDO](#ldo)
+  - [DCD buck](#dcd-buck)
 
 
 ## 电源
@@ -105,3 +109,17 @@ base 和 be 之间加入电阻的作用：
 current mirror
 
 amplifying transconductance
+
+
+
+
+## 功率判断
+
+### 负载损耗
+上电顺序
+
+### LDO
+电流 温度 
+
+### DCD buck
+内部mos 三极管导通损耗 电容损耗 （效率约为80%）
