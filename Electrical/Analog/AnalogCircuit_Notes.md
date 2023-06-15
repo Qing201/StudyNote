@@ -20,11 +20,6 @@
 - [MOS](#mos)
 - [电子原件](#电子原件)
   - [锁存器](#锁存器)
-  - [隔离](#隔离)
-    - [隔离电源模块](#隔离电源模块)
-    - [数字隔离器](#数字隔离器)
-  - [线性稳压器](#线性稳压器)
-    - [PSRR(Power Supply Ripple Rejection)](#psrrpower-supply-ripple-rejection)
 
 **Analog Circuit**
 
