@@ -1,9 +1,12 @@
 
+- [BJT](#bjt)
 - [电源](#电源)
   - [降压电路](#降压电路)
     - [LDO（low dropout regulator）](#ldolow-dropout-regulator)
       - [PSRR(Power Supply Ripple Rejection)](#psrrpower-supply-ripple-rejection)
     - [BUCK](#buck)
+- [通讯电路](#通讯电路)
+  - [I2C](#i2c)
 - [电路安全](#电路安全)
   - [隔离](#隔离)
     - [隔离电源模块](#隔离电源模块)
@@ -13,7 +16,6 @@
 - [干扰](#干扰)
   - [纹波](#纹波)
 - [Resonate Circuit](#resonate-circuit)
-- [BJT](#bjt)
 - [传感器](#传感器)
     - [自动调零](#自动调零)
 - [Check List](#check-list)
@@ -22,6 +24,10 @@
   - [LDO](#ldo)
   - [DCD buck](#dcd-buck)
 
+## BJT
+base 和 be 之间加入电阻的作用：
+1. R1和R2构成分压，可以用来限制在输入电压大于一定值时才使三极管导通。
+2. 在输入电压为未知时，比如说单片机的IO为高阻态时，用R2下拉，使得三极管截止。
 
 ## 电源
 
@@ -52,6 +58,16 @@ $$P = I_{OUT}/(I_{OUT}+I_{GND})\times V_{OUT}/V_{IN}\times 100\% $$
 
 #### BUCK
 ![](src/img/BUCK原理图.png)
+
+## 通讯电路
+
+### I2C
+I2C的输入输出结构采用的是开漏的结构
+
+I2C总线可能连接多个设备，推挽输出可能有干扰
+
+1、给I/O确定的电平，不易受外界干扰；
+2、接上拉的开漏输出结构可以作为外部的输入I/O。
 
 ## 电路安全
 
@@ -96,10 +112,6 @@ EMC分为EMS（electromagnetic susceptibility）电磁抗扰度和EMI（ Electro
 > [振荡电路原理（B站）](https://www.bilibili.com/video/BV1La4y1g7GC/?spm_id_from=333.788&vd_source=bc1fa6dcfe143fdb1cf9fab62f9aae02)
 
 
-## BJT
-base 和 be 之间加入电阻的作用：
-1. R1和R2构成分压，可以用来限制在输入电压大于一定值时才使三极管导通。
-2. 在输入电压为未知时，比如说单片机的IO为高阻态时，用R2下拉，使得三极管截止。
 
 ## 传感器
 #### 自动调零

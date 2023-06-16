@@ -26,6 +26,13 @@ EMC(Electro Magnetic Compatibility)——电磁兼容
 [九种常见的元器件封装技术（知乎）](https://zhuanlan.zhihu.com/p/103470579)
 
 
+
+## EMI 电磁干扰
+(Electromagnetic Interference)
+ 
+
+
+
 ## Check List
 ESD（Electro-Static discharge）静电放电
 
