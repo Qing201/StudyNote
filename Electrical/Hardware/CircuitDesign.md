@@ -1,10 +1,12 @@
 
 - [BJT](#bjt)
 - [电源](#电源)
-  - [降压电路](#降压电路)
-    - [LDO（low dropout regulator）](#ldolow-dropout-regulator)
-      - [PSRR(Power Supply Ripple Rejection)](#psrrpower-supply-ripple-rejection)
-    - [BUCK](#buck)
+  - [AC-DC](#ac-dc)
+  - [电压升降电路](#电压升降电路)
+    - [降压电路](#降压电路)
+      - [LDO（low dropout regulator）](#ldolow-dropout-regulator)
+        - [PSRR(Power Supply Ripple Rejection)](#psrrpower-supply-ripple-rejection)
+      - [BUCK](#buck)
 - [通讯电路](#通讯电路)
   - [I2C](#i2c)
 - [电路安全](#电路安全)
@@ -31,12 +33,17 @@ base 和 be 之间加入电阻的作用：
 
 ## 电源
 
+### AC-DC
+
+![](src/img/全波整流.png)
+
+### 电压升降电路
 ![](src/img/电源电压电路对比.png)
 
-### 降压电路
+#### 降压电路
 
 
-#### LDO（low dropout regulator）
+##### LDO（low dropout regulator）
 
 低压差线性稳压器
 
@@ -53,10 +60,10 @@ $$P = I_{OUT}/(I_{OUT}+I_{GND})\times V_{OUT}/V_{IN}\times 100\% $$
 
 在大多数应用中,LDO 主要用于将灵敏的负载与有噪声的电源相隔离。与开关稳压器不同,线性稳压器会在通路晶体管或MOSFET(用来调节和保持输出电压来达到所需的精度)中造成功率耗散。因此,就效率而言,LDO 的功率耗散会是一个显著劣势,并可能导致热问题。所以, 设计工程师需要通过尽可能降低 LDO 功率耗散,来提升系统效率和避免热复杂性,这一点很重要。
 
-##### PSRR(Power Supply Ripple Rejection)
+###### PSRR(Power Supply Ripple Rejection)
 电源纹波抑制比
 
-#### BUCK
+##### BUCK
 ![](src/img/BUCK原理图.png)
 
 ## 通讯电路

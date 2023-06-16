@@ -95,7 +95,7 @@ TTL，RS232，RS485 都是一种逻辑电平的表示方式
 
 I2C 开始通讯时，主机通过 SDA 线寻址查找 slave
 
-[I2C电路设计bel](../CircuitDesign.md#i2c)
+[I2C电路设计](../CircuitDesign.md#i2c)
 
 ### SPI 协议
 
