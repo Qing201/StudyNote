@@ -24,7 +24,7 @@
 - [功率判断](#功率判断)
   - [负载损耗](#负载损耗)
   - [LDO](#ldo)
-  - [DCD buck](#dcd-buck)
+  - [DC-DC buck](#dc-dc-buck)
 
 ## BJT
 base 和 be 之间加入电阻的作用：
@@ -140,5 +140,7 @@ amplifying transconductance
 ### LDO
 电流 温度 
 
-### DCD buck
+### DC-DC buck
 内部mos 三极管导通损耗 电容损耗 （效率约为80%）
+
+[BUCK PCB Design](HWProjectDesign/PCBDesign.md#buck)
