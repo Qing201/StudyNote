@@ -11,6 +11,8 @@
     - [ADC](#adc)
     - [比较器（COMP）](#比较器comp)
   - [总线](#总线)
+- [Function](#function)
+  - [GPIO](#gpio)
 - [Check List](#check-list)
 
 ## MCU 组成
@@ -87,5 +89,10 @@ WWDG: 窗口看门狗
 电压比较，输出数字信号大于$V_{ref}$或小于$V_{ref}$
 
 ### 总线
+
+
+## Function
+### GPIO
+四种输出方式： 
 
 ## Check List
