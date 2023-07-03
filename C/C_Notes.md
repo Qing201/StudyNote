@@ -1,4 +1,7 @@
-- [Basic Function](#basic-function)
+# C
+
+- [C](#c)
+  - [C Fundamentals](#c-fundamentals)
   - [Variables and Types](#variables-and-types)
     - [Datatype](#datatype)
       - [Integer and Float](#integer-and-float)
@@ -14,7 +17,10 @@
     - [Map](#map)
     - [ArrayList](#arraylist)
   - [Control Flows (Logical)](#control-flows-logical)
+    - [Logical Operators](#logical-operators)
+    - [](#)
       - [if else](#if-else)
+      - [switch](#switch)
       - [For](#for)
       - [When](#when)
       - [While](#while)
@@ -31,7 +37,8 @@
       - [Compiling and Running C Code](#compiling-and-running-c-code)
       - [Compiling C++ Code](#compiling-c-code)
 
-# Basic Function
+## C Fundamentals
+
 
 ## Variables and Types
 
@@ -47,6 +54,9 @@ double    // 8 bits double precision float
 
 sizeof()    // return the size in bits
 ```
+
+
+
 #### Integer and Float
 
 #### Boolean
@@ -56,6 +66,22 @@ sizeof()    // return the size in bits
 #### Nullable
 
 ### Input and Output
+
+```c
+int i;
+  float x;
+
+  i = 40;
+  x = 839.21f;
+
+  printf("|%d|%5d|%-5d|%5.3d|\n", i, i, i, i);
+  printf("|%10.3f|%10.3e|%-10g|\n", x, x, x);
+
+/* 
+|40|    40|40   |   040|
+|    839.210| 8.392e+02|839.21    |
+ */
+```
 #### Print
 
 ### Typecasting
@@ -72,9 +98,39 @@ sizeof()    // return the size in bits
 
 ## Control Flows (Logical)
 
+### Logical Operators
+| Symbol  | Meaning  |
+|---|---|
+| !  | logical negation  |
+| &&  | logical and  |
+| ||  | logical or  |
 
+###
 
 #### if else
+
+```c
+if ( erpression ) 
+  statement 
+else if ( expression ) 
+  statement 
+else if ( expression ) 
+  statement 
+else 
+  staltement
+```
+
+#### switch
+
+```c
+switch ( expression ) {
+  case constant-expression : statements 
+  ...
+  case constant-expression : statements 
+  default : statements
+}
+```
+
 #### For
 #### When
 #### While
@@ -86,6 +142,7 @@ sizeof()    // return the size in bits
 ## Lambda Expression
 ## Visibility Modifier
 ## Exception
+
 
 # Module
 ```c

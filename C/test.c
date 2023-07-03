@@ -1,9 +1,9 @@
 #include<stdio.h>
 
 int main(){
-    int age;
-    printf("hello word");
-    scanf("%d",&age);
-    printf("age is %d",age);
+    int i,j,k;
+    i = 5; j = 0; k = 1;
+    printf("%d\n \n", k < i <j);
+    printf("fda1");
     return 0;
 }

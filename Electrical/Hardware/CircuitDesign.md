@@ -3,6 +3,8 @@
 - [电源](#电源)
   - [AC-DC](#ac-dc)
   - [电压升降电路](#电压升降电路)
+    - [升压电路](#升压电路)
+      - [Boost](#boost)
     - [降压电路](#降压电路)
       - [LDO（low dropout regulator）](#ldolow-dropout-regulator)
         - [PSRR(Power Supply Ripple Rejection)](#psrrpower-supply-ripple-rejection)
@@ -39,6 +41,16 @@ base 和 be 之间加入电阻的作用：
 
 ### 电压升降电路
 ![](src/img/电源电压电路对比.png)
+
+#### 升压电路
+
+##### Boost
+
+> [手撕Boost！Boost公式推导及实验验证 (知乎)](https://zhuanlan.zhihu.com/p/396048467)
+
+通过开关来实现电感的充电放电，加大电压。开关闭合，电感充电；开关断开，电感放电，电压等于电感电压与电源电压的和。后置的电容也通过充电放电维持电压的稳定。
+
+![](src/img/Boost电路.png)
 
 #### 降压电路
 
