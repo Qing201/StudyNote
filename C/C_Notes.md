@@ -2,6 +2,7 @@
 
 - [C](#c)
   - [C Fundamentals](#c-fundamentals)
+  - [Declarations](#declarations)
   - [Variables and Types](#variables-and-types)
     - [Datatype](#datatype)
       - [Integer and Float](#integer-and-float)
@@ -50,6 +51,12 @@
 除main函数之外的函数的原型；
 main函数的定义；
 其他函数的定义。
+
+## Declarations
+
+**存储类型**: 存储类型一共有4种：auto、static、extern和register。在声明中最多可以出现一种存储类型。如果存储类型存在，则必须把它放置在最前面。
+**类型限定符**: C89只有两种类型限定符：const和volatile。 C99还有一个限定符restrict。声明可以包含零个或多个限定符。
+**类型说明符**: 关键字void、char、short、int、long、float、double、signed和unsigned都是类型说明符。这些单词可以组合使用，如第7章所述。这些单词出现的顺序并不重要（int unsigned long和long unsigned int完全一样）。类型说明符也包括结构、联合和枚举的说明（例如，struct point{int x, y;}、struct {int x, y;}或者struct point）。用typedef创建的类型名也是类型说明符。
 ## Variables and Types
 
 ### Datatype
