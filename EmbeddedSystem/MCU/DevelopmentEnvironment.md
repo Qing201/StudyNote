@@ -22,6 +22,16 @@ pyocd flash -t [BoardName] [FlashFile]
 #### pyOCD add board
 > [git reference](https://github.com/jaydcarlson/py32-template)
 
+> [pyOCD config file](https://pyocd.io/docs/configuration.html#config-file)
+
+add file pyocd.yaml 
+
+```yaml
+pack:
+    Puya.PY32F0xx_DFP.1.1.7.pack
+```
+
+> To add pyOCD config file in EIDE: [EIDE: pyOCD](https://em-ide.com/zh-cn/docs/modules/flasher#pyocd)
 
 ## 工程配置
 
