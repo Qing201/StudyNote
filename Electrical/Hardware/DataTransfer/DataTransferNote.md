@@ -11,14 +11,16 @@
   - [USB (Universal Serial Bus)](#usb-universal-serial-bus)
     - [USB 编码 （NRZI 编码（Non-Return-to-Zero Inverted Code）](#usb-编码-nrzi-编码non-return-to-zero-inverted-code)
     - [SWD](#swd)
+  - [CAN](#can)
 - [电平标准](#电平标准)
-    - [TTL (Transistor Transistor Logic)](#ttl-transistor-transistor-logic)
-    - [RS-232](#rs-232)
-    - [RS-485](#rs-485)
-    - [CMOS](#cmos)
+  - [TTL (Transistor Transistor Logic)](#ttl-transistor-transistor-logic)
+  - [RS-232](#rs-232)
+  - [RS-485](#rs-485)
+  - [CMOS](#cmos)
   - [MODEM](#modem)
     - [DCD、DTR、DSR、RTS 及 CTS 等五个状态指示](#dcddtrdsrrts-及-cts-等五个状态指示)
   - [TCP/IP](#tcpip)
+- [数据模式](#数据模式)
 - [ARM 总线](#arm-总线)
   - [AHB APB](#ahb-apb)
 
@@ -58,8 +60,11 @@
 **半双工**：
 ![](src/img/半双工1.png) ![](src/img/半双工2.png)
 
-**半工**：
+**半工（单工）**：
 ![](src/img/半工.png)
+
+> 全双工：打电话；半双工：对讲机；单工：广播
+
 
 ## 通讯协议
 
@@ -74,6 +79,14 @@ COM 口：特指台式计算机或一些电子设备上的 D-SUB 外形(一种�
 USB 口：通用串行总线，和串口完全是两个概念。虽然也是串行方式通信，但由于 USB 的通信时序和信号电平都和串口完全不同，因此和串口没有任何关系。USB 是高速的通信接口，用于 PC 连接各种外设，U 盘、键鼠、移动硬盘、当然也包括“USB 转串口”的模块。（USB 转串口模块，就是 USB 接口的 UART 模块）
 
 TTL，RS232，RS485 都是一种逻辑电平的表示方式
+
+| 名称  |         引脚         | 双工   | 时钟 | 电平 | 设备   |
+| :---: | :------------------: | ------ | ---- | ---- | ------ |
+| USART |        TX, RX        | 全双工 | 同步/异步 | 单端 | 点对点 |
+|  I2C  |       SCL, SDA       | 半双工 | 同步 | 单端 | 多设备 |
+|  SPI  | SCLK, MOSI, MISO, CS | 全双工 | 同步 | 单端 | 多设备 |
+|  CAN  |     CAN_H. CAN_L     | 半双工 | 异步 | 差分 | 多设备 |
+|  USB  |        DP. DM        | 半双工 | 异步 | 差分 | 点对点 |
 
 ### I2C (Inter－Integrated Circuit)
 
@@ -95,7 +108,7 @@ TTL，RS232，RS485 都是一种逻辑电平的表示方式
 
 I2C 开始通讯时，主机通过 SDA 线寻址查找 slave
 
-[I2C电路设计](../CircuitDesign.md#i2c)
+[I2C 电路设计](../CircuitDesign.md#i2c)
 
 ### SPI 协议
 
@@ -136,6 +149,9 @@ Universal Asynchronous Receiver/Transmitter，意为通用异步收发传输器�
 
 <p font-size=2; style="text-align:center"><i>URAT帧模式(Frame Format)</i></p>
 
+TX（Transfer Exchange）：发送引脚
+RX（Receive Exchange）：接收引脚
+
 起始位：发送 1 位逻辑 0（低电平），开始传输数据。
 数据位：可以是 5~8 位的数据，先发低位，再发高位，一般常见的就是 8 位（1 个字节），其他的如 7 位的 ASCII 码。
 校验位：奇偶校验，将数据位加上校验位，1 的位数为偶数（偶校验），1 的位数 4 为奇数（奇校验）。
@@ -150,7 +166,9 @@ Universal Asynchronous Receiver/Transmitter，意为通用异步收发传输器�
 #### USART
 
 Universal Synchronous Asynchronous Receiver and Transmitter 通用同步/异步收/发器
-USART 在 UART 基础上增加了同步功能，即 USART 是 UART 的增强型
+USART 在 UART 基础上增加了同步功能，（增加了时钟信号），即 USART 是 UART 的增强型，通常情况下不使用同步功能。
+
+[USART_MCU](../../../EmbeddedSystem/MCU/MCU_Note.md#usart)
 
 ### USB (Universal Serial Bus)
 
@@ -206,9 +224,11 @@ SWD 串行调试接口
 SWDIO: 串行数据线，用于数据的读出和写入
 SWDCLK: 串行时钟线，提供所需要的时钟信号
 
+### CAN
+
 ## 电平标准
 
-#### TTL (Transistor Transistor Logic)
+### TTL (Transistor Transistor Logic)
 
 即晶体管-晶体管逻辑电平。
 
@@ -216,13 +236,13 @@ TTL 电平信号规定，**+5V 等价于逻辑“1”，0 V 等价于逻辑“0�
 
 这样的数据通信及电平规定方式，被称做 TTL（晶体管-晶体管逻辑电平）信号系统，这是计算机处理器控制的设备内部各部分之间通信的标准技术。一般的电子设备用的多是 TTL 电平，但是它的驱动能力和抗干扰能力很差，不适合作为外部的通信标准，一些通信方式如 RS232、RS485、USB 等在传输线上使用的不是 TTL 电平，因此这些通信线上的信号在电子设备端要进行电平转换，才能够正常通信。
 
-#### RS-232
+### RS-232
 
 **RS-232 电平：全双工 (逻辑 1：-15V--5V 逻辑 0：+3V--+15V)**
 
 rs232 的逻辑电平和 TTL 不一样但是协议一样。
 
-#### RS-485
+### RS-485
 
 [RS-485 知乎](https://zhuanlan.zhihu.com/p/341845459)
 
@@ -233,7 +253,7 @@ RS-485 不需要使用特定的总线电压，只看最小差分电压，在较�
 
 半双工模式
 
-**RS-485：半双工、（逻辑 1：+2V--+6V 逻辑 0： -6V---2V）**
+**RS-485：半双工、差分信号（逻辑 1：+2V--+6V（压差） 逻辑 0： -6V---2V）**
 
 ![](src/img/RS-485内部结构.png)
 
@@ -251,7 +271,7 @@ RS-485 不需要使用特定的总线电压，只看最小差分电压，在较�
 
 有一些电路中会在 A 上加上拉，B 上加下拉电阻，主要原因是：RS-485 总线在 idle 状态，电平是不固定的，即电平在-200mV~+200mV 之间，收发器可能输出高也可能输出低，UART 在空闲时需要保持高电平的，如果此时收发器输出一个低电平，对 UART 来说是一个 start bit，会导致通信异常
 
-#### CMOS
+### CMOS
 
 输出 L：<0.1*Vcc；H:>0.9*Vcc。
 
@@ -278,6 +298,17 @@ CTS（Clear To Send 清除发送）
 TCP/IP (Transmission Control Protocol/Internet Protocol):传输控制协议和网络协议是用于因特网 (Internet) 的通信协议。
 
 TCP (Transmission Control Protocol)和 UDP(User Datagram Protocol)协议属于传输层协议。
+
+
+## 数据模式
+
+HEX
+
+ASCII
+
+GBK
+
+UTF8
 
 ## ARM 总线
 

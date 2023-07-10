@@ -17,6 +17,8 @@
 - [Function](#function)
   - [GPIO](#gpio)
   - [中断](#中断)
+  - [USART](#usart)
+- [Project](#project)
 - [Check List](#check-list)
 
 ## MCU 组成
@@ -33,7 +35,7 @@ DCode 总线 (Data): 读取数据
 
 System总线：访问外设寄存器
 
-DMA总线：传输数据
+DMA (Direct Memory Access) 总线：传输数据
 
 因为数据可以被DCode总线和DMA总线访问，所以为了避免访问冲突，在取数的时候需要经过一个总线矩阵来仲裁，决定哪个总线取数。
 
@@ -80,6 +82,8 @@ STM32 有4个独立时钟源:HSI、HSE、LSI、LSE。
 其中LSI是作为IWDGCLK(独立看门狗)时钟源和RTC时钟源 而独立使用 
 
 而HSI高速内部时钟 HSE高速外部时钟 PLL锁相环时钟  这三个经过分频或者倍频 作为系统时钟来使用
+
+> 对于SYSCLK、HCLK、PCLK2、PCLK1这4个时钟的配置一般是：PCLK2=HCLK=SYSCLK=PLLCLK=72MHz，PCLK1=HCLK/2=36MHz。(STM32库开发实战指南)
 
 #### 定时器
 
@@ -140,4 +144,20 @@ WWDG: 窗口看门狗
 ### 中断
 
 使用NVIC统一管理中断，每个中断通道都拥有16个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级
+
+### USART
+
+[USART Note](../../Electrical/Hardware/DataTransfer/DataTransferNote.md#usart)
+
+USART 发送数据时，使用发送数据寄存器（TDR）传入发送移位寄存器，数位位移进行发送给TX引脚
+![](src/img/USART_BlockDiagram_STM32.png)
+图中上半部分为数据传输部分，下半部分为控制部分
+
+USART输入采样时，需要控制其采样时处于每个bit信号发送的中间位置。在接收数据刚开始时MCU会使用16倍的采样速率进行判断采样的中间点。  
+
+## Project
+![](src/img/STM32库文件关系.png)
+
 ## Check List
+
+
