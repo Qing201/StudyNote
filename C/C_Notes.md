@@ -20,7 +20,7 @@
     - [ArrayList](#arraylist)
   - [Control Flows (Logical)](#control-flows-logical)
     - [Logical Operators](#logical-operators)
-    - [](#)
+    - [点运算符](#点运算符)
       - [if else](#if-else)
       - [switch](#switch)
       - [when](#when)
@@ -140,7 +140,8 @@ int i;
 | &&     | logical and      |
 |        |                  |     | logical or |
 
-###
+### 点运算符
+表达式 p->m 等效于 (*p).m, 相反地，如果 x 是左值的话，表达式 x.m 等效于（&x）->m。
 
 #### if else
 

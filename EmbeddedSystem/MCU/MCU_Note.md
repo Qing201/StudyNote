@@ -5,7 +5,7 @@
     - [非易失性储存器](#非易失性储存器)
     - [易失性储存器](#易失性储存器)
     - [FSMC](#fsmc)
-    - [AHB到APB的桥（片上外设）](#ahb到apb的桥片上外设)
+    - [AHB 到 APB 的桥（片上外设）](#ahb-到-apb-的桥片上外设)
   - [时钟系统](#时钟系统)
     - [定时器](#定时器)
     - [看门狗（WatchDog）](#看门狗watchdog)
@@ -23,21 +23,19 @@
 
 ## MCU 组成
 
-
-
 ### CPU
 
 ### 总线
 
-ICode总线
+ICode 总线
 
 DCode 总线 (Data): 读取数据
 
-System总线：访问外设寄存器
+System 总线：访问外设寄存器
 
 DMA (Direct Memory Access) 总线：传输数据
 
-因为数据可以被DCode总线和DMA总线访问，所以为了避免访问冲突，在取数的时候需要经过一个总线矩阵来仲裁，决定哪个总线取数。
+因为数据可以被 DCode 总线和 DMA 总线访问，所以为了避免访问冲突，在取数的时候需要经过一个总线矩阵来仲裁，决定哪个总线取数。
 
 ### 储存器
 
@@ -61,9 +59,9 @@ SRAM（Static Random Access Memory）静态随机存储器
 
 #### FSMC
 
-#### AHB到APB的桥（片上外设）
+#### AHB 到 APB 的桥（片上外设）
 
-片上外设区分为3条总线，根据不同的外设速度，不同总线挂载着不同的外设，APB1挂载低速外设，APB2和AHB挂载高速外设。
+片上外设区分为 3 条总线，根据不同的外设速度，不同总线挂载着不同的外设，APB1 挂载低速外设，APB2 和 AHB 挂载高速外设。
 
 ### 时钟系统
 
@@ -71,7 +69,7 @@ HSI (Inside)
 
 HSE (External)
 
-STM32 有4个独立时钟源:HSI、HSE、LSI、LSE。
+STM32 有 4 个独立时钟源:HSI、HSE、LSI、LSE。
 
 ①HSI 是高速内部时钟，RC 振荡器，频率为 8MHz。  
 ②HSE 是高速外部时钟，可接石英/陶瓷谐振器，或者接外部时钟源，频率范围为 4MHz~16MHz。
@@ -79,11 +77,11 @@ STM32 有4个独立时钟源:HSI、HSE、LSI、LSE。
 ④LSE 是低速外部时钟，接频率为 32.768kHz 的石英晶体。
 ⑤PLL 为锁相环倍频输出，其时钟输入源可选择为 HSI/2、HSE 或者 HSE/2。倍频可选择为 2~16 倍，但是其输出频率最大不得超过 72MHz。
 
-其中LSI是作为IWDGCLK(独立看门狗)时钟源和RTC时钟源 而独立使用 
+其中 LSI 是作为 IWDGCLK(独立看门狗)时钟源和 RTC 时钟源 而独立使用
 
-而HSI高速内部时钟 HSE高速外部时钟 PLL锁相环时钟  这三个经过分频或者倍频 作为系统时钟来使用
+而 HSI 高速内部时钟 HSE 高速外部时钟 PLL 锁相环时钟 这三个经过分频或者倍频 作为系统时钟来使用
 
-> 对于SYSCLK、HCLK、PCLK2、PCLK1这4个时钟的配置一般是：PCLK2=HCLK=SYSCLK=PLLCLK=72MHz，PCLK1=HCLK/2=36MHz。(STM32库开发实战指南)
+> 对于 SYSCLK、HCLK、PCLK2、PCLK1 这 4 个时钟的配置一般是：PCLK2=HCLK=SYSCLK=PLLCLK=72MHz，PCLK1=HCLK/2=36MHz。(STM32 库开发实战指南)
 
 #### 定时器
 
@@ -130,34 +128,33 @@ WWDG: 窗口看门狗
 
 输出方式： 输出(推挽或开漏)、输入(带或不带上拉或下拉)
 
-| 程序中标识            | 模式         |
-| --------------------- | ------------ |
-| GPIO_Mode_AIN         | 模拟输入     |
-| GPIO_Mode_IN_FLOATING | 浮空输入     |
-| GPIO_Mode_IPD         | 下拉输入     |
-| GPIO_Mode_IPU         | 上拉输入     |
-| GPIO_Mode_Out_OD      | 开漏输出     |
-| GPIO_Mode_Out_PP      | 推挽输出     |
-| GPIO_Mode_AF_OD       | 复用开漏输出 |
-| GPIO_Mode_AF_PP       | 复用推挽输出 |
+| 程序中标识            | 模式         | -               | -                         |
+| --------------------- | ------------ | --------------- | ------------------------- |
+| GPIO_Mode_Out_PP      | 推挽输出     | Push-Pull       | General purpose output    |
+| GPIO_Mode_Out_OD      | 开漏输出     | Open-Drain      |                           |
+| GPIO_Mode_AF_PP       | 复用推挽输出 | Push-Pull       | Alternate Function output |
+| GPIO_Mode_AF_OD       | 复用开漏输出 | Open-Drain      |                           |
+| GPIO_Mode_AIN         | 模拟输入     | Analog          | Input                     |
+| GPIO_Mode_IN_FLOATING | 浮空输入     | Input floating  |                           |
+| GPIO_Mode_IPD         | 下拉输入     | Input pull-down |                           |
+| GPIO_Mode_IPU         | 上拉输入     | input pull-up   |                           |
 
 ### 中断
 
-使用NVIC统一管理中断，每个中断通道都拥有16个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级
+使用 NVIC 统一管理中断，每个中断通道都拥有 16 个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级
 
 ### USART
 
 [USART Note](../../Electrical/Hardware/DataTransfer/DataTransferNote.md#usart)
 
-USART 发送数据时，使用发送数据寄存器（TDR）传入发送移位寄存器，数位位移进行发送给TX引脚
+USART 发送数据时，使用发送数据寄存器（TDR）传入发送移位寄存器，数位位移进行发送给 TX 引脚
 ![](src/img/USART_BlockDiagram_STM32.png)
 图中上半部分为数据传输部分，下半部分为控制部分
 
-USART输入采样时，需要控制其采样时处于每个bit信号发送的中间位置。在接收数据刚开始时MCU会使用16倍的采样速率进行判断采样的中间点。  
+USART 输入采样时，需要控制其采样时处于每个 bit 信号发送的中间位置。在接收数据刚开始时 MCU 会使用 16 倍的采样速率进行判断采样的中间点。
 
 ## Project
+
 ![](src/img/STM32库文件关系.png)
 
 ## Check List
-
-
