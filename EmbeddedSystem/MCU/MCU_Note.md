@@ -17,7 +17,9 @@
 - [Function](#function)
   - [GPIO](#gpio)
   - [中断](#中断)
+    - [EXTI (Extern Interrupt)](#exti-extern-interrupt)
   - [USART](#usart)
+- [I2C](#i2c)
 - [Project](#project)
 - [Check List](#check-list)
 
@@ -143,6 +145,15 @@ WWDG: 窗口看门狗
 
 使用 NVIC 统一管理中断，每个中断通道都拥有 16 个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级
 
+抢占优先级：可以暂停CPU现有的操作。
+响应优先级：决定CPU执行完现有任务后执行其他任务的顺序（排队插队）
+
+- NVIC的中断优先级由优先级寄存器的4位 （0-15） 决定，这4位可以进行切分，分为高n位的抢占优先级和低4-n位的响应优先级
+- 抢占优先级高的可以中断能套，响应优先级高的可以优先排队，抢占优先级和响应优先级均相同的按中断号排队
+
+#### EXTI (Extern Interrupt)
+GPIO电源中断
+
 ### USART
 
 [USART Note](../../Electrical/Hardware/DataTransfer/DataTransferNote.md#usart)
@@ -153,6 +164,9 @@ USART 发送数据时，使用发送数据寄存器（TDR）传入发送移位�
 
 USART 输入采样时，需要控制其采样时处于每个 bit 信号发送的中间位置。在接收数据刚开始时 MCU 会使用 16 倍的采样速率进行判断采样的中间点。
 
+
+## I2C
+[USART Note](../../Electrical/Hardware/DataTransfer/DataTransferNote.md#i2c-inter－integrated-circuit)
 ## Project
 
 ![](src/img/STM32库文件关系.png)

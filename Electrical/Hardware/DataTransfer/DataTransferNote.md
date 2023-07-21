@@ -2,11 +2,13 @@
 - [全双工 与 半双工](#全双工-与-半双工)
 - [通讯协议](#通讯协议)
   - [I2C (Inter－Integrated Circuit)](#i2c-interintegrated-circuit)
+    - [I2C时序](#i2c时序)
   - [SPI 协议](#spi-协议)
     - [时钟极性](#时钟极性)
     - [时钟相位](#时钟相位)
     - [四种数据传输模式](#四种数据传输模式)
   - [UART](#uart)
+    - [UART 时序](#uart-时序)
     - [USART](#usart)
   - [USB (Universal Serial Bus)](#usb-universal-serial-bus)
     - [USB 编码 （NRZI 编码（Non-Return-to-Zero Inverted Code）](#usb-编码-nrzi-编码non-return-to-zero-inverted-code)
@@ -108,6 +110,18 @@ TTL，RS232，RS485 都是一种逻辑电平的表示方式
 
 I2C 开始通讯时，主机通过 SDA 线寻址查找 slave
 
+#### I2C时序
+
+高危先行
+
+- 起始条件：SCL高电平期间，SDA从高电平切换到低电平
+- 终止条件：SCL高电平期间，SDA从低电平切换到高电平
+
+地址读取：地址为7位 (通常为0x68)，读写选择为是第8位
+在通讯开始时有两种方法：
+1. 写入地址 (0x68) 并左移一位，然后写入0或1读写位
+2. 直接写入已经加入读写位的8位地址（0xD0）或者（0xD1）
+
 [I2C 电路设计](../CircuitDesign.md#i2c)
 
 ### SPI 协议
@@ -152,11 +166,15 @@ Universal Asynchronous Receiver/Transmitter，意为通用异步收发传输器�
 TX（Transfer Exchange）：发送引脚
 RX（Receive Exchange）：接收引脚
 
+#### UART 时序
+
 起始位：发送 1 位逻辑 0（低电平），开始传输数据。
 数据位：可以是 5~8 位的数据，先发低位，再发高位，一般常见的就是 8 位（1 个字节），其他的如 7 位的 ASCII 码。
 校验位：奇偶校验，将数据位加上校验位，1 的位数为偶数（偶校验），1 的位数 4 为奇数（奇校验）。
 停止位：停止位是数据传输结束的标志，可以是 1/1.5/2 位的逻辑 1（高电平）。
 空闲位：空闲时数据线为高电平状态，代表无数据传输。
+
+低位先行
 
 **UART 传输速率的概念——波特率**
 波特率的单位是 bps，全称是 bit per second，意为每秒钟传输的 bit 数量。
