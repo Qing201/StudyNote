@@ -1,3 +1,18 @@
+- [Compiler](#compiler)
+  - [ARM-GCC](#arm-gcc)
+    - [ARM-GCC 链接文件 .ld](#arm-gcc-链接文件-ld)
+  - [MDK](#mdk)
+  - [IAR](#iar)
+- [EIDE](#eide)
+  - [(Preprocessor Definitions) 预处理](#preprocessor-definitions-预处理)
+- [烧录](#烧录)
+  - [OpenOCD](#openocd)
+  - [pyOCD](#pyocd)
+    - [pyOCD add board](#pyocd-add-board)
+- [工程配置](#工程配置)
+- [.s and .ld file](#s-and-ld-file)
+  - [Preprocessor Define](#preprocessor-define)
+
 ##  Compiler
 
 ### ARM-GCC
@@ -16,6 +31,18 @@
 
 ## EIDE
 [EIDE](https://em-ide.com/zh-cn/docs/intro)
+
+EIDE 配置
+1. .pack文件安装
+2. 链接.ld文件
+3. 预处理
+
+
+> To add pyOCD config file in EIDE: [EIDE: pyOCD](https://em-ide.com/zh-cn/docs/modules/flasher#pyocd)
+
+### (Preprocessor Definitions) 预处理
+
+`USE_STDPERIPH_DRIVER` 和使用的芯片型号
 
 ## 烧录
 ### OpenOCD
@@ -49,7 +76,6 @@ pack:
     Puya.PY32F0xx_DFP.1.1.7.pack
 ```
 
-> To add pyOCD config file in EIDE: [EIDE: pyOCD](https://em-ide.com/zh-cn/docs/modules/flasher#pyocd)
 
 ## 工程配置
 

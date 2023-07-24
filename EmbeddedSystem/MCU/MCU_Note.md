@@ -16,8 +16,12 @@
   - [总线](#总线-1)
 - [Function](#function)
   - [GPIO](#gpio)
+  - [AFIO](#afio)
   - [中断](#中断)
     - [EXTI (Extern Interrupt)](#exti-extern-interrupt)
+    - [TIM](#tim)
+    - [OC (Output Compare)](#oc-output-compare)
+      - [PWM](#pwm)
   - [USART](#usart)
 - [I2C](#i2c)
 - [Project](#project)
@@ -141,18 +145,106 @@ WWDG: 窗口看门狗
 | GPIO_Mode_IPD         | 下拉输入     | Input pull-down |                           |
 | GPIO_Mode_IPU         | 上拉输入     | input pull-up   |                           |
 
+### AFIO
+
+Alternate Function IO (复用)
+
 ### 中断
 
 使用 NVIC 统一管理中断，每个中断通道都拥有 16 个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级
 
-抢占优先级：可以暂停CPU现有的操作。
-响应优先级：决定CPU执行完现有任务后执行其他任务的顺序（排队插队）
+抢占优先级：可以暂停 CPU 现有的操作。
+响应优先级：决定 CPU 执行完现有任务后执行其他任务的顺序（排队插队）
 
-- NVIC的中断优先级由优先级寄存器的4位 （0-15） 决定，这4位可以进行切分，分为高n位的抢占优先级和低4-n位的响应优先级
-- 抢占优先级高的可以中断能套，响应优先级高的可以优先排队，抢占优先级和响应优先级均相同的按中断号排队
+-   NVIC 的中断优先级由优先级寄存器的 4 位 （0-15） 决定，这 4 位可以进行切分，分为高 n 位的抢占优先级和低 4-n 位的响应优先级
+-   抢占优先级高的可以中断能套，响应优先级高的可以优先排队，抢占优先级和响应优先级均相同的按中断号排队
+
+配置完中断后，中断函数的名称是固定的，在启动文件(.s 文件)中寻找。
 
 #### EXTI (Extern Interrupt)
-GPIO电源中断
+
+EXTI 配置顺序：
+
+```c
+RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);       // Turn on GPIO clock
+RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);        // Turn on AFIO clock 服用引脚
+
+// GPIO Initial
+GPIO_InitTypeDef GPIO_InitStructure;
+GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_IPU;
+GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_10 | GPIO_Pin_11 | GPIO_Pin_1;
+GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+GPIO_Init(GPIOB, &GPIO_InitStructure);
+
+// Set GPIO as EXTI AFIO
+GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource10);
+GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource11);
+GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource1);
+
+// EXTI Initial
+EXTI_InitTypeDef EXTI_InitStructure;
+EXTI_InitStructure.EXTI_Line    = EXTI_Line10 | EXTI_Line11 | EXTI_Line1;
+EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+EXTI_InitStructure.EXTI_Mode    = EXTI_Mode_Interrupt;
+EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+EXTI_Init(&EXTI_InitStructure);
+
+// NVIC 优先级分组
+NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+
+// NVIC Initial
+NVIC_InitTypeDef NVIC_InitStructure;
+NVIC_InitStructure.NVIC_IRQChannel                   = EXTI15_10_IRQn;
+NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+NVIC_InitStructure.NVIC_IRQChannelSubPriority        = 1;
+NVIC_InitStructure.NVIC_IRQChannelCmd                = ENABLE;
+NVIC_Init(&NVIC_InitStructure);
+
+NVIC_InitStructure.NVIC_IRQChannel                   = EXTI1_IRQn;
+NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+NVIC_InitStructure.NVIC_IRQChannelSubPriority        = 1;
+NVIC_InitStructure.NVIC_IRQChannelCmd                = ENABLE;
+NVIC_Init(&NVIC_InitStructure);
+```
+
+调用中断的函数命名查找`.s`文件，注意中断5-9，以及中断10-15公用同一中断通道，使用一个函数。
+```c
+void EXTI15_10_IRQHandler(void)
+{
+    if (EXTI_GetITStatus(EXTI_Line10) == SET) {         // 判断中断线路
+        if (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_11) == 0) {
+            CountSensor_Count++;
+        }
+        EXTI_ClearITPendingBit(EXTI_Line10);    // 清除中断位标识，否则会持续进入中断
+    }
+
+    if (EXTI_GetITStatus(EXTI_Line11) == SET) {
+        if (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_10) == 0) {
+            CountSensor_Count--;
+        }
+        EXTI_ClearITPendingBit(EXTI_Line11);
+    }
+}
+```
+
+
+#### TIM
+
+基本定时器
+通用定时器
+![](src/img/GeneralPurposeTimerBlockDiagramSTM32.png)
+ETR (External)
+ITR (Internal)
+TRGI (Trigger Input)
+
+#### OC (Output Compare)
+
+##### PWM
+
+![](src/img/PWM参数计算.png)
+
+
+
 
 ### USART
 
@@ -164,9 +256,10 @@ USART 发送数据时，使用发送数据寄存器（TDR）传入发送移位�
 
 USART 输入采样时，需要控制其采样时处于每个 bit 信号发送的中间位置。在接收数据刚开始时 MCU 会使用 16 倍的采样速率进行判断采样的中间点。
 
-
 ## I2C
+
 [USART Note](../../Electrical/Hardware/DataTransfer/DataTransferNote.md#i2c-inter－integrated-circuit)
+
 ## Project
 
 ![](src/img/STM32库文件关系.png)
