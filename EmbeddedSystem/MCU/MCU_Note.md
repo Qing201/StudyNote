@@ -22,7 +22,9 @@
     - [TIM](#tim)
     - [OC (Output Compare)](#oc-output-compare)
       - [PWM](#pwm)
+        - [IC (Input Capture)](#ic-input-capture)
   - [USART](#usart)
+    - [USART RX](#usart-rx)
 - [I2C](#i2c)
 - [Project](#project)
 - [Check List](#check-list)
@@ -207,7 +209,8 @@ NVIC_InitStructure.NVIC_IRQChannelCmd                = ENABLE;
 NVIC_Init(&NVIC_InitStructure);
 ```
 
-调用中断的函数命名查找`.s`文件，注意中断5-9，以及中断10-15公用同一中断通道，使用一个函数。
+调用中断的函数命名查找`.s`文件，注意中断 5-9，以及中断 10-15 公用同一中断通道，使用一个函数。
+
 ```c
 void EXTI15_10_IRQHandler(void)
 {
@@ -227,7 +230,6 @@ void EXTI15_10_IRQHandler(void)
 }
 ```
 
-
 #### TIM
 
 基本定时器
@@ -243,8 +245,7 @@ TRGI (Trigger Input)
 
 ![](src/img/PWM参数计算.png)
 
-
-
+###### IC (Input Capture)
 
 ### USART
 
@@ -255,6 +256,55 @@ USART 发送数据时，使用发送数据寄存器（TDR）传入发送移位�
 图中上半部分为数据传输部分，下半部分为控制部分
 
 USART 输入采样时，需要控制其采样时处于每个 bit 信号发送的中间位置。在接收数据刚开始时 MCU 会使用 16 倍的采样速率进行判断采样的中间点。
+
+#### USART RX
+
+两种方式读取
+
+1. 通过读取 USART 的状态 Flag 判断 RX 是否接收数据
+2. 通过 USART 中断来接收数据
+
+```c
+/* Read the receive flag register to get the Received data */
+while (1) {
+    if (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == SET)
+    {
+        Serial_RxData = USART_ReceiveData(USART1);
+        Serial_Printf("Received: %c", Serial_RxData);
+    }
+}
+```
+
+```c
+void Initial()
+{
+    ......
+    ......
+    
+    /* Interrupts Initial*/
+    USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+
+    NVIC_InitTypeDef NVIC_InitStructure;
+    NVIC_InitStructure.NVIC_IRQChannel                   = USART1_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority        = 1;
+    NVIC_InitStructure.NVIC_IRQChannelCmd                = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+}
+
+/* Interrupt function */
+void USART1_IRQHandler(void)
+{
+    if (USART_GetITStatus(USART1, USART_IT_RXNE) == SET) {
+        Data = USART_ReceiveData(USART1);
+        ....
+        // USART_IT_RXNE 在 USART_ReceiveData() 读取数据后会自动清零，也可以选择手动清零。
+    }
+}
+
+```
 
 ## I2C
 
