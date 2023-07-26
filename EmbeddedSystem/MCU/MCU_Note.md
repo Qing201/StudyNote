@@ -23,9 +23,10 @@
     - [OC (Output Compare)](#oc-output-compare)
       - [PWM](#pwm)
         - [IC (Input Capture)](#ic-input-capture)
+- [Communication](#communication)
   - [USART](#usart)
     - [USART RX](#usart-rx)
-- [I2C](#i2c)
+  - [I2C](#i2c)
 - [Project](#project)
 - [Check List](#check-list)
 
@@ -247,6 +248,8 @@ TRGI (Trigger Input)
 
 ###### IC (Input Capture)
 
+## Communication
+
 ### USART
 
 [USART Note](../../Electrical/Hardware/DataTransfer/DataTransferNote.md#usart)
@@ -306,9 +309,11 @@ void USART1_IRQHandler(void)
 
 ```
 
-## I2C
+### I2C
 
-[USART Note](../../Electrical/Hardware/DataTransfer/DataTransferNote.md#i2c-inter－integrated-circuit)
+[I2C Note](../../Electrical/Hardware/DataTransfer/DataTransferNote.md#i2c-inter－integrated-circuit)
+
+![STM32_I2C_Transmitter](src/img/STM32_I2C_Transmitter.png)
 
 ## Project
 
