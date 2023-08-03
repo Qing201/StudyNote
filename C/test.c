@@ -1,12 +1,9 @@
 #include<stdio.h>
 
 int main(){
-    char ch;
-    int i;
+    int i = 0x02;
 
-    ch = "a";
-    i = ch;
-    printf("%d\n", i);
+    printf("%d, %d\n", i,(i<<1 | 0x01));
 
     return 0;
 }
