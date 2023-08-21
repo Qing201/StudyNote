@@ -1,8 +1,45 @@
 # Kalman Filtering
 
 - [Kalman Filtering](#kalman-filtering)
+  - [](#)
     - [State Space Equation](#state-space-equation)
-    - [](#)
+  - [Kalman Equation](#kalman-equation)
+  - [Study method (ChatGPT)](#study-method-chatgpt)
+
+##
+卡尔曼滤波中 预测值是估计值和测量值的和（不同系数）
+估计值是拿上一位置经过估计系数估计出来的值
+测量值是测量仪测出的值（测量值一定存在一定误差）
+通过调整预测值和估计值的比例和，从而酸楚比较准确的状态估计值
+
+### State Space Equation
+
+State Equation: $x_k = A x_{k-1} + B u_k + w_k$
+Output Equation: $y_k = C x_k +v_k$
+
+## Kalman Equation
+[卡尔曼滤波（Kalman Filter）原理与公式推导 - 知乎](https://zhuanlan.zhihu.com/p/48876718)
+[An Introduction to the Kalman Filter (PDF)](src/ref/kalman_intro.pdf)
+
+$x_k$ : 状态的真实值；
+
+$\hat{x}_{k}^{-}$ : 状态的预测值，也称先验状态估计值（a prior state estimate）；
+
+$\hat{x}_{k}$ : 状态的最优估计值，也称后验状态估计值（a posterior state estimate）；
+
+状态预测方程： $\hat{x}_{k}^{-} = A*\tilde{x}_{k-1} + B*u_{k}$
+
+状态测量方程： $\hat{x}_{k}=\tilde{x}_{k}^{-}+K(z_{k}-H*\tilde{x}_{k}^{-})$
+
+卡尔曼增益矩阵: $K$
+$$K=P_{k}^{-}H^{T}(HP_{k}^{-}H^{T}+R)^{-1}$$
+卡尔曼增益  实际上表征了状态最优估计过程中模型预测误差（Predicted error）与量测误差（Measurement error）的比重（如下所示），即$K \in[0,1]$。当$K=0$时，即预测误差为0，系统的状态值完全取决与预测值（$\hat{x}_{k} = \hat{x}_{k}^{-}$ ）；而当$K=1$时，即量测误差为0，系统的状态值完全取决于量侧值。
+
+![](src/img/KalmanFilterTimeEq.png)
+![](src/img/KalmanFilterMeasureEq.png)
+
+
+## Study method (ChatGPT)
 
 学习卡尔曼滤波可以按照以下步骤进行：
 
@@ -23,20 +60,3 @@
 8. 参与相关课程或培训：如果你需要更系统和深入的学习，考虑参加相关的课程、培训或研讨会。这样可以获得更结构化和指导性的学习体验，并与其他学习者交流和分享经验。
 
 记住，卡尔曼滤波是一个复杂的主题，需要一定的时间和实践才能熟练掌握。通过不断的学习和实践，逐步提升对卡尔曼滤波的理解和应用能力。
-
-### State Space Equation
-
-State Equation: $x_k = A x_{k-1} + B u_k + w_k$
-Output Equation: $y_k = C x_k +v_k$
-
-###
-
-$x_k$ : 状态的真实值；
-
-$\tilde{x}_{k}^{-}$ : 状态的预测值，也称先验状态估计值（a prior state estimate）；
-
-$\tilde{x}_{k}$ : 状态的最优估计值，也称后验状态估计值（a posterior state estimate）；
-
-$\tilde{x}_{k}^{-} = A*\tilde{x}_{k-1} + B*u_{k}$
-
-$\tilde{x}_{k}=\tilde{x}_{k}^{-}+K(z_{k}-H*\tilde{x}_{k}^{-})$
