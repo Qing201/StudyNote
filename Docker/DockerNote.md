@@ -14,7 +14,7 @@
       - [进入容器](#进入容器)
       - [容器内拷贝文件](#容器内拷贝文件)
       - [commit镜像](#commit镜像)
-    - [容器数据卷](#容器数据卷)
+    - [容器数据卷 (Volume)](#容器数据卷-volume)
       - [具名与匿名挂载](#具名与匿名挂载)
       - [read and write permission](#read-and-write-permission)
     - [Docker file](#docker-file)
@@ -23,6 +23,9 @@
     - [Docker Compose](#docker-compose)
     - [Docker Swarm](#docker-swarm)
     - [CI/CD Jenkins 流水线](#cicd-jenkins-流水线)
+  - [Docker APP](#docker-app)
+    - [Portainer](#portainer)
+    - [Home Assistant](#home-assistant)
 
 
 # Docker
@@ -128,7 +131,7 @@ docker cp [容器ID]:[路径]   [home路径]
 docker commit -m=["提交的描述信息"] -a=["author"] [container ID] [target image name]:[TAG]
 ```
 
-### 容器数据卷
+### 容器数据卷 (Volume)
 container中的文件与本地系统文件共享
 
 ```sh
@@ -169,3 +172,37 @@ docker run --volumes-from [container_1] [container_2]
 ### Docker Swarm
 
 ### CI/CD Jenkins 流水线
+
+
+## Docker APP
+### Portainer
+[Portainer Install](https://docs.portainer.io/start/install-ce/server/docker/linux)
+
+```sh
+docker volume create portainer_data
+docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+```
+
+[Portainer Update](https://docs.portainer.io/start/upgrade/docker)
+
+```sh
+docker stop portainer
+docker rm portainer
+docker pull portainer/portainer-ce:latest
+```
+
+### Home Assistant
+[Home Assistant Install](https://www.home-assistant.io/installation/)
+```sh
+docker run -d \
+  # -p 8123:8123 \    # don't need when use --network=host
+  --name homeassistant \
+  --privileged \
+  --restart=unless-stopped \
+  -e TZ=Asia/Shanghai \
+  -v homeassistant_data:/config \
+  --network=host \
+  ghcr.io/home-assistant/home-assistant:stable
+```
+
+Once the Home Assistant Container is running Home Assistant should be accessible using `http://<host>:8123`

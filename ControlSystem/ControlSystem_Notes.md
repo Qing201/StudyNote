@@ -1,4 +1,5 @@
 - [Control System](#control-system)
+  - [Linear and Non-linear](#linear-and-non-linear)
   - [Time and Frequency Domain](#time-and-frequency-domain)
     - [Fourier Transform:](#fourier-transform)
     - [Laplace Transform](#laplace-transform)
@@ -12,6 +13,9 @@
       - [Two Poles](#two-poles)
     - [Taylor Series](#taylor-series)
 # Control System
+
+## Linear and Non-linear
+Linear System: 一元一次方程
 
 ## Time and Frequency Domain
 
