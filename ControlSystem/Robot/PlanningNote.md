@@ -29,7 +29,21 @@ while destination not explored:
 ```
 
 ### A*
+[The hidden beauty of the A* algorithm (YouTube)](https://www.youtube.com/watch?v=A60q6dcoCjw)
 
+A* 在 Dijkstra 的基础上，将每个点到终点的距离作为heuristic加入到weight中。这样可以使 Dijkstra 算法更趋近于朝向终点的路径规划
+1. Choose clever heuristic (potentials).
+2. Apply potential reweighting.
+3. Run Dijkstra on the new graph.
+
+Good heuristic satisfies:
+1. heuristic(start) as high as possible
+2. For every edge (u,v) :
+heuristic(u) < heuristic(v) + length(u,v)
+Implies that for every node u:
+    heuristic(u) < distance(u, end)
+3. We can compute it fast.
+   
 ### D*
 
 ### 
