@@ -13,7 +13,7 @@
   - [USB (Universal Serial Bus)](#usb-universal-serial-bus)
     - [USB 编码 （NRZI 编码（Non-Return-to-Zero Inverted Code）](#usb-编码-nrzi-编码non-return-to-zero-inverted-code)
     - [SWD](#swd)
-  - [CAN](#can)
+  - [CAN (Controller Area Network)](#can-controller-area-network)
 - [电平标准](#电平标准)
   - [TTL (Transistor Transistor Logic)](#ttl-transistor-transistor-logic)
   - [RS-232](#rs-232)
@@ -242,7 +242,9 @@ SWD 串行调试接口
 SWDIO: 串行数据线，用于数据的读出和写入
 SWDCLK: 串行时钟线，提供所需要的时钟信号
 
-### CAN
+### CAN (Controller Area Network)
+
+
 
 ## 电平标准
 
