@@ -3,7 +3,11 @@
 - [Sensor](#sensor)
   - [](#)
   - [LiDAR and Radar](#lidar-and-radar)
+    - [RaDAR (Radio Detection and Ranging)](#radar-radio-detection-and-ranging)
     - [LiDAR (Light Detection and Ranging)](#lidar-light-detection-and-ranging)
+  - [State](#state)
+    - [Accelerometer](#accelerometer)
+    - [Gyroscope](#gyroscope)
 
 ##
 
@@ -12,6 +16,8 @@
 ## LiDAR and Radar
 
 LiDAR（激光雷达）、Radar（毫米波雷达）、ultrasonic sensor（超声波雷达）、Synthetic Aperture Radar（合成孔径雷达）
+
+### RaDAR (Radio Detection and Ranging)
 
 ### LiDAR (Light Detection and Ranging)
 
@@ -28,3 +34,14 @@ LiDAR（激光雷达）、Radar（毫米波雷达）、ultrasonic sensor（超�
 | 穿透性           | 强                                     | 弱                                       |
 | 优点             | 不受天气、昼夜光线的影响，探测距离远   | 测距精度高，方向性强，不易受地面杂波干扰 |
 | 缺点             | 目标识别难度稍大，精度稍低，有杂波干扰 | 成本高，探测范围小，遇到恶劣天气无法工作 |
+
+## State
+
+### Accelerometer
+
+具有静态稳定性，无动态稳定性
+
+### Gyroscope
+
+加速度计测量加速度，求导获得角度
+具有动态稳定性，无静态稳定性
