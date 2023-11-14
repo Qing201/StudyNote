@@ -4,6 +4,7 @@
     - [A\*](#a)
     - [D\*](#d)
     - [](#)
+  - [Check List](#check-list)
 
 # Planning
 路径规划（Path/Motion Planning），是在不考虑临时或者移动的障碍物的前提下，对车辆在空间上的变化的规划；
@@ -47,3 +48,6 @@ Implies that for every node u:
 ### D*
 
 ### 
+
+## Check List
+MDP、POMDP、Game Theory
